@@ -1,0 +1,37 @@
+# Step 1 — free collector. Runs at 05:30 UTC (06:30 Oslo winter / 07:30 summer),
+# half an hour before the Claude routine (06:00 UTC).
+name: 1 · Collect candidates
+
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Collect feeds, pages and new papers
+        run: python scripts/collect.py
+      - name: Save candidates to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/candidates.json data/seen_links.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Candidates $(TZ=Europe/Oslo date +%F)"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done

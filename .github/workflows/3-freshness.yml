@@ -1,0 +1,30 @@
+# Safety net. At 07:30 UTC (08:30 Oslo winter / 09:30 summer) this checks that
+# today's digest was published. If not, the run fails and GitHub emails you.
+name: 3 · Check today's update
+
+on:
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Was today's digest published?
+        run: |
+          TODAY=$(TZ=Europe/Oslo date +%F)
+          LAST=$(python3 -c "import json;print(json.load(open('data/state.json')).get('last_digest_date',''))" 2>/dev/null || echo "")
+          CAND=$(python3 -c "import json;print(json.load(open('data/candidates.json')).get('digest_date',''))" 2>/dev/null || echo "")
+          echo "Today (Oslo): $TODAY | last published digest: ${LAST:-none} | last collector run: ${CAND:-none}"
+          if [ "$LAST" != "$TODAY" ]; then
+            echo "::error::Today's digest was NOT published. Website still shows ${LAST:-nothing}."
+            [ "$CAND" != "$TODAY" ] && echo "::error::The collector (workflow 1) did not run today either — check the Actions tab."
+            echo "::error::Otherwise check the Claude routine at https://claude.ai/code/routines (usage limit? GitHub access?)."
+            exit 1
+          fi
+          echo "OK — today's digest is live."

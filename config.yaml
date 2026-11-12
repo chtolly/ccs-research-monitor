@@ -1,0 +1,159 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  CCS Research Monitor — settings file
+#  You can edit this file directly on GitHub (click the pencil icon).
+#  Lines starting with # are comments. Keep the indentation (spaces) as it is.
+# ─────────────────────────────────────────────────────────────────────────────
+
+site:
+  title: "Nordic CCS Supply-Chain Monitor"
+  subtitle: "Daily digest of research, projects, policy and events on CO₂ capture, transport and storage networks"
+  maintainer: "Kshitij Chaudhary, BI Norwegian Business School"
+  project: "CCS supply-chain and network optimisation project (BI Norwegian Business School with Swedish university partners)"
+  base_url: "https://chtolly.github.io/ccs-research-monitor/"
+  timezone: "Europe/Oslo"
+
+settings:
+  first_run_lookback_days: 7     # how far back the very first run looks
+  max_items_per_day: 25          # hard cap on items published per day
+  max_web_searches: 15           # cap on Claude's web searches per run
+  max_candidates_for_claude: 150 # cap on feed/paper candidates handed to Claude
+
+# The seven categories every item is tagged with. Change the names freely;
+# keep the short "key" values unchanged (they are used in the data files).
+categories:
+  - key: research
+    name: "Research & publications"
+    description: "CCS network design, transport and infrastructure research (SINTEF, NTNU, international)"
+  - key: transport
+    name: "Transport modes & logistics"
+    description: "Pipeline, ship, rail, truck; multimodal chains; optimisation"
+  - key: ships_ports
+    name: "CCS ships, ports & terminals"
+    description: "Vessels, port/hub innovation, intermediate storage"
+  - key: nordic_projects
+    name: "Nordic-Baltic projects & awards"
+    description: "Funding decisions, storage licences, FIDs, contracts (NO, SE, DK, FI, IS, Baltics)"
+  - key: policy
+    name: "Contracts, CDR & regulation"
+    description: "EU/Nordic policy, ETS, CRCF/CDR, London Protocol, cross-border CO₂ transport agreements, commercial contract models"
+  - key: events
+    name: "Conferences, courses & calls"
+    description: "Upcoming events, deadlines, calls for papers"
+  - key: ccus_norway
+    name: "CCUS Norway updates"
+    description: "News from the CCUS Norway network"
+
+# Keywords used by the free collector to pre-filter general news feeds and
+# to search for new papers. An item must mention at least one "core" term.
+keywords:
+  core:
+    - carbon capture
+    - CO2 capture
+    - CO₂ capture
+    - CCS
+    - CCUS
+    - CO2 storage
+    - CO₂ storage
+    - carbon storage
+    - CO2 transport
+    - CO₂ transport
+    - CO2 shipping
+    - CO2 pipeline
+    - carbon dioxide removal
+    - CDR
+    - BECCS
+    - DACCS
+    - direct air capture
+    - Northern Lights
+    - Longship
+    - Langskip
+    - Greensand
+    - Project Bifrost
+    - Smaragd
+    - Stockholm Exergi
+    - CO2-lagring
+    - CO2-håndtering
+    - karbonfangst
+    - koldioxid
+    - CO2-fangst
+    - CO2-lager
+    - fangst og lagring
+    - infångning
+    - bio-CCS
+    - minusutsläpp
+    - Innovation Fund
+    - London Protocol
+    - CRCF
+    - carbon removal
+  # Search phrases for new journal papers (OpenAlex + Crossref)
+  paper_queries:
+    - "CO2 transport network optimization"
+    - "CCS supply chain optimization"
+    - "CO2 shipping"
+    - "carbon capture transport infrastructure"
+    - "CO2 pipeline network design"
+    - "CCS hub cluster"
+    - "CO2 intermediate storage terminal"
+    - "carbon capture and storage Nordic"
+
+# News feeds read by the free collector every morning (RSS/Atom).
+# filter: true  = only keep entries mentioning a core keyword (general feeds)
+# filter: false = keep everything (feeds that are already CCS-specific)
+#
+# All sources below were tested and working on 2026-11-12.
+# Tested but NOT usable (blocked or no feed), covered by Claude's web search instead:
+#   Norwegian Offshore Directorate (sodir.no, blocks robots), Swedish Energy Agency news
+#   (page built by JavaScript), Carbon Herald, Ørsted, CO2 Value Europe (block robots).
+feeds:
+  # CCS-specific sources: keep everything
+  - {name: "CCUS Norway", url: "https://ccusnorway.no/news?format=rss", filter: false}
+  - {name: "Northern Lights", url: "https://norlights.com/feed/", filter: false}
+  - {name: "Longship / Langskip (ccsnorway.com)", url: "https://ccsnorway.com/feed/", filter: false}
+  - {name: "Gassnova", url: "https://gassnova.no/en/feed/", filter: false}
+  - {name: "CLIMIT", url: "https://climit.no/en/feed/", filter: false}
+  - {name: "NCCS (SINTEF/NTNU research centre)", url: "https://nccs.no/feed/", filter: false}
+  - {name: "Global CCS Institute", url: "https://www.globalccsinstitute.com/feed/", filter: false}
+  - {name: "IEAGHG", url: "https://ieaghg.org/feed/", filter: false}
+  - {name: "Zero Emissions Platform (ZEP)", url: "https://zeroemissionsplatform.eu/feed/", filter: false}
+  - {name: "Int. Journal of Greenhouse Gas Control", url: "https://rss.sciencedirect.com/publication/science/17505836", filter: true, kind: paper}
+  # General sources: keep only entries that mention a core keyword
+  - {name: "SINTEF news", url: "https://www.sintef.no/en/latest-news/feed/", filter: true}
+  - {name: "SINTEF blog", url: "https://blog.sintef.com/feed/", filter: true}
+  - {name: "Norwegian SciTech News (NTNU/SINTEF)", url: "https://norwegianscitechnews.com/feed/", filter: true}
+  - {name: "EU Innovation Fund / CINEA", url: "https://cinea.ec.europa.eu/node/2/rss_en", filter: true}
+  - {name: "Danish Energy Agency (Energistyrelsen)", url: "https://via.ritzau.dk/rss/releases/latest?publisherId=13560344", filter: true}
+  - {name: "Stockholm Exergi", url: "https://www.stockholmexergi.se/nyheter/feed/", filter: true}
+  - {name: "Bellona", url: "https://bellona.org/feed", filter: true}
+  - {name: "Bellona Europa", url: "https://eu.bellona.org/feed/", filter: true}
+  - {name: "Clean Air Task Force (CATF)", url: "https://www.catf.us/feed/", filter: true}
+  - {name: "ZERO", url: "https://zero.no/feed/", filter: true}
+  - {name: "Offshore Energy", url: "https://www.offshore-energy.biz/feed/", filter: true}
+  - {name: "Splash247 (shipping)", url: "https://splash247.com/feed/", filter: true}
+  - {name: "E24 energi", url: "https://e24.no/rss2/?seksjon=energi", filter: true}
+  - {name: "Teknisk Ukeblad (TU.no)", url: "https://www.tu.no/rss", filter: true}
+
+# Organisation news pages without a working feed. The collector reads the
+# page each morning and passes NEW links (not seen on earlier days) to Claude.
+# link_contains = only links whose address contains this text count as news.
+watch_pages:
+  - {name: "European Commission – DG CLIMA", url: "https://climate.ec.europa.eu/news-other-reads/news_en", link_contains: "/news-other-reads/news/"}
+  - {name: "Equinor", url: "https://www.equinor.com/news", link_contains: "/news/20"}
+  - {name: "Project Greensand", url: "https://www.greensandfuture.com/news", link_contains: "/news/"}
+  - {name: "NTNU", url: "https://www.ntnu.edu/news", link_contains: "/news/"}
+
+# Topics Claude web-searches each morning (limited by max_web_searches)
+search_topics:
+  - "CO2 shipping vessel order OR contract"
+  - "CO2 terminal port hub Nordic"
+  - "CCS storage licence Norway OR Denmark OR Sweden"
+  - "Northern Lights Longship CO2 news"
+  - "Swedish BECCS support decision Energimyndigheten"
+  - "Danish CCS fund award Energistyrelsen"
+  - "EU Innovation Fund CCS grant"
+  - "CRCF carbon removal certification delegated act"
+  - "London Protocol CO2 export bilateral agreement"
+  - "CO2 transport and storage regulation EU NZIA"
+  - "Finland OR Baltic CCS project CO2"
+  - "CCUS Norway"
+  - "SINTEF OR NTNU CO2 transport research"
+  - "CCS conference call for papers 2027"

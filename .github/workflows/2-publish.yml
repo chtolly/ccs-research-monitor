@@ -1,0 +1,86 @@
+# Step 3 — verify Claude's draft, publish the digest and deploy the website.
+# Triggered when the Claude routine pushes a file in data/inbox/ (to main or to a
+# claude/... branch), when site code/settings change, or manually ("Run workflow").
+# If anything fails, the previous website stays live and GitHub emails you.
+name: 2 · Verify & publish
+
+on:
+  push:
+    paths:
+      - "data/inbox/**"
+      - "scripts/**"
+      - "config.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      deploy: ${{ steps.route.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Bring in Claude's draft if it was pushed to a side branch
+        id: route
+        run: |
+          if [ "${GITHUB_REF}" != "refs/heads/main" ] && [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            git fetch origin "${GITHUB_REF}"
+            git checkout FETCH_HEAD -- data/inbox/
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            echo "side_branch=true" >> "$GITHUB_ENV"
+          else
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Verify draft and build site
+        run: python scripts/build.py
+      - name: Save published digest to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish digest $(TZ=Europe/Oslo date +%F)"
+            for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
+          fi
+      - name: Side branch → clean up and re-run on main (Pages only deploys from main)
+        if: env.side_branch == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          case "${GITHUB_REF_NAME}" in claude/*) git push origin --delete "${GITHUB_REF_NAME}" || true ;; esac
+          gh workflow run 2-publish.yml --ref main
+      - uses: actions/configure-pages@v6
+        if: steps.route.outputs.deploy == 'true'
+      - uses: actions/upload-pages-artifact@v5
+        if: steps.route.outputs.deploy == 'true'
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
