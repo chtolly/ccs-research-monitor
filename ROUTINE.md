@@ -28,7 +28,9 @@ Run **at most `max_web_searches` searches in total** (usually 15). Use `config.y
 - Upcoming conferences, courses and calls for papers
 - Sites the collector cannot read: the Norwegian Offshore Directorate (sodir.no), the Swedish Energy Agency (energimyndigheten.se), Carbon Herald, Ørsted
 
-**Dates for web-search items.** If the search result shows a publication date, put it in `date`. If it does not, set `date` to null. The publishing step opens every page on the open internet, reads the date from the page itself, and drops anything published before `since`. So do suggest promising items even when you cannot see a date. Still leave out anything clearly older, such as items whose text refers to past years or old events. If WebFetch is available, use it to confirm facts. If it is blocked, which is normal here, write the summary only from what the search results show. **Never guess facts.**
+**Dates for web-search items. Read this carefully.** Search results often show no date. **Do not drop a relevant result just because you cannot see its date.** Include it with `"date": null`. After you push, the publishing step opens every page on the open internet, reads the real publication date from the page, and automatically drops anything published before `since`. Leave out a result only if you have **evidence** that it is old: the snippet or URL shows an earlier date, or it describes events you know happened before `since`. Hints that something is recent, such as the current month in the snippet or URL title, are a reason to include it.
+
+When the candidate list gives few items, use your full search budget. If WebFetch is available, use it to confirm facts. If it is blocked, which is normal here, write the summary only from what the search results show, and keep it short. **Never guess facts.**
 
 Prefer the **original source**, such as the agency or company press release or the journal page, over secondary coverage. When several outlets report the same story, publish it **once**, link the original, and list the others in `also_reported_by`.
 

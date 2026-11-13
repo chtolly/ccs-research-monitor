@@ -24,7 +24,8 @@ Claude's schedule is fixed in UTC, so the update comes an hour later in summer.
 **Quality rules built in:**
 - Every item must come from a page that was actually retrieved.
 - Items from feeds and databases must match the collected title and link exactly.
-- Items found by web search must open, and the page must contain the claimed title.
+- Items found by web search must open, and the page must contain the claimed title. Their publication date is read from the page itself, and anything older than the window is dropped.
+- Papers without an abstract yet get an honest one-line description instead of invented findings.
 - Nothing already published in the last few months is repeated.
 - If nothing relevant is new, the page says "No significant new items today".
 
