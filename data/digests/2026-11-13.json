@@ -1,8 +1,8 @@
 {
  "date": "2026-11-13",
- "published_at": "2026-11-13T10:27:25+01:00",
- "searches_used": 14,
- "notes": "collector OK; 8 of 24 candidates kept; 0 items from web search (WebFetch blocked; no search result could be dated on or after 2026-11-06)",
+ "published_at": "2026-11-13T10:35:15+01:00",
+ "searches_used": 8,
+ "notes": "same-day re-run: collector OK; 24 candidates re-screened, the 8 items kept earlier today retained, no new candidates passed; 0 items from 8 web searches (none dated on or after 2026-11-06)",
  "items": [
   {
    "title": "Industry perspectives on CO2 transport optimization models and case studies",
