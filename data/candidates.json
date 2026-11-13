@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T10:37:37+01:00",
+ "generated_at": "2026-11-13T18:58:45+01:00",
  "digest_date": "2026-11-13",
  "since": "2026-11-06",
  "first_run": false,
@@ -15,11 +15,29 @@
  "max_items_per_day": 25,
  "max_web_searches": 15,
  "counts": {
-  "news": 10,
+  "news": 14,
   "papers": 14,
   "already_published_skipped": 0
  },
  "items": [
+  {
+   "kind": "news",
+   "source": "European Commission – DG CLIMA",
+   "title": "EU actions improving access to climate finance",
+   "url": "https://climate.ec.europa.eu/news-other-reads/news/eu-actions-improving-access-climate-finance-2026-11-13_en",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "3ad77a8795"
+  },
+  {
+   "kind": "news",
+   "source": "Equinor",
+   "title": "13 November 2026 | 11:00 (CET) Ex. dividend second quarter 2026 today - OSE The shares in Equinor ASA will as from today be traded on the Oslo Stock Exchange exclusive the second quarter 2026 cash dividend as detailed below.",
+   "url": "https://www.equinor.com/news/20261113-ex-dividend-second-quarter-2026",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "01e6fe3087"
+  },
   {
    "kind": "news",
    "source": "Stockholm Exergi",
@@ -28,6 +46,15 @@
    "date": "2026-11-13",
    "summary": "How do you turn carbon removal ambitions into reality? Carlo Sem, Project Director at Saipem, shares insights into the construction of Beccs Stockholm.",
    "id": "07b7417def"
+  },
+  {
+   "kind": "news",
+   "source": "gigaCCS (SINTEF-led research centre)",
+   "title": "Research works – and the Global South should be part of it: gigaCCS at COP31",
+   "url": "https://gigaccs.no/news/research-works-and-the-global-south-should-be-part-of-it-gigaccs-at-cop31/",
+   "date": "2026-11-12",
+   "summary": "Norway has shown that carbon capture and storage works at full scale. Now the knowledge must be shared, and research cooperation with the Global South needs more support. That was the call from Mona Mølnvik, Centre Director at COP31.",
+   "id": "b73aca4143"
   },
   {
    "kind": "news",
@@ -49,21 +76,21 @@
   },
   {
    "kind": "news",
-   "source": "SINTEF news",
-   "title": "Research works – and the Global South should be part of it: gigaCCS at COP31",
-   "url": "https://www.sintef.no/en/latest-news/2026/research-works-and-the-global-south-should-be-part-of-it-gigaccs-at-cop31/",
-   "date": "2026-11-11",
-   "summary": "Antalya, 11 November 2026. Norway has shown that carbon capture and storage works at full scale. Now the knowledge must be shared, and research cooperation with the Global South needs more support. That was the call from Mona Mølnvik, Centre Director of FME gigaCCS, when the Nordic Pavilion at COP31 asked what the world can learn from the Nordic experience with CCS.",
-   "id": "2ad62c722e"
-  },
-  {
-   "kind": "news",
    "source": "EU Innovation Fund / CINEA",
    "title": "INNOZHERO: A major step towards capturing carbon emissions from waste",
    "url": "https://cinea.ec.europa.eu/news-events/news/innozhero-major-step-towards-capturing-carbon-emissions-waste-2026-11-12_en",
    "date": "2026-11-11",
    "summary": "An innovative carbon capture project in Helsingborg, Sweden, has reached its Final Investment Decision, bringing the deployment of one of Europe’s first large-scale carbon capture facilities at a waste-to-energy plant closer to reality.",
    "id": "7eab7b92ac"
+  },
+  {
+   "kind": "news",
+   "source": "gigaCCS (SINTEF-led research centre)",
+   "title": "gigaCCS Consortium Days 2026: Celebrating how far CCS has come, while recognising how far it has to go",
+   "url": "https://gigaccs.no/news/gigaccs-consortium-days-2026-celebrating-how-far-ccs-has-come-while-recognising-how-far-it-has-to-go/",
+   "date": "2026-11-10",
+   "summary": "130 members met in Trondheim for the 2026 gigaCCS Consortium Days, where public trust emerged as the test of how far CCS can go.",
+   "id": "cf304bbb06"
   },
   {
    "kind": "news",
@@ -82,6 +109,15 @@
    "date": "2026-11-10",
    "summary": "Six lander systems have been installed at the Northern Endurance Partnership (NEP) project, the UK's first commercial-scale offshore carbon...",
    "id": "e16ad43458"
+  },
+  {
+   "kind": "news",
+   "source": "gigaCCS (SINTEF-led research centre)",
+   "title": "Who keeps CCS data alive? A call for more data sharing at the gigaCCS Consortium Days",
+   "url": "https://gigaccs.no/news/who-keeps-ccs-data-alive-a-call-for-more-data-sharing-at-the-gigaccs-consortium-days/",
+   "date": "2026-11-09",
+   "summary": "Too many CCS datasets vanish when a project ends. At the 2026 gigaCCS Consortium Days, a panel made the case for open data and a new model to keep it flowing.",
+   "id": "f36ffb12e4"
   },
   {
    "kind": "news",
@@ -167,6 +203,17 @@
   },
   {
    "kind": "paper",
+   "source": "Energy",
+   "title": "Reducing the cost of solid sorbent direct air carbon capture by recovering waste heat from water electrolysis under Nordic conditions",
+   "url": "https://doi.org/10.1016/j.energy.2026.142820",
+   "doi": "10.1016/j.energy.2026.142820",
+   "date": "2026-11-07",
+   "authors": "Altti Meriläinen, Antti Kosonen, Peter Holtappels, Roland Dittmeyer, Pertti Kauranen, Jero Ahola",
+   "summary": "Reducing the atmospheric CO 2 concentration to a sustainable level requires large-scale carbon dioxide removal through direct air capture (DAC). DAC is a heat-intensive process, and waste heat recovery to supply its heat demand has substantial potential to reduce the levelized cost of DAC (LCODAC). This study determines the techno-economic potential of recovering low-temperature waste heat (70°C) from an off-grid electrolyzer plant for use in a solid-sorbent DAC plant requiring heat at 80°C–120°C for desorption. The waste heat recovery system, comprising heat pumps and a heat storage, and the DAC plant are dimensioned to minimize the LCODAC based on optimization at an hourly level, and a…",
+   "id": "fed9a33c5c"
+  },
+  {
+   "kind": "paper",
    "source": "Computers & Industrial Engineering",
    "title": "Industry perspectives on CO2 transport optimization models and case studies",
    "url": "https://doi.org/10.1016/j.cie.2026.112506",
@@ -233,17 +280,6 @@
   },
   {
    "kind": "paper",
-   "source": "Energy",
-   "title": "Reducing the cost of solid sorbent direct air carbon capture by recovering waste heat from water electrolysis under Nordic conditions",
-   "url": "https://doi.org/10.1016/j.energy.2026.142820",
-   "doi": "10.1016/j.energy.2026.142820",
-   "date": "2026-11-01",
-   "authors": "Altti Meriläinen, Antti Kosonen, Peter Holtappels, Roland Dittmeyer, Pertti Kauranen, Jero Ahola",
-   "summary": "Reducing the atmospheric CO 2 concentration to a sustainable level requires large-scale carbon dioxide removal through direct air capture (DAC). DAC is a heat-intensive process, and waste heat recovery to supply its heat demand has substantial potential to reduce the levelized cost of DAC (LCODAC). This study determines the techno-economic potential of recovering low-temperature waste heat (70°C) from an off-grid electrolyzer plant for use in a solid-sorbent DAC plant requiring heat at 80°C–120°C for desorption. The waste heat recovery system, comprising heat pumps and a heat storage, and the DAC plant are dimensioned to minimize the LCODAC based on optimization at an hourly level, and a…",
-   "id": "fed9a33c5c"
-  },
-  {
-   "kind": "paper",
    "source": "Corrosion",
    "title": "Multiscale Characterization of Corrosion Products on X65 Pipeline Steel for CO2 Transportation",
    "url": "https://doi.org/10.5006/4970",
@@ -267,34 +303,39 @@
  ],
  "log": [
   "Collecting for 2026-11-13 (items since 2026-11-06; first run: False)",
-  "  ✓ feed IEAGHG: 12 entries, 0 new & relevant",
-  "  ✓ feed CCUS Norway: 20 entries, 0 new & relevant",
-  "  ✓ feed Int. Journal of Greenhouse Gas Control: 42 entries, 0 new & relevant",
-  "  ✓ feed Northern Lights: 10 entries, 0 new & relevant",
-  "  ✓ feed Longship / Langskip (ccsnorway.com): 10 entries, 1 new & relevant",
   "  ✓ feed Global CCS Institute: 12 entries, 2 new & relevant",
+  "  ✓ feed gigaCCS (SINTEF-led research centre): 10 entries, 3 new & relevant",
+  "  ✓ feed Northern Lights: 10 entries, 0 new & relevant",
+  "  ✓ feed Int. Journal of Greenhouse Gas Control: 43 entries, 0 new & relevant",
   "  ✓ feed CLIMIT: 10 entries, 0 new & relevant",
-  "  ✓ feed Norwegian SciTech News (NTNU/SINTEF): 10 entries, 0 new & relevant",
+  "  ✓ feed IEAGHG: 12 entries, 0 new & relevant",
+  "  ✓ feed Longship / Langskip (ccsnorway.com): 10 entries, 1 new & relevant",
   "  ✓ feed SINTEF news: 20 entries, 1 new & relevant",
-  "  ✓ feed Gassnova: 10 entries, 0 new & relevant",
-  "  ✓ feed EU Innovation Fund / CINEA: 30 entries, 1 new & relevant",
-  "  ✓ feed Clean Air Task Force (CATF): 8 entries, 0 new & relevant",
-  "  ✓ feed Zero Emissions Platform (ZEP): 10 entries, 0 new & relevant",
+  "  ✓ feed CCUS Norway: 20 entries, 0 new & relevant",
+  "  ✓ feed Norwegian SciTech News (NTNU/SINTEF): 10 entries, 0 new & relevant",
   "  ✓ feed Danish Energy Agency (Energistyrelsen): 25 entries, 0 new & relevant",
-  "  ✓ feed Offshore Energy: 50 entries, 1 new & relevant",
-  "  ✓ feed NCCS (SINTEF/NTNU research centre): 10 entries, 0 new & relevant",
+  "  ✓ feed EU Innovation Fund / CINEA: 30 entries, 1 new & relevant",
   "  ✓ feed Bellona: 20 entries, 0 new & relevant",
+  "  ✓ feed Gassnova: 10 entries, 0 new & relevant",
   "  ✓ feed Bellona Europa: 10 entries, 0 new & relevant",
-  "  ✓ feed SINTEF blog: 10 entries, 0 new & relevant",
-  "  ✓ feed Stockholm Exergi: 10 entries, 4 new & relevant",
+  "  ✓ feed Zero Emissions Platform (ZEP): 10 entries, 0 new & relevant",
   "  ✓ feed ZERO: 10 entries, 0 new & relevant",
   "  ✓ feed E24 energi: 39 entries, 0 new & relevant",
+  "  ✓ feed Offshore Energy: 50 entries, 1 new & relevant",
+  "  ✓ feed Teknisk Ukeblad (TU.no): 244 entries, 0 new & relevant",
+  "  ✓ feed Clean Air Task Force (CATF): 8 entries, 0 new & relevant",
+  "  ✓ feed NCCS (SINTEF/NTNU research centre): 10 entries, 0 new & relevant",
+  "  ✓ feed SINTEF blog: 10 entries, 0 new & relevant",
   "  ✓ feed Splash247 (shipping): 10 entries, 0 new & relevant",
-  "  ✓ feed Teknisk Ukeblad (TU.no): 239 entries, 0 new & relevant",
-  "  ✓ page European Commission – DG CLIMA: 6 news links, 0 new",
-  "  ✓ page Project Greensand: 44 news links, 0 new",
-  "  ✓ page Equinor: 45 news links, 0 new",
+  "  ✓ feed Stockholm Exergi: 10 entries, 4 new & relevant",
+  "  ✓ feed State of Green (Denmark): 100 entries, 0 new & relevant",
+  "  ✓ page European Commission – DG CLIMA: 6 news links, 1 new",
   "  ✓ page NTNU: 10 news links, 0 new",
+  "  ✓ page DK Havenergi – CCS news (Denmark): 11 news links, 0 new (baseline)",
+  "  ✓ page Equinor: 45 news links, 1 new",
+  "  ✓ page IEA – CCUS: 38 news links, 0 new (baseline)",
+  "  ✓ page IEA – reports: 27 news links, 0 new (baseline)",
+  "  ✓ page Project Greensand: 44 news links, 0 new",
   "  ✓ OpenAlex 'CO2 transport network optimization': 2 relevant",
   "  ✓ OpenAlex 'CCS supply chain optimization': 1 relevant",
   "  ✓ OpenAlex 'CO2 shipping': 0 relevant",

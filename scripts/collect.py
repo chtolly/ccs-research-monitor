@@ -143,18 +143,22 @@ def read_watch_page(src: dict, seen_links: set, first_run: bool) -> tuple[list[d
         href = urljoin(src["url"], html.unescape(m.group(1)))
         if urlsplit(href).netloc.removeprefix("www.") != host:
             continue
-        if src.get("link_contains") and src["link_contains"] not in href:
+        want = src.get("link_contains")
+        if want and not any(w in href for w in ([want] if isinstance(want, str) else want)):
             continue
         text = strip_html(m.group(2))
         if len(text) < 20:
             continue
         found.setdefault(href, text[:250])
-    new = [] if first_run else [
+    # A page added to config.yaml later gets its own baseline: if none of its current links
+    # have been seen before, they are all old news and only later additions count as new.
+    baseline = first_run or not any(norm_url(u) in seen_links for u in found)
+    new = [] if baseline else [
         {"kind": "news", "source": src["name"], "title": t, "url": u, "date": None,
          "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)"}
         for u, t in found.items() if norm_url(u) not in seen_links
     ]
-    log(f"  ✓ page {src['name']}: {len(found)} news links, {len(new)} new")
+    log(f"  ✓ page {src['name']}: {len(found)} news links, {len(new)} new" + (" (baseline)" if baseline and not first_run else ""))
     return new, list(found)
 
 

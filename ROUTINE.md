@@ -27,6 +27,8 @@ Run **at most `max_web_searches` searches in total** (usually 15). Use `config.y
 - EU and Nordic regulation (ETS, NZIA, CRCF/CDR, London Protocol, cross-border CO₂ agreements)
 - Upcoming conferences, courses and calls for papers
 - Sites the collector cannot read: the Norwegian Offshore Directorate (sodir.no), the Swedish Energy Agency (energimyndigheten.se), Carbon Herald, Ørsted
+- SINTEF CCS projects (gigaCCS and others) and new IEA reports on CCUS
+- Swedish and Danish CCS news; searching in Swedish or Danish often finds items English searches miss
 
 **Dates for web-search items. Read this carefully.** Search results often show no date. **Do not drop a relevant result just because you cannot see its date.** Include it with `"date": null`. After you push, the publishing step opens every page on the open internet, reads the real publication date from the page, and automatically drops anything published before `since`. Leave out a result only if you have **evidence** that it is old: the snippet or URL shows an earlier date, or it describes events you know happened before `since`. Hints that something is recent, such as the current month in the snippet or URL title, are a reason to include it.
 
@@ -44,6 +46,8 @@ KEEP items with a clear angle on at least one of:
 - Contracts, CDR and regulation: EU and Nordic policy, ETS, CRCF and carbon removals, London Protocol, cross-border CO₂ transport, commercial contract models
 - Conferences, courses and calls relevant to CCS and CO₂ logistics
 - Anything published by CCUS Norway
+- Anything from SINTEF's CCS research centres (gigaCCS, NCCS) or other SINTEF CCS projects
+- IEA reports and commentaries that cover CCUS, CO₂ transport and storage, or industrial decarbonisation with CCS (category `research`). Skip IEA reports with no CCS content.
 
 LEAVE OUT:
 - generic climate news

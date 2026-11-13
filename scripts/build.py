@@ -426,11 +426,13 @@ def build_site(cfg: dict) -> None:
         today_html = '<p class="empty">The first digest has not been published yet.</p>'
     arch = "".join(f'<li><a href="archive/{d["date"]}.html">{e(nice_date(d["date"]))}</a> <span class="tag">{len(d["items"])}</span></li>' for d in digests)
     cat_list = "".join(f"<li><strong>{e(c['name'])}</strong> — {e(c['description'])}</li>" for c in categories)
+    n_src = len(cfg.get("feeds", [])) + len(cfg.get("watch_pages", []))
     about = f"""<section id="about" class="about"><h2>About</h2>
 <p>This page tracks new research, projects, policy and events relevant to the {e(cfg['site']['project'])}. It updates automatically every morning (about 07:00 Oslo time in winter, 08:00 in summer).</p>
 <p><strong>What is tracked:</strong></p><ul>{cat_list}</ul>
-<p><strong>How it works:</strong> each morning a script collects new items from about 25 organisation news feeds and pages (SINTEF, NTNU, CCUS Norway, Gassnova, Northern Lights, Longship, Global CCS Institute, IEAGHG, ZEP, Bellona, CATF, the EU Innovation Fund, DG CLIMA, the Danish Energy Agency and others) and from the OpenAlex and Crossref research databases. Claude (an AI model by Anthropic) then adds a limited number of web searches, removes off-topic and repeated items, and writes the summaries. Every link is checked automatically before publishing.</p>
+<p><strong>How it works:</strong> each morning a script collects new items from about {n_src} organisation news feeds and pages (SINTEF and its CCS research centres gigaCCS and NCCS, NTNU, CCUS Norway, Gassnova, Northern Lights, Longship, the IEA, Global CCS Institute, IEAGHG, ZEP, Bellona, CATF, the EU Innovation Fund, DG CLIMA, the Danish Energy Agency, DK Havenergi, State of Green, Stockholm Exergi and others) and from the OpenAlex and Crossref research databases. Claude (an AI model by Anthropic) then adds a limited number of web searches, removes off-topic and repeated items, and writes the summaries. Every link is checked automatically before publishing.</p>
 <p><strong>Please note:</strong> summaries and “why it matters” notes are AI-generated and can contain mistakes. Always check the linked source before relying on an item. Items in Norwegian, Swedish or Danish keep their original title, with an English translation underneath.</p>
+<p><strong>Missing a source?</strong> Suggestions for organisations to follow, especially Swedish and Danish CCS organisations, are welcome. Send them to the maintainer.</p>
 <p>Maintained by {e(cfg['site']['maintainer'])}. Subscribe via the <a href="feed.xml">RSS feed</a>.</p></section>"""
     body = header(cfg, updated) + f"""<div class="tools"><div class="wrap"><input id="q" class="search" type="search" placeholder="Search all digests (e.g. ship, Greensand, ETS)…" aria-label="Search all digests">
 <div class="chips" role="group" aria-label="Filter by category">{chips}</div></div></div>

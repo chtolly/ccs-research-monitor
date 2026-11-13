@@ -108,7 +108,7 @@ keywords:
 # filter: true  = only keep entries mentioning a core keyword (general feeds)
 # filter: false = keep everything (feeds that are already CCS-specific)
 #
-# All sources below were tested and working on 2026-11-12.
+# All sources below were tested and working on 2026-11-12 (gigaCCS, State of Green added 2026-11-13).
 # Tested but NOT usable (blocked or no feed), covered by Claude's web search instead:
 #   Norwegian Offshore Directorate (sodir.no, blocks robots), Swedish Energy Agency news
 #   (page built by JavaScript), Carbon Herald, Ørsted, CO2 Value Europe (block robots).
@@ -120,6 +120,7 @@ feeds:
   - {name: "Gassnova", url: "https://gassnova.no/en/feed/", filter: false}
   - {name: "CLIMIT", url: "https://climit.no/en/feed/", filter: false}
   - {name: "NCCS (SINTEF/NTNU research centre)", url: "https://nccs.no/feed/", filter: false}
+  - {name: "gigaCCS (SINTEF-led research centre)", url: "https://gigaccs.no/feed/", filter: false}
   - {name: "Global CCS Institute", url: "https://www.globalccsinstitute.com/feed/", filter: false}
   - {name: "IEAGHG", url: "https://ieaghg.org/feed/", filter: false}
   - {name: "Zero Emissions Platform (ZEP)", url: "https://zeroemissionsplatform.eu/feed/", filter: false}
@@ -130,6 +131,7 @@ feeds:
   - {name: "Norwegian SciTech News (NTNU/SINTEF)", url: "https://norwegianscitechnews.com/feed/", filter: true}
   - {name: "EU Innovation Fund / CINEA", url: "https://cinea.ec.europa.eu/node/2/rss_en", filter: true}
   - {name: "Danish Energy Agency (Energistyrelsen)", url: "https://via.ritzau.dk/rss/releases/latest?publisherId=13560344", filter: true}
+  - {name: "State of Green (Denmark)", url: "https://stateofgreen.com/en/feed/", filter: true}
   - {name: "Stockholm Exergi", url: "https://www.stockholmexergi.se/nyheter/feed/", filter: true}
   - {name: "Bellona", url: "https://bellona.org/feed", filter: true}
   - {name: "Bellona Europa", url: "https://eu.bellona.org/feed/", filter: true}
@@ -142,12 +144,16 @@ feeds:
 
 # Organisation news pages without a working feed. The collector reads the
 # page each morning and passes NEW links (not seen on earlier days) to Claude.
-# link_contains = only links whose address contains this text count as news.
+# link_contains = only links whose address contains this text (or one of a list) count as news.
+# A page added here later starts with a baseline: only links that appear after that count as new.
 watch_pages:
   - {name: "European Commission – DG CLIMA", url: "https://climate.ec.europa.eu/news-other-reads/news_en", link_contains: "/news-other-reads/news/"}
   - {name: "Equinor", url: "https://www.equinor.com/news", link_contains: "/news/20"}
   - {name: "Project Greensand", url: "https://www.greensandfuture.com/news", link_contains: "/news/"}
   - {name: "NTNU", url: "https://www.ntnu.edu/news", link_contains: "/news/"}
+  - {name: "IEA – reports", url: "https://www.iea.org/analysis?type=report", link_contains: "/reports/"}
+  - {name: "IEA – CCUS", url: "https://www.iea.org/energy-system/carbon-capture-utilisation-and-storage", link_contains: ["/reports/", "/commentaries/", "/news/"]}
+  - {name: "DK Havenergi – CCS news (Denmark)", url: "https://www.doi.dk/en/ccs", link_contains: "/en/ccs/artikel/"}
 
 # Topics Claude web-searches each morning (limited by max_web_searches)
 search_topics:
@@ -164,4 +170,8 @@ search_topics:
   - "Finland OR Baltic CCS project CO2"
   - "CCUS Norway"
   - "SINTEF OR NTNU CO2 transport research"
+  - "SINTEF CCS project news gigaCCS"
+  - "IEA report CCUS carbon capture"
+  - "koldioxidavskiljning bio-CCS Sverige nyheter"
+  - "CCS Danmark CO2-lagring nyheder"
   - "CCS conference call for papers 2027"
