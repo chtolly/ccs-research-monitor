@@ -1,8 +1,8 @@
 {
  "date": "2026-11-13",
- "published_at": "2026-11-13T10:39:07+01:00",
- "searches_used": 15,
- "notes": "same-day re-run under updated date rule: collector OK; 24 candidates re-screened, the 8 items kept earlier today retained, 1 new candidate (interview feature) left out; 0 items from 15 web searches (results were older or undated with evidence of earlier dates)",
+ "published_at": "2026-11-13T19:00:27+01:00",
+ "searches_used": 3,
+ "notes": "same-day re-run after new sources (gigaCCS etc.) were added: collector OK; 28 candidates screened, 8 items kept earlier today retained, 3 new gigaCCS items added; DG CLIMA climate-finance and Equinor dividend notices left out; 0 items from 3 web searches",
  "items": [
   {
    "title": "Industry perspectives on CO2 transport optimization models and case studies",
@@ -73,6 +73,54 @@
    "doi": "10.1016/j.ijggc.2026.104829"
   },
   {
+   "title": "Who keeps CCS data alive? A call for more data sharing at the gigaCCS Consortium Days",
+   "title_en": null,
+   "source": "gigaCCS (SINTEF-led research centre)",
+   "date": "2026-11-09",
+   "url": "https://gigaccs.no/news/who-keeps-ccs-data-alive-a-call-for-more-data-sharing-at-the-gigaccs-consortium-days/",
+   "category": "research",
+   "summary": "A panel at the 2026 gigaCCS Consortium Days argued that too many CCS datasets disappear when projects end. It made the case for open data and a new model to keep data available.",
+   "why_it_matters": "Network optimisation depends on cost, capacity and operational data; better CCS data sharing in Norway could improve inputs for supply-chain models.",
+   "origin": "candidate",
+   "candidate_id": "f36ffb12e4",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "id": "f36ffb12e4"
+  },
+  {
+   "title": "gigaCCS Consortium Days 2026: Celebrating how far CCS has come, while recognising how far it has to go",
+   "title_en": null,
+   "source": "gigaCCS (SINTEF-led research centre)",
+   "date": "2026-11-10",
+   "url": "https://gigaccs.no/news/gigaccs-consortium-days-2026-celebrating-how-far-ccs-has-come-while-recognising-how-far-it-has-to-go/",
+   "category": "research",
+   "summary": "Around 130 members met in Trondheim for the 2026 gigaCCS Consortium Days. According to the centre, public trust emerged as the key test of how far CCS can go.",
+   "why_it_matters": "Public acceptance shapes siting of pipelines, terminals and storage, a constraint Nordic network-design models increasingly need to reflect.",
+   "origin": "candidate",
+   "candidate_id": "cf304bbb06",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "id": "cf304bbb06"
+  },
+  {
+   "title": "Research works – and the Global South should be part of it: gigaCCS at COP31",
+   "title_en": null,
+   "source": "gigaCCS (SINTEF-led research centre)",
+   "date": "2026-11-12",
+   "url": "https://gigaccs.no/news/research-works-and-the-global-south-should-be-part-of-it-gigaccs-at-cop31/",
+   "category": "research",
+   "summary": "gigaCCS reports on its participation at COP31, where Centre Director Mona Mølnvik said Norway has shown CCS works at full scale. She called for the knowledge to be shared and for more support for research cooperation with the Global South.",
+   "why_it_matters": "Signals the research agenda and international positioning of Norway's main CCS research centre, a likely partner and data source for Nordic CCS chain studies.",
+   "origin": "candidate",
+   "candidate_id": "b73aca4143",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "id": "b73aca4143"
+  },
+  {
    "title": "Biomass as a transportable biogenic carbon carrier for e-methanol production: Techno-economic comparison with CO2 transport and direct air capture",
    "title_en": null,
    "source": "Biomass and Bioenergy",
@@ -139,5 +187,5 @@
   }
  ],
  "dropped": [],
- "candidates_seen": 24
+ "candidates_seen": 28
 }
