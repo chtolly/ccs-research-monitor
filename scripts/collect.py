@@ -216,9 +216,15 @@ def crossref(queries: list[str], since: date) -> list[dict]:
             abstract = strip_html(it.get("abstract") or "", 700)
             if not title or not paper_relevant(title, abstract):
                 continue
-            parts = (it.get("issued") or {}).get("date-parts") or (it.get("created") or {}).get("date-parts") or [[None]]
-            p = parts[0] + [1, 1]
-            d = date(p[0], p[1], p[2]).isoformat() if p[0] else None
+            d = None
+            for key in ("published-online", "issued", "created"):
+                parts = ((it.get(key) or {}).get("date-parts") or [[None]])[0]
+                if parts and parts[0]:
+                    p = parts + [1, 1]
+                    cand_d = date(p[0], p[1], p[2])
+                    if cand_d <= date.today() + timedelta(days=3):  # skip future print-issue dates
+                        d = cand_d.isoformat()
+                        break
             authors = [" ".join(filter(None, [a.get("given"), a.get("family")])) for a in (it.get("author") or [])[:6]]
             out.append({
                 "kind": "paper", "source": strip_html((it.get("container-title") or ["Crossref"])[0]), "title": title,
@@ -230,6 +236,38 @@ def crossref(queries: list[str], since: date) -> list[dict]:
         log(f"  ✓ Crossref '{q}': {n} relevant")
         time.sleep(0.3)
     return out
+
+
+def enrich_abstracts(papers: list[dict]) -> None:
+    """New papers often have no abstract in Crossref; try OpenAlex, then Semantic Scholar."""
+    found = 0
+    for c in papers[:40]:
+        doi = c.get("doi")
+        if not doi:
+            continue
+        abstract = ""
+        try:
+            r = get(f"https://api.openalex.org/works/doi:{doi}", params={"select": "abstract_inverted_index"})
+            inv = (r.json().get("abstract_inverted_index") if r.ok else None) or {}
+            if inv:
+                abstract = " ".join(w for _, w in sorted((p, w) for w, ps in inv.items() for p in ps))
+        except Exception:
+            pass
+        if not abstract:
+            try:
+                r = get(f"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}", params={"fields": "abstract,tldr"})
+                if r.ok:
+                    j = r.json()
+                    abstract = j.get("abstract") or ((j.get("tldr") or {}).get("text") or "")
+            except Exception:
+                pass
+            time.sleep(1.1)  # Semantic Scholar shared rate limit
+        if abstract:
+            c["summary"] = strip_html(abstract, 700)
+            found += 1
+        else:
+            c["summary"] = "(No abstract available yet from Crossref, OpenAlex or Semantic Scholar.)"
+    log(f"  ✓ abstracts found for {found} of {len(papers)} papers that lacked one")
 
 
 # ── main ────────────────────────────────────────────────────────────────────
@@ -269,9 +307,11 @@ def main() -> int:
     cands += papers
 
     # Remove anything already published (URL, DOI or near-identical title) and internal duplicates
-    hist_urls = {norm_url(h["url"]) for h in history}
-    hist_dois = {h.get("doi") for h in history if h.get("doi")}
-    hist_titles = [h["title"] for h in history[-1500:]]
+    # Items published on earlier days are excluded. Today's own digest is not, so a re-run today keeps them.
+    prior = [h for h in history if h.get("digest_date") != today.isoformat()]
+    hist_urls = {norm_url(h["url"]) for h in prior}
+    hist_dois = {h.get("doi") for h in prior if h.get("doi")}
+    hist_titles = [h["title"] for h in prior[-1500:]]
     uniq: dict[str, dict] = {}
     by_doi: dict[str, str] = {}
     dropped_dupes = 0
@@ -290,6 +330,7 @@ def main() -> int:
             by_doi[nd] = nu
 
     items = list(uniq.values())
+    enrich_abstracts([c for c in items if c["kind"] == "paper" and len(c.get("summary") or "") < 80])
     items.sort(key=lambda c: (c.get("date") or "9999"), reverse=True)  # undated (=newly seen) first
     cap = st.get("max_candidates_for_claude", 150)
     news = [c for c in items if c["kind"] != "paper"][: cap // 2 + cap // 4]

@@ -45,6 +45,8 @@ def check_format(doc: dict, categories: list[str], candidate_ids: set[str]) -> l
     for i, it in enumerate(items):
         tag = f"item {i + 1} ({str(it.get('title', ''))[:40]!r})"
         for k in REQUIRED:
+            if k == "date" and it.get("origin") == "web_search":
+                continue  # the publish step reads the date from the page itself
             if not str(it.get(k) or "").strip():
                 errs.append(f"{tag}: missing '{k}'")
         if it.get("category") not in categories:
@@ -129,6 +131,35 @@ def verify_item(it: dict, cands: dict[str, dict]) -> str | None:
     overlap = len(want & page) / len(want)
     if overlap < 0.6:
         return f"page text does not match the title (overlap {overlap:.0%})"
+    page_date = extract_page_date(r.text)
+    if page_date:
+        it["date"] = page_date.isoformat()  # the page itself is the authority on the date
+    elif not it.get("date"):
+        return "could not confirm the publication date from the page"
+    else:
+        it["date_unconfirmed"] = True
+    return None
+
+
+DATE_PATTERNS = [
+    r'<meta[^>]+(?:property|name|itemprop)=["\'](?:article:published_time|og:article:published_time|datePublished|date|pubdate|publishdate|publish-date|citation_publication_date|citation_online_date|dc\.date|dcterms\.created|DC\.date\.issued|sailthru\.date|parsely-pub-date)["\'][^>]*content=["\']([^"\']+)',
+    r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*(?:property|name|itemprop)=["\'](?:article:published_time|datePublished|date|pubdate|citation_publication_date|dc\.date)["\']',
+    r'"datePublished"\s*:\s*"([^"]+)"',
+    r'<time[^>]+datetime=["\']([^"\']+)',
+]
+
+
+def extract_page_date(text: str):
+    from dateutil import parser as dp
+    head = text[:400_000]
+    for pat in DATE_PATTERNS:
+        for m in re.finditer(pat, head, re.I):
+            try:
+                d = dp.parse(m.group(1).strip(), fuzzy=True).date()
+                if date(2000, 1, 1) < d <= oslo_today() + timedelta(days=1):
+                    return d
+            except Exception:  # noqa: BLE001
+                continue
     return None
 
 
@@ -181,7 +212,8 @@ def publish_inbox(path: Path, history: list[dict], state: dict, network: bool = 
         elif any(norm_url(a["url"]) == norm_url(it["url"]) or title_similarity(a["title"], it["title"]) > 0.9 for a in accepted):
             reason = "duplicate within today's list"
         else:
-            reason = date_ok(it, since, today) or (verify_item(it, cands) if network else None)
+            reason = (verify_item(it, cands) if network else None) or \
+                (date_ok(it, since, today) if it.get("date") else "no publication date")
         if reason:
             dropped.append({"title": it["title"], "url": it["url"], "reason": reason})
             print(f"  ✗ dropped: {it['title'][:70]} — {reason}")

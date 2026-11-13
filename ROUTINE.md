@@ -17,7 +17,7 @@ Read these files:
 
 ## Step 2 — Screen the candidates
 
-Go through **every** candidate and keep only those that pass the relevance test below. Candidates labelled "New link on the organisation's news page" have no date. Keep one only if a web search shows it was published on or after `since`, and put that date on the item.
+Go through **every** candidate and keep only those that pass the relevance test below. Candidates labelled "New link on the organisation's news page" have no date. Keep one only if a web search shows it was published on or after `since`, and put that date on the item. For papers whose summary says "No abstract available yet", write one honest sentence saying what the title indicates and that the abstract is not yet available. Never invent findings.
 
 ## Step 3 — Web search for what the feeds missed
 
@@ -28,7 +28,7 @@ Run **at most `max_web_searches` searches in total** (usually 15). Use `config.y
 - Upcoming conferences, courses and calls for papers
 - Sites the collector cannot read: the Norwegian Offshore Directorate (sodir.no), the Swedish Energy Agency (energimyndigheten.se), Carbon Herald, Ørsted
 
-Only use a search result if you can see its **publication date** and the date is on or after `since`. If WebFetch is available, use it to open promising pages and confirm the title, date and facts. If it is blocked, rely only on what the search results show. **Never guess.**
+**Dates for web-search items.** If the search result shows a publication date, put it in `date`. If it does not, set `date` to null. The publishing step opens every page on the open internet, reads the date from the page itself, and drops anything published before `since`. So do suggest promising items even when you cannot see a date. Still leave out anything clearly older, such as items whose text refers to past years or old events. If WebFetch is available, use it to confirm facts. If it is blocked, which is normal here, write the summary only from what the search results show. **Never guess facts.**
 
 Prefer the **original source**, such as the agency or company press release or the journal page, over secondary coverage. When several outlets report the same story, publish it **once**, link the original, and list the others in `also_reported_by`.
 
@@ -51,7 +51,7 @@ LEAVE OUT:
 - CO₂ *emissions* of shipping or transport, because that is decarbonising transport, not transporting CO₂
 - opinion pieces with no news
 - company financial results
-- anything you cannot date
+- anything that is clearly old
 
 **Padding is worse than an empty day.** If nothing passes the test, publish an empty list. The page will then say "No significant new items today".
 
@@ -69,7 +69,7 @@ Write `data/inbox/$TODAY.json` in exactly this shape:
       "title": "Original title, in its original language",
       "title_en": "English translation — ONLY if the original is Norwegian/Swedish/Danish/other; otherwise null",
       "source": "Organisation or outlet, e.g. 'Gassnova' or 'International Journal of Greenhouse Gas Control'",
-      "date": "YYYY-MM-DD (publication or announcement date)",
+      "date": "YYYY-MM-DD (publication date); for web_search items null if not shown",
       "url": "https://… exact link to the item page",
       "category": "research | transport | ships_ports | nordic_projects | policy | events | ccus_norway",
       "summary": "2–3 neutral, factual sentences in English. Only facts stated on the page or in the candidate text.",
