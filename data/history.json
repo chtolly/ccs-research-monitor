@@ -1,1 +1,74 @@
-[]
+[
+ {
+  "id": "cc109945ad",
+  "url": "https://doi.org/10.1016/j.cie.2026.112506",
+  "doi": "10.1016/j.cie.2026.112506",
+  "title": "Industry perspectives on CO2 transport optimization models and case studies",
+  "date": "2026-11-01",
+  "category": "research",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "96ecd53eb1",
+  "url": "https://doi.org/10.1016/j.petsci.2026.11.012",
+  "doi": "10.1016/j.petsci.2026.11.012",
+  "title": "Toward lower-cost carbon capture, utilization, and storage: Fit-for-purpose CO2 conditioning and source–sink coordination",
+  "date": "2026-11-01",
+  "category": "research",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "be83cb28ce",
+  "url": "https://doi.org/10.1016/j.ijpe.2026.110280",
+  "doi": "10.1016/j.ijpe.2026.110280",
+  "title": "Sustainable closed-loop supply chain network planning with CCUS: A multi-objective robust optimization framework under two carbon policies",
+  "date": "2026-11-01",
+  "category": "research",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "6caefdca97",
+  "url": "https://doi.org/10.1016/j.ijggc.2026.104829",
+  "doi": "10.1016/j.ijggc.2026.104829",
+  "title": "A novel approach for preliminary sizing and cost screening of CO2 pipeline transport: The ECOB method",
+  "date": "2026-11-07",
+  "category": "research",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "638c6f01c3",
+  "url": "https://doi.org/10.1016/j.biombioe.2026.110283",
+  "doi": "10.1016/j.biombioe.2026.110283",
+  "title": "Biomass as a transportable biogenic carbon carrier for e-methanol production: Techno-economic comparison with CO2 transport and direct air capture",
+  "date": "2027-02-01",
+  "category": "research",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "a51bcc8065",
+  "url": "https://www.stockholmexergi.se/nyheter/first-process-equipment-installed-at-beccs-stockholm/",
+  "doi": "",
+  "title": "First process equipment installed at Beccs Stockholm",
+  "date": "2026-11-06",
+  "category": "nordic_projects",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "7eab7b92ac",
+  "url": "https://cinea.ec.europa.eu/news-events/news/innozhero-major-step-towards-capturing-carbon-emissions-waste-2026-11-12_en",
+  "doi": "",
+  "title": "INNOZHERO: A major step towards capturing carbon emissions from waste",
+  "date": "2026-11-11",
+  "category": "nordic_projects",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "769cc5fcf0",
+  "url": "https://ccsnorway.com/norway-supports-ccus-development-poland/",
+  "doi": "",
+  "title": "Norway supports CCUS development in Poland",
+  "date": "2026-11-11",
+  "category": "policy",
+  "digest_date": "2026-11-13"
+ }
+]
