@@ -1,7 +1,7 @@
 {
   "date": "2026-11-13",
-  "searches_used": 8,
-  "notes": "same-day re-run: collector OK; 24 candidates re-screened, the 8 items kept earlier today retained, no new candidates passed; 0 items from 8 web searches (none dated on or after 2026-11-06)",
+  "searches_used": 15,
+  "notes": "same-day re-run under updated date rule: collector OK; 24 candidates re-screened, the 8 items kept earlier today retained, 1 new candidate (interview feature) left out; 0 items from 15 web searches (results were older or undated with evidence of earlier dates)",
   "items": [
     {
       "title": "INNOZHERO: A major step towards capturing carbon emissions from waste",
