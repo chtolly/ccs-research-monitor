@@ -278,11 +278,13 @@ def main() -> int:
     history = load_json(DATA / "history.json", [])
     seen = load_json(DATA / "seen_links.json", {"links": []})
     seen_links = set(seen["links"])
-    first_run = not state.get("last_digest_date") and not seen_links
+    first_run = not seen_links
 
     today = oslo_today()
-    if state.get("last_digest_date"):
-        since = date.fromisoformat(state["last_digest_date"]) - timedelta(days=1)  # 1-day overlap; dedupe removes repeats
+    # "New" = since the last digest before today (re-running on the same day keeps the same window)
+    earlier = sorted(d for d in (k.removesuffix(".json") for k in state.get("processed", {})) if d < today.isoformat())
+    if earlier:
+        since = date.fromisoformat(earlier[-1]) - timedelta(days=1)  # 1-day overlap; dedupe removes repeats
     else:
         since = today - timedelta(days=st.get("first_run_lookback_days", 7))
     log(f"Collecting for {today} (items since {since}; first run: {first_run})")
