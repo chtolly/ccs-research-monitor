@@ -1,0 +1,9 @@
+{
+ "date": "2026-11-14",
+ "published_at": "2026-11-14T07:11:24+01:00",
+ "searches_used": 15,
+ "notes": "collector stale (candidates.json digest_date 2026-11-13), relied on web search only; 28 stale candidates re-screened, all already published or rejected on 2026-11-13; 15 web searches found nothing confirmed as published since 2026-11-06 (an MDPI CCS/CCU call with a 30 Nov abstract deadline was left out because its exact title could not be verified)",
+ "items": [],
+ "dropped": [],
+ "candidates_seen": 28
+}
