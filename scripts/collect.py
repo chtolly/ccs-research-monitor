@@ -319,7 +319,7 @@ def main() -> int:
     # "New" = since the last digest before today (re-running on the same day keeps the same window)
     earlier = sorted(d for d in (k.removesuffix(".json") for k in state.get("processed", {})) if d < today.isoformat())
     if earlier:
-        since = date.fromisoformat(earlier[-1]) - timedelta(days=1)  # 1-day overlap; dedupe removes repeats
+        since = date.fromisoformat(earlier[-1]) - timedelta(days=3)  # 3-day overlap so late-indexed news is not lost; dedupe removes repeats
     else:
         since = today - timedelta(days=st.get("first_run_lookback_days", 7))
     log(f"Collecting for {today} (items since {since}; first run: {first_run})")

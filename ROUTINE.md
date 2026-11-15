@@ -31,7 +31,7 @@ Go through **every** candidate and keep only those that pass the relevance test 
 
 ## Step 3 — Web search for what the feeds missed
 
-First, **open each page in `config.yaml → claude_checks`** with WebFetch (IEA reports and CCUS pages, the Norwegian Offshore Directorate, the Swedish Energy Agency, Carbon Herald). These sites block the free collector. Look for items dated on or after `since` that pass the relevance test. These page visits do not count as searches. If a page cannot be opened, say so in `notes` and move on.
+First, **open each page in `config.yaml → claude_checks`** with WebFetch (IEA reports and CCUS pages, the Norwegian Offshore Directorate, the Swedish Energy Agency, Carbon Herald). These sites block the free collector. Look for items dated on or after `since` that pass the relevance test. These page visits do not count as searches. If a page refuses the visit (for example HTTP 403, which IEA and the Norwegian Offshore Directorate often return), run one web search limited to that site instead, for example `site:iea.org CCUS report` or `site:sodir.no CO2 storage`, and open the results you find. Do not try to get around a site's blocking in any other way.
 
 Then run **at most `max_web_searches` searches in total** (usually 15). Use `config.yaml → search_topics` as a starting list and adjust the wording freely. Look for items published on or after `since`, especially:
 - Nordic-Baltic CCS projects, awards, licences, FIDs and contracts (Norway, Sweden, Denmark, Finland, Iceland, the Baltics)
