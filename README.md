@@ -49,7 +49,7 @@ You can edit any of these on github.com: open the file, click the ✏️ pencil,
 
 **Change the time**
 - **Claude:** at https://claude.ai/code/routines, open the task, click **Edit**, and change the schedule. Times are in UTC: 06:00 UTC is 07:00 Oslo in winter and 08:00 in summer.
-- **Collector:** change `cron: "30 5 * * *"` in `.github/workflows/1-collect.yml`. Keep it about 30 minutes before Claude's time.
+- **Collector:** change `cron: "17 3 * * *"` in `.github/workflows/1-collect.yml`. Keep it well before Claude's time: GitHub often starts scheduled runs late, so the routine also starts the collector itself when `candidates.json` is not dated today.
 - **Safety check:** change `cron: "30 7 * * *"` in `.github/workflows/3-freshness.yml`.
 
 **Change the Claude model**

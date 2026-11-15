@@ -1,10 +1,12 @@
-# Step 1 — free collector. Runs at 05:30 UTC (06:30 Oslo winter / 07:30 summer),
-# half an hour before the Claude routine (06:00 UTC).
+# Step 1 — free collector. Scheduled at 03:17 UTC (04:17 Oslo winter / 05:17 summer),
+# well before the Claude routine (06:00 UTC). GitHub often starts scheduled runs late
+# (hours, at busy times), so the routine also starts this workflow itself
+# (workflow_dispatch) whenever candidates.json is not dated today.
 name: 1 · Collect candidates
 
 on:
   schedule:
-    - cron: "30 5 * * *"
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:

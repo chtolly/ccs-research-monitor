@@ -1,4 +1,4 @@
-"""Step 1 (free, runs on GitHub Actions ~05:30 UTC).
+"""Step 1 (free, runs on GitHub Actions ~03:17 UTC, or started by the Claude routine).
 
 Collects candidate items from RSS/Atom feeds, organisation news pages, OpenAlex
 and Crossref, keeps only items that are new since the previous digest and not
