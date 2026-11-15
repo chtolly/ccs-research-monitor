@@ -1,7 +1,7 @@
 {
   "date": "2026-11-15",
   "searches_used": 15,
-  "notes": "same-day re-run after collector fix: scheduled collector run was late, so it was started manually; fresh candidates (8) re-screened, 3 new Danish notices left out (not CCS / old); 1 candidate and 1 web-search item kept; 15 web searches",
+  "notes": "redo on collector request: 7 candidates screened, 1 kept (4 DK Havenergi links dated 9 Oct-5 Nov and not CCS, 2 off-topic papers dropped); IEA (2 pages) and Sodir returned HTTP 403; Energimyndigheten and Carbon Herald checked, nothing new and relevant on or after 13 Nov (ExxonMobil NZIA arbitration story dated 12 Nov); earlier Havstjerne-EcoLog item dropped because the article is dated 12 Nov, before the window; 15 web searches found no confirmed new items",
   "items": [
     {
       "title": "What energy-sector expertise can bring to Europe’s emerging carbon removal industry",
@@ -10,25 +10,10 @@
       "date": "2026-11-13",
       "url": "https://www.stockholmexergi.se/nyheter/what-energy-sector-expertise-can-bring-to-europes-emerging-carbon-removal-industry/",
       "category": "nordic_projects",
-      "summary": "Stockholm Exergi publishes an interview with Carlo Sem, Project Director at Saipem, about the construction of Beccs Stockholm. It covers how energy-sector expertise is being applied to building the bio-CCS plant.",
-      "why_it_matters": "Beccs Stockholm is a key Swedish capture node whose build-out timing drives future CO2 shipping volumes from Stockholm to North Sea storage.",
+      "summary": "Stockholm Exergi publishes an interview with Carlo Sem, Project Director at Saipem, on the construction of Beccs Stockholm. It covers how energy-sector expertise is being applied to turning carbon removal ambitions into a built bio-CCS plant.",
+      "why_it_matters": "Beccs Stockholm is a key Swedish capture node whose construction progress sets the timing of future CO2 shipping volumes from Stockholm to North Sea storage.",
       "origin": "candidate",
       "candidate_id": "07b7417def",
-      "authors": null,
-      "event_date": null,
-      "also_reported_by": []
-    },
-    {
-      "title": "Norway consolidating lead role for CO₂ storage",
-      "title_en": null,
-      "source": "Cyprus Shipping News",
-      "date": null,
-      "url": "https://cyprusshippingnews.com/2026/11/12/norway-consolidating-lead-role-for-co%E2%82%82-storage/",
-      "category": "ships_ports",
-      "summary": "The article reports that Yinson's Havstjerne CO2 storage project has signed a collaboration agreement with EcoLog, linking EcoLog's dual-purpose terminal in Amsterdam for CO2 storage to Havstjerne's offshore permanent storage and injection on the Norwegian shelf.",
-      "why_it_matters": "A continental terminal-to-Norwegian-storage link adds a new ship-based chain option and intermediate storage hub for cross-border CO2 network models.",
-      "origin": "web_search",
-      "candidate_id": null,
       "authors": null,
       "event_date": null,
       "also_reported_by": []
