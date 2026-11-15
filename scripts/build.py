@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import argparse
+import yaml
 import hashlib
 import html
 import json
@@ -99,6 +100,22 @@ def doi_exists(doi: str) -> bool:
         return False
 
 
+def host_of(url: str) -> str:
+    from urllib.parse import urlsplit
+    return urlsplit(url).netloc.lower().removeprefix("www.")
+
+
+def _blocking_hosts() -> set[str]:
+    try:
+        cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+        return {host_of(c["url"]) for c in cfg.get("claude_checks", [])}
+    except Exception:  # noqa: BLE001
+        return set()
+
+
+BLOCKING_HOSTS = _blocking_hosts()
+
+
 def verify_item(it: dict, cands: dict[str, dict]) -> str | None:
     """Return None if OK, else the reason the item is rejected."""
     url = it["url"]
@@ -122,6 +139,13 @@ def verify_item(it: dict, cands: dict[str, dict]) -> str | None:
     r = fetch(url)
     if isinstance(r, Exception):
         return f"link did not open ({type(r).__name__})"
+    if r.status_code in (401, 403, 429) and host_of(url) in BLOCKING_HOSTS:
+        # Known sites that block GitHub's servers (config.yaml → claude_checks). Claude opened
+        # the page itself; accept it if it gave a date (the date window is still checked).
+        if not it.get("date"):
+            return f"site blocks the checker (HTTP {r.status_code}) and no date was given"
+        it["date_unconfirmed"] = True
+        return None
     if r.status_code >= 400:
         return f"could not verify page (HTTP {r.status_code})"
     page = tokens(strip_html(r.text[:600_000]))

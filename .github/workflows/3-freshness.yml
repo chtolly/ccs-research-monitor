@@ -34,4 +34,14 @@ jobs:
             echo "::error::The collector (workflow 1) ran late or failed — check the Actions tab. When it finishes it restarts Claude and the page refreshes by itself."
             exit 1
           fi
-          echo "OK — today's digest is live and built from today's list."
+          BROKEN=$(python3 -c "
+          import json
+          h = json.load(open('data/source_health.json'))
+          print('; '.join(f'{n} (failing {v[\"fails\"]} days, last OK {v.get(\"last_ok\") or \"never\"})' for n, v in h.items() if v.get('fails', 0) >= 3))
+          " 2>/dev/null || echo "")
+          if [ -n "$BROKEN" ]; then
+            echo "::error::Today's digest is live, but these news sources have failed for 3+ days in a row: $BROKEN"
+            echo "::error::Their news is not being collected. Fix or replace their address in config.yaml (feeds / watch_pages)."
+            exit 1
+          fi
+          echo "OK — today's digest is live and built from today's list, and all sources are working."

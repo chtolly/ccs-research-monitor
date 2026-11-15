@@ -63,9 +63,17 @@ PAPER_TOPIC = re.compile(r"carbon capture|\bccs\b|\bccus\b|\bbeccs\b|\bdaccs\b|d
 PAPER_ANGLE = re.compile(r"transport|shipping|\bships?\b|vessel|pipeline|network|supply chain|logistic|infrastructure|\bhubs?\b|cluster|terminal|\bports?\b|value chain|chain|polic|regulat|market|business model|contract|siting|source.sink|matching|techno.economic|cost", re.I)
 
 
+# Capture chemistry, materials and biology papers often say "CO2 transport" (through a membrane,
+# in blood...). Drop them unless the title also has a clear supply-chain / infrastructure angle.
+PAPER_EXCLUDE = re.compile(r"membrane|polymer|sorbent|adsorb|absorb|absorption|solvent|amine|\bmofs?\b|metal.organic|zeolite|catalys|electrochem|ionic liquid|nanopor|molecular dynamics|equation of state|diffusiv|permeab|blood|tissue|\bcells?\b|leaf|leaves|photosynth|plant physiology|enzyme|crystal|graphene|\bfilms?\b", re.I)
+PAPER_STRONG = re.compile(r"shipping|\bships?\b|vessel|pipeline network|supply chain|logistic|infrastructure|\bhubs?\b|terminal|\bports?\b|value chain|network design|source.sink", re.I)
+
+
 def paper_relevant(title: str, abstract: str = "") -> bool:
     title = (title or "").replace("₂", "2")
     text = f"{title} {abstract or ''}".replace("₂", "2")
+    if PAPER_EXCLUDE.search(title) and not PAPER_STRONG.search(title):
+        return False
     return bool(PAPER_TOPIC.search(text) and PAPER_ANGLE.search(title))
 
 
@@ -380,10 +388,31 @@ def main() -> int:
         "log": LOG,
     }
     save_json(DATA / "candidates.json", out)
+    update_source_health(cfg, today)
     seen_links |= {norm_url(u) for u in new_seen}
     save_json(DATA / "seen_links.json", {"links": sorted(seen_links)[-20000:]})
     log(f"Wrote {len(items)} candidates ({len(news)} news, {len(pap)} papers).")
     return 0
+
+
+def update_source_health(cfg: dict, today: date) -> None:
+    """Count consecutive failed days per feed/page, so the daily check can warn about broken sources."""
+    path = DATA / "source_health.json"
+    health = load_json(path, {})
+    failed = {m.group(1).strip() for m in (re.match(r"\s*✗ (?:feed|page) (.+?): ", l) for l in LOG) if m}
+    names = [s["name"] for s in cfg.get("feeds", []) + cfg.get("watch_pages", [])]
+    new = {}
+    for n in names:
+        h = health.get(n, {"fails": 0, "last_ok": None, "last_day": None})
+        if h.get("last_day") != today.isoformat():  # count each day once, even if the collector runs twice
+            h["fails"] = h.get("fails", 0) + 1 if n in failed else 0
+        elif n not in failed:
+            h["fails"] = 0
+        if n not in failed:
+            h["last_ok"] = today.isoformat()
+        h["last_day"] = today.isoformat()
+        new[n] = h
+    save_json(path, new)
 
 
 if __name__ == "__main__":

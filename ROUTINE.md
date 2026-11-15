@@ -27,11 +27,13 @@ If this prints `$TODAY`, today's digest was already made from today's list. **St
 
 ## Step 2 — Screen the candidates
 
-Go through **every** candidate and keep only those that pass the relevance test below. Candidates labelled "New link on the organisation's news page" have no date. Keep one only if a web search shows it was published on or after `since`, and put that date on the item. For papers whose summary says "No abstract available yet", write one honest sentence saying what the title indicates and that the abstract is not yet available. Never invent findings.
+Go through **every** candidate and keep only those that pass the relevance test below. Candidates labelled "New link on the organisation's news page" have no date. **Open the page with WebFetch** to read its date and content. Keep it only if it was published on or after `since`, and put that date on the item. For news candidates with a short or empty summary, open the page too and write the summary from what it says. For papers whose summary says "No abstract available yet", write one honest sentence saying what the title indicates and that the abstract is not yet available. Never invent findings.
 
 ## Step 3 — Web search for what the feeds missed
 
-Run **at most `max_web_searches` searches in total** (usually 15). Use `config.yaml → search_topics` as a starting list and adjust the wording freely. Look for items published on or after `since`, especially:
+First, **open each page in `config.yaml → claude_checks`** with WebFetch (IEA reports and CCUS pages, the Norwegian Offshore Directorate, the Swedish Energy Agency, Carbon Herald). These sites block the free collector. Look for items dated on or after `since` that pass the relevance test. These page visits do not count as searches. If a page cannot be opened, say so in `notes` and move on.
+
+Then run **at most `max_web_searches` searches in total** (usually 15). Use `config.yaml → search_topics` as a starting list and adjust the wording freely. Look for items published on or after `since`, especially:
 - Nordic-Baltic CCS projects, awards, licences, FIDs and contracts (Norway, Sweden, Denmark, Finland, Iceland, the Baltics)
 - CO₂ ships, terminals and ports
 - EU and Nordic regulation (ETS, NZIA, CRCF/CDR, London Protocol, cross-border CO₂ agreements)
@@ -40,9 +42,13 @@ Run **at most `max_web_searches` searches in total** (usually 15). Use `config.y
 - SINTEF CCS projects (gigaCCS and others) and new IEA reports on CCUS
 - Swedish and Danish CCS news; searching in Swedish or Danish often finds items English searches miss
 
-**Dates for web-search items. Read this carefully.** Search results often show no date. **Do not drop a relevant result just because you cannot see its date.** Include it with `"date": null`. After you push, the publishing step opens every page on the open internet, reads the real publication date from the page, and automatically drops anything published before `since`. Leave out a result only if you have **evidence** that it is old: the snippet or URL shows an earlier date, or it describes events you know happened before `since`. Hints that something is recent, such as the current month in the snippet or URL title, are a reason to include it.
+**Open what you find.** For every promising search result, open the page with WebFetch (up to about 40 page visits in total). Use it to:
+- confirm the exact title and the publication date. Use `"date": null` only if the page really shows no date. The publishing step drops anything older than `since`.
+- write the summary from the page itself, not from the search snippet
+- find the **original source**. If a news site reports a press release, open the company's or agency's own release and link that instead.
+- for conferences, courses and calls, confirm the event page, the event or deadline date, and that the deadline has not passed. Put it in `event_date`.
 
-When the candidate list gives few items, use your full search budget. If WebFetch is available, use it to confirm facts. If it is blocked, which is normal here, write the summary only from what the search results show, and keep it short. **Never guess facts.**
+If a page cannot be opened (blocked, paywalled), you may still include the item when the search result clearly shows it is new and relevant: keep the summary short, use only facts from the snippet, and set `"date": null` if no date is shown. **Never guess facts.**
 
 Prefer the **original source**, such as the agency or company press release or the journal page, over secondary coverage. When several outlets report the same story, publish it **once**, link the original, and list the others in `also_reported_by`.
 

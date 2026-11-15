@@ -151,9 +151,17 @@ watch_pages:
   - {name: "Equinor", url: "https://www.equinor.com/news", link_contains: "/news/20"}
   - {name: "Project Greensand", url: "https://www.greensandfuture.com/news", link_contains: "/news/"}
   - {name: "NTNU", url: "https://www.ntnu.edu/news", link_contains: "/news/"}
-  - {name: "IEA – reports", url: "https://www.iea.org/analysis?type=report", link_contains: "/reports/"}
-  - {name: "IEA – CCUS", url: "https://www.iea.org/energy-system/carbon-capture-utilisation-and-storage", link_contains: ["/reports/", "/commentaries/", "/news/"]}
   - {name: "DK Havenergi – CCS news (Denmark)", url: "https://www.doi.dk/en/ccs", link_contains: "/en/ccs/artikel/"}
+
+# Pages Claude opens itself each morning (they block GitHub's servers or are built by
+# JavaScript, so the free collector cannot read them). Claude looks for items dated on
+# or after the "since" date.
+claude_checks:
+  - {name: "IEA – reports", url: "https://www.iea.org/analysis?type=report"}
+  - {name: "IEA – CCUS", url: "https://www.iea.org/energy-system/carbon-capture-utilisation-and-storage"}
+  - {name: "Norwegian Offshore Directorate (Sodir) – news", url: "https://www.sodir.no/en/whats-new/news/"}
+  - {name: "Swedish Energy Agency – news", url: "https://www.energimyndigheten.se/en/news/"}
+  - {name: "Carbon Herald", url: "https://carbonherald.com/"}
 
 # Topics Claude web-searches each morning (limited by max_web_searches)
 search_topics:

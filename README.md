@@ -25,6 +25,10 @@ Schedules are fixed in UTC, so everything runs an hour later in summer.
 
 Without these secrets everything still works, but Claude runs only at its scheduled time and may then use the previous day's list. The token can only start this one routine. It cannot read anything.
 
+**Claude's internet access.** The task runs in its own cloud environment, "CCS monitor (full web)", with **Full** network access, so Claude can open articles to check titles, dates and original sources. Your other Claude cloud sessions keep the default Limited access. Some sites block GitHub's servers (IEA, the Norwegian Offshore Directorate, the Swedish Energy Agency, Carbon Herald). Claude checks those itself each morning; they are listed under `claude_checks` in `config.yaml`.
+
+**Broken sources.** The collector records which feeds and pages fail. If one fails 3 days in a row, the daily safety check emails you with its name (details in `data/source_health.json`).
+
 **If something fails,** the website keeps showing the previous day's digest. GitHub then emails whoever last edited the workflow files.
 
 **Quality rules built in:**
@@ -41,7 +45,7 @@ You can edit any of these on github.com: open the file, click the ✏️ pencil,
 
 | File | What it controls |
 |---|---|
-| `config.yaml` | **Sources** (`feeds`, `watch_pages`), **keywords** (`keywords: core`), **paper searches** (`paper_queries`), Claude's **search topics** (`search_topics`), **limits** (`max_web_searches`, `max_items_per_day`), category names, and the page title and "maintained by" text. Each section has comments explaining it. |
+| `config.yaml` | **Sources** (`feeds`, `watch_pages`, and `claude_checks` for sites Claude opens itself), **keywords** (`keywords: core`), **paper searches** (`paper_queries`), Claude's **search topics** (`search_topics`), **limits** (`max_web_searches`, `max_items_per_day`), category names, and the page title and "maintained by" text. Each section has comments explaining it. |
 | `ROUTINE.md` | Claude's instructions: what counts as relevant, how to write summaries, and the format of the draft. Edit it in plain English. Changes apply from the next morning. |
 
 **To add a news source:** add a line under `feeds:` with the site's RSS address. Many WordPress sites have one at `https://site.com/feed/`. Use `filter: false` if the source is only about CCS, or `filter: true` to keep only entries that mention a keyword.
