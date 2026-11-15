@@ -13,12 +13,17 @@ TODAY=$(TZ=Europe/Oslo date +%F); echo $TODAY
 Read these files:
 - `config.yaml`: the categories, settings and `search_topics`.
 - `data/candidates.json`: items collected earlier this morning from news feeds, organisation pages, OpenAlex and Crossref. Note `since` (the start of the "new" window), `max_web_searches` and `max_items_per_day`.
-
-**Make sure the candidates are today's before you go on.** Pull first (`git pull -q origin main`). If `digest_date` in `data/candidates.json` is not `$TODAY`, GitHub's scheduled collector run is late or missing. Do not continue with old candidates. Instead:
-1. Start the collector yourself with the GitHub MCP tool `actions_run_trigger` (load it with ToolSearch if needed): owner `chtolly`, repo `ccs-research-monitor`, workflow `1-collect.yml`, ref `main`.
-2. Run `bash scripts/wait_for_candidates.sh 15` **with `run_in_background: true`** and wait for it to finish. It pulls the fresh file when it lands on `main` (a run normally takes 1–2 minutes).
-3. If it prints `FRESH`, re-read `data/candidates.json` and continue. If it prints `STALE`, or the trigger is refused, rely on web search only and say so in `notes` (e.g. "collector run started by routine did not finish").
 - `data/recent_titles.json`: stories already published in the last 45 days. Never publish these again, even if another outlet reports them with a different headline.
+
+**First, check whether there is anything to do.** Pull (`git pull -q origin main`), then:
+
+```bash
+python3 -c "import json;print(json.load(open('data/digests/$TODAY.json')).get('candidates_date',''))" 2>/dev/null
+```
+
+If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest.
+
+**Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, the collector is late. Run `bash scripts/wait_for_candidates.sh 20` **with `run_in_background: true`** and wait for it to finish. If it prints `FRESH`, re-read `data/candidates.json` and continue. If it prints `STALE`, continue with web search only and say so in `notes` (for example "collector late: web search only"). When the collector finishes later, it starts this routine again and the digest is redone with the full list.
 
 ## Step 2 — Screen the candidates
 

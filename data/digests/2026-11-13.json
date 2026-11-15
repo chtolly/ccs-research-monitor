@@ -8,7 +8,7 @@
    "title": "Industry perspectives on CO2 transport optimization models and case studies",
    "title_en": null,
    "source": "Computers & Industrial Engineering",
-   "date": "2026-11-01",
+   "date": "2026-11-11",
    "url": "https://doi.org/10.1016/j.cie.2026.112506",
    "category": "research",
    "summary": "Paper in Computers & Industrial Engineering by Stephan Bogs, Ali Abdelshafy and Grit Walther. As its title states, it presents industry perspectives on CO2 transport optimization models and case studies.",
@@ -25,7 +25,7 @@
    "title": "Toward lower-cost carbon capture, utilization, and storage: Fit-for-purpose CO2 conditioning and source–sink coordination",
    "title_en": null,
    "source": "Petroleum Science",
-   "date": "2026-11-01",
+   "date": "2026-11-12",
    "url": "https://doi.org/10.1016/j.petsci.2026.11.012",
    "category": "research",
    "summary": "Paper in Petroleum Science by Hai-Zhu Wang and co-authors. As its title states, it addresses lowering CCUS costs through fit-for-purpose CO2 conditioning and source–sink coordination.",
@@ -42,7 +42,7 @@
    "title": "Sustainable closed-loop supply chain network planning with CCUS: A multi-objective robust optimization framework under two carbon policies",
    "title_en": null,
    "source": "International Journal of Production Economics",
-   "date": "2026-11-01",
+   "date": "2026-11-10",
    "url": "https://doi.org/10.1016/j.ijpe.2026.110280",
    "category": "research",
    "summary": "Paper in the International Journal of Production Economics by Song Xu, Yuting Xie, Wenting Yang and Lu Liu. As its title states, it proposes a multi-objective robust optimisation framework for sustainable closed-loop supply chain network planning with CCUS under two carbon policies.",
@@ -124,7 +124,7 @@
    "title": "Biomass as a transportable biogenic carbon carrier for e-methanol production: Techno-economic comparison with CO2 transport and direct air capture",
    "title_en": null,
    "source": "Biomass and Bioenergy",
-   "date": "2027-02-01",
+   "date": "2026-11-10",
    "url": "https://doi.org/10.1016/j.biombioe.2026.110283",
    "category": "research",
    "summary": "Paper in Biomass and Bioenergy by Namdarpour Naghani, Galimova, Mensah, Koiranen and Breyer. As its title states, it compares transporting biomass as a biogenic carbon carrier for e-methanol production with CO2 transport and direct air capture in a techno-economic analysis.",
@@ -187,5 +187,6 @@
   }
  ],
  "dropped": [],
- "candidates_seen": 28
+ "candidates_seen": 28,
+ "candidates_date": "2026-11-13"
 }

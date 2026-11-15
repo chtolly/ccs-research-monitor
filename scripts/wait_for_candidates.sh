@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Wait until data/candidates.json on origin/main is dated today (Europe/Oslo),
-# then pull it. Used by the Claude routine after it starts workflow 1.
+# then pull it. Used by the Claude routine when the collector is running late.
 #   bash scripts/wait_for_candidates.sh [max_minutes]   (default 15)
 # Exit 0 = fresh candidates pulled; exit 1 = still stale after the wait.
 set -u

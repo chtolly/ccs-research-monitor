@@ -238,6 +238,7 @@ def publish_inbox(path: Path, history: list[dict], state: dict, network: bool = 
         "items": accepted,
         "dropped": dropped,
         "candidates_seen": len(cands),
+        "candidates_date": cand_doc.get("digest_date"),  # which morning's collector list was used
     }
     save_json(DIGESTS / f"{digest_date}.json", digest)
     for it in accepted:

@@ -12,12 +12,18 @@ Maintained by Kshitij Chaudhary.
 
 | Time (Oslo, winter / summer) | What happens | Where it runs | Cost |
 |---|---|---|---|
-| 06:30 / 07:30 | **Collect.** A script reads about 25 news feeds and organisation pages, plus the OpenAlex and Crossref research databases. It keeps only items that are new and match the keywords, and saves them to `data/candidates.json`. | GitHub Actions (workflow "1 · Collect candidates") | Free |
-| 07:00 / 08:00 | **Select and summarise.** Claude reads the candidates, runs up to 15 web searches for news the feeds missed, drops anything off-topic or already published, writes the summaries, and saves a draft in `data/inbox/`. Its instructions are in `ROUTINE.md`. | A Claude Code scheduled task ("routine") on Kshitij's Claude subscription | Uses the subscription's normal usage. No API key, no extra bill |
-| ~07:15 / 08:15 | **Check and publish.** A script checks every link (dead or unverifiable links are removed), removes duplicates, saves the day's digest, and rebuilds the website and RSS feed. | GitHub Actions ("2 · Verify & publish") | Free |
-| 08:30 / 09:30 | **Safety check.** If today's update is missing, this step fails and GitHub sends an email. | GitHub Actions ("3 · Check today's update") | Free |
+| from 04:17 / 05:17 | **Collect.** A script reads about 33 news feeds and organisation pages, plus the OpenAlex and Crossref research databases. It keeps only items that are new and match the keywords, and saves them to `data/candidates.json`. **When it finishes, it starts step 2 itself.** GitHub sometimes starts this step late, even by hours, so Claude waits for it instead of working from an old list. | GitHub Actions (workflow "1 · Collect candidates") | Free |
+| right after step 1 | **Select and summarise.** Claude reads the candidates, runs up to 15 web searches for news the feeds missed, drops anything off-topic or already published, writes the summaries, and saves a draft in `data/inbox/`. Its instructions are in `ROUTINE.md`. A backup schedule also starts Claude later in the morning. If today's digest is already done, that run stops at once. | A Claude Code scheduled task ("routine") on Kshitij's Claude subscription | Uses the subscription's normal usage. No API key, no extra bill |
+| ~15 min later | **Check and publish.** A script checks every link (dead or unverifiable links are removed), removes duplicates, saves the day's digest, and rebuilds the website and RSS feed. | GitHub Actions ("2 · Verify & publish") | Free |
+| 10:45 / 11:45 | **Safety check.** Sends an email if today's update is missing, **or** if it was built from an old list because step 1 was late. | GitHub Actions ("3 · Check today's update") | Free |
 
-Claude's schedule is fixed in UTC, so the update comes an hour later in summer.
+Schedules are fixed in UTC, so everything runs an hour later in summer.
+
+**How step 1 starts step 2 (one-time setup).** The routine has an *API trigger*: a web address plus a secret key. GitHub stores both as secrets and calls the address when the collector finishes:
+1. At https://claude.ai/code/routines, open the task, click **Edit**, then under the triggers click **Add another trigger → API → Generate token**. Copy the **URL** and the **token**. The token is shown only once.
+2. On GitHub, go to the repository's **Settings → Secrets and variables → Actions → New repository secret**. Add `ROUTINE_FIRE_URL` (the URL) and `ROUTINE_FIRE_TOKEN` (the token).
+
+Without these secrets everything still works, but Claude runs only at its scheduled time and may then use the previous day's list. The token can only start this one routine. It cannot read anything.
 
 **If something fails,** the website keeps showing the previous day's digest. GitHub then emails whoever last edited the workflow files.
 
@@ -44,13 +50,13 @@ You can edit any of these on github.com: open the file, click the ✏️ pencil,
 
 **Run an update now (outside the schedule)**
 1. On GitHub, go to **Actions → "1 · Collect candidates" → Run workflow**.
-2. A minute later, go to https://claude.ai/code/routines, open **"CCS research monitor – daily digest"** and click **Run now**.
+2. When it finishes, it starts Claude automatically. If Claude has already finished today's digest from today's list, it stops. To force a redo, open **"CCS research monitor – daily digest"** at https://claude.ai/code/routines, choose **Run now**, and ask it to redo today's digest.
 3. The website updates about 10–20 minutes later.
 
 **Change the time**
-- **Claude:** at https://claude.ai/code/routines, open the task, click **Edit**, and change the schedule. Times are in UTC: 06:00 UTC is 07:00 Oslo in winter and 08:00 in summer.
-- **Collector:** change `cron: "17 3 * * *"` in `.github/workflows/1-collect.yml`. Keep it well before Claude's time: GitHub often starts scheduled runs late, so the routine also starts the collector itself when `candidates.json` is not dated today.
-- **Safety check:** change `cron: "30 7 * * *"` in `.github/workflows/3-freshness.yml`.
+- **Collector (sets the time of the update):** change `cron: "17 3 * * *"` in `.github/workflows/1-collect.yml`. Times are in UTC. Claude starts as soon as this finishes.
+- **Claude's backup run:** at https://claude.ai/code/routines, open the task, click **Edit**, and change the schedule (UTC).
+- **Safety check:** change `cron: "45 9 * * *"` in `.github/workflows/3-freshness.yml`. Keep it after Claude's backup run.
 
 **Change the Claude model**
 At https://claude.ai/code/routines, open the task, click **Edit**, and pick another model in the model selector. It currently uses Claude Opus 5.5. Sonnet uses less of the subscription allowance, and Opus is a bit stricter about relevance.

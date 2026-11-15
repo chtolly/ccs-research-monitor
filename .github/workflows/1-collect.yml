@@ -1,7 +1,9 @@
-# Step 1 — free collector. Scheduled at 03:17 UTC (04:17 Oslo winter / 05:17 summer),
-# well before the Claude routine (06:00 UTC). GitHub often starts scheduled runs late
-# (hours, at busy times), so the routine also starts this workflow itself
-# (workflow_dispatch) whenever candidates.json is not dated today.
+# Step 1 — free collector. Scheduled at 03:17 UTC (04:17 Oslo winter / 05:17 summer).
+# GitHub often starts scheduled runs late (sometimes hours), so when this finishes it
+# starts the Claude routine itself through the routine's API trigger. Claude therefore
+# always works on today's list, however late GitHub is. The routine's own schedule is
+# only a late backup. Needs two repository secrets (Settings → Secrets → Actions):
+#   ROUTINE_FIRE_URL and ROUTINE_FIRE_TOKEN (from the routine's API trigger, see README).
 name: 1 · Collect candidates
 
 on:
@@ -37,3 +39,27 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Candidates $(TZ=Europe/Oslo date +%F)"
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
+          echo "PUSHED=1" >> "$GITHUB_ENV"
+      - name: Start the Claude routine now that today's list is ready
+        if: env.PUSHED == '1'
+        env:
+          ROUTINE_FIRE_URL: ${{ secrets.ROUTINE_FIRE_URL }}
+          ROUTINE_FIRE_TOKEN: ${{ secrets.ROUTINE_FIRE_TOKEN }}
+        run: |
+          if [ -z "$ROUTINE_FIRE_URL" ] || [ -z "$ROUTINE_FIRE_TOKEN" ]; then
+            echo "::warning::Routine API trigger not set up (secrets missing); the routine's own schedule will run it instead."
+            exit 0
+          fi
+          TODAY=$(TZ=Europe/Oslo date +%F)
+          for i in 1 2 3; do
+            CODE=$(curl -s -o resp.json -w "%{http_code}" -X POST "$ROUTINE_FIRE_URL" \
+              -H "Authorization: Bearer $ROUTINE_FIRE_TOKEN" \
+              -H "anthropic-version: 2026-10-21" \
+              -H "Content-Type: application/json" \
+              -d "{\"text\": \"Started by the collector: data/candidates.json for $TODAY is ready.\"}")
+            echo "Routine fire: HTTP $CODE"
+            [ "$CODE" = "200" ] && exit 0
+            case "$CODE" in 5*|429) sleep 60 ;; *) break ;; esac
+          done
+          cat resp.json; echo "::error::Could not start the Claude routine (HTTP $CODE). Its own schedule will still run as a backup."
+          exit 1

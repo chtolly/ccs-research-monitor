@@ -201,6 +201,37 @@ def openalex(queries: list[str], since: date, today: date) -> list[dict]:
     return out
 
 
+def crossref_date(it: dict) -> str | None:
+    """Date a paper went online. Journal issue dates ("Feb 2027", month only) are not used:
+    published-online first, then the DOI registration date (created), then a full-day issue date."""
+    for key in ("published-online", "created", "issued"):
+        parts = ((it.get(key) or {}).get("date-parts") or [[None]])[0]
+        if parts and len(parts) >= 3 and parts[0]:
+            d = date(parts[0], parts[1], parts[2])
+            if d <= date.today() + timedelta(days=3):
+                return d.isoformat()
+    return None
+
+
+def fix_paper_dates(papers: list[dict]) -> None:
+    """OpenAlex often gives the journal issue date (e.g. 2027-02-01). Replace suspicious dates
+    (in the future, or the 1st of a month) with the online date from Crossref."""
+    today = date.today().isoformat()
+    for c in papers[:60]:
+        d, doi = c.get("date") or "", c.get("doi")
+        if not doi or not (d > today or d.endswith("-01") or not d):
+            continue
+        try:
+            r = get(f"https://api.crossref.org/works/{doi}")
+            if r.ok:
+                new = crossref_date(r.json()["message"])
+                if new:
+                    c["date"] = new
+        except Exception:
+            pass
+        time.sleep(0.2)
+
+
 def crossref(queries: list[str], since: date) -> list[dict]:
     out = []
     for q in queries:
@@ -208,7 +239,7 @@ def crossref(queries: list[str], since: date) -> list[dict]:
             r = get("https://api.crossref.org/works", params={
                 "query.bibliographic": q, "rows": 30, "sort": "relevance",
                 "filter": f"from-created-date:{since},type:journal-article",
-                "select": "DOI,title,author,container-title,issued,created,URL,abstract",
+                "select": "DOI,title,author,container-title,published-online,issued,created,URL,abstract",
             })
             r.raise_for_status()
         except Exception as e:
@@ -220,15 +251,7 @@ def crossref(queries: list[str], since: date) -> list[dict]:
             abstract = strip_html(it.get("abstract") or "", 700)
             if not title or not paper_relevant(title, abstract):
                 continue
-            d = None
-            for key in ("published-online", "issued", "created"):
-                parts = ((it.get(key) or {}).get("date-parts") or [[None]])[0]
-                if parts and parts[0]:
-                    p = parts + [1, 1]
-                    cand_d = date(p[0], p[1], p[2])
-                    if cand_d <= date.today() + timedelta(days=3):  # skip future print-issue dates
-                        d = cand_d.isoformat()
-                        break
+            d = crossref_date(it)
             authors = [" ".join(filter(None, [a.get("given"), a.get("family")])) for a in (it.get("author") or [])[:6]]
             out.append({
                 "kind": "paper", "source": strip_html((it.get("container-title") or ["Crossref"])[0]), "title": title,
@@ -309,7 +332,7 @@ def main() -> int:
     for links in undated_links:
         new_seen += links
 
-    papers = openalex(cfg["keywords"]["paper_queries"], since, today) + crossref(cfg["keywords"]["paper_queries"], since)
+    papers = crossref(cfg["keywords"]["paper_queries"], since) + openalex(cfg["keywords"]["paper_queries"], since, today)
     cands += papers
 
     # Remove anything already published (URL, DOI or near-identical title) and internal duplicates
@@ -337,6 +360,7 @@ def main() -> int:
 
     items = list(uniq.values())
     enrich_abstracts([c for c in items if c["kind"] == "paper" and len(c.get("summary") or "") < 80])
+    fix_paper_dates([c for c in items if c["kind"] == "paper"])
     items.sort(key=lambda c: (c.get("date") or "9999"), reverse=True)  # undated (=newly seen) first
     cap = st.get("max_candidates_for_claude", 150)
     news = [c for c in items if c["kind"] != "paper"][: cap // 2 + cap // 4]
