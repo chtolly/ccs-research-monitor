@@ -1,8 +1,8 @@
 {
  "date": "2026-11-15",
- "published_at": "2026-11-15T07:10:29+01:00",
+ "published_at": "2026-11-15T09:43:06+01:00",
  "searches_used": 15,
- "notes": "collector stale (candidates.json digest_date 2026-11-14), so web search was used as well; 9 candidates screened, 1 kept; 1 item from 15 web searches",
+ "notes": "same-day re-run after collector fix: scheduled collector run was late, so it was started manually; fresh candidates (8) re-screened, 3 new Danish notices left out (not CCS / old); 1 candidate and 1 web-search item kept; 15 web searches",
  "items": [
   {
    "title": "Norway consolidating lead role for CO₂ storage",
@@ -38,5 +38,5 @@
   }
  ],
  "dropped": [],
- "candidates_seen": 9
+ "candidates_seen": 8
 }
