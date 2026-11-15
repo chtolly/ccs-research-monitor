@@ -1,7 +1,7 @@
 {
   "date": "2026-11-15",
   "searches_used": 15,
-  "notes": "redo on collector request: 7 candidates screened, 1 kept (4 DK Havenergi links dated 9 Oct-5 Nov and not CCS, 2 off-topic papers dropped); IEA (2 pages) and Sodir returned HTTP 403; Energimyndigheten and Carbon Herald checked, nothing new and relevant on or after 13 Nov (ExxonMobil NZIA arbitration story dated 12 Nov); earlier Havstjerne-EcoLog item dropped because the article is dated 12 Nov, before the window; 15 web searches found no confirmed new items",
+  "notes": "redo on collector request (window now from 11 Nov): 5 candidates screened, 1 kept (DK Havenergi COP31 link, GCCSI COP31 media advisory and 2 off-topic papers left out); IEA and Sodir returned 403, site: searches found nothing new; Energimyndigheten checked, nothing CCS-related; Carbon Herald page returned empty; 1 item from web search (IEEFA report, page blocked, title and facts verified from report PDF)",
   "items": [
     {
       "title": "What energy-sector expertise can bring to Europe’s emerging carbon removal industry",
@@ -17,6 +17,30 @@
       "authors": null,
       "event_date": null,
       "also_reported_by": []
+    },
+    {
+      "title": "Polluter pays or taxpayer pays? Weaker EU carbon prices widen the carbon capture funding gap",
+      "title_en": null,
+      "source": "Institute for Energy Economics and Financial Analysis (IEEFA)",
+      "date": "2026-11-11",
+      "url": "https://ieefa.org/resources/polluter-pays-or-taxpayer-pays-weaker-eu-carbon-prices-widen-carbon-capture-funding-gap",
+      "category": "policy",
+      "summary": "An IEEFA report by Andrew Reid argues that proposed EU ETS changes and lower carbon price forecasts (ABN AMRO's 2030 EUA forecast falling from €145 to €91/tCO2) leave a growing gap against estimated full-chain CCS costs (capture, transport and storage) of €191–265/tCO2. For an illustrative portfolio matching the EU's 50 Mt/yr 2030 injection target, it estimates costs of €351 billion over 25 years and a funding gap that widens from €103 billion to €142 billion, shifting more of the burden to public support.",
+      "why_it_matters": "Gives full-chain CCS cost ranges and ETS-price scenarios that set the revenue side of any Nordic network or contract model, and signals that cross-border chains will lean more on state support schemes than on the carbon price.",
+      "origin": "web_search",
+      "candidate_id": null,
+      "authors": "Andrew Reid",
+      "event_date": null,
+      "also_reported_by": [
+        {
+          "source": "Carbon Pulse",
+          "url": "https://carbon-pulse.com/569913/"
+        },
+        {
+          "source": "IEEFA (article)",
+          "url": "https://ieefa.org/articles/weaker-eu-carbon-prices-risk-shifting-ccs-costs-taxpayers"
+        }
+      ]
     }
   ]
 }
