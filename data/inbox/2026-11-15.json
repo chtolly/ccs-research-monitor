@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-15",
+  "searches_used": 15,
+  "notes": "collector stale (candidates.json digest_date 2026-11-14), so web search was used as well; 9 candidates screened, 1 kept; 1 item from 15 web searches",
+  "items": [
+    {
+      "title": "What energy-sector expertise can bring to Europe’s emerging carbon removal industry",
+      "title_en": null,
+      "source": "Stockholm Exergi",
+      "date": "2026-11-13",
+      "url": "https://www.stockholmexergi.se/nyheter/what-energy-sector-expertise-can-bring-to-europes-emerging-carbon-removal-industry/",
+      "category": "nordic_projects",
+      "summary": "Stockholm Exergi publishes an interview with Carlo Sem, Project Director at Saipem, about the construction of Beccs Stockholm. It covers how energy-sector expertise is being applied to building the bio-CCS plant.",
+      "why_it_matters": "Beccs Stockholm is a key Swedish capture node whose build-out timing drives future CO2 shipping volumes from Stockholm to North Sea storage.",
+      "origin": "candidate",
+      "candidate_id": "07b7417def",
+      "authors": null,
+      "event_date": null,
+      "also_reported_by": []
+    },
+    {
+      "title": "Norway consolidating lead role for CO₂ storage",
+      "title_en": null,
+      "source": "Cyprus Shipping News",
+      "date": null,
+      "url": "https://cyprusshippingnews.com/2026/11/12/norway-consolidating-lead-role-for-co%E2%82%82-storage/",
+      "category": "ships_ports",
+      "summary": "The article reports that Yinson's Havstjerne CO2 storage project has signed a collaboration agreement with EcoLog, linking EcoLog's dual-purpose terminal in Amsterdam for CO2 storage to Havstjerne's offshore permanent storage and injection on the Norwegian shelf.",
+      "why_it_matters": "A continental terminal-to-Norwegian-storage link adds a new ship-based chain option and intermediate storage hub for cross-border CO2 network models.",
+      "origin": "web_search",
+      "candidate_id": null,
+      "authors": null,
+      "event_date": null,
+      "also_reported_by": []
+    }
+  ]
+}
