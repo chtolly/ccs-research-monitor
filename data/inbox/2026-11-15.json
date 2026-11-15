@@ -1,7 +1,7 @@
 {
   "date": "2026-11-15",
   "searches_used": 15,
-  "notes": "collector stale (candidates.json digest_date 2026-11-14), so web search was used as well; 9 candidates screened, 1 kept; 1 item from 15 web searches",
+  "notes": "same-day re-run after collector fix: scheduled collector run was late, so it was started manually; fresh candidates (8) re-screened, 3 new Danish notices left out (not CCS / old); 1 candidate and 1 web-search item kept; 15 web searches",
   "items": [
     {
       "title": "What energy-sector expertise can bring to Europe’s emerging carbon removal industry",
