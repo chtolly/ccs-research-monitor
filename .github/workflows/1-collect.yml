@@ -10,6 +10,11 @@ on:
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
+    inputs:
+      redo:
+        description: "Also redo today's digest even if it is already published"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -41,7 +46,7 @@ jobs:
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
           echo "PUSHED=1" >> "$GITHUB_ENV"
       - name: Start the Claude routine now that today's list is ready
-        if: env.PUSHED == '1'
+        if: env.PUSHED == '1' || inputs.redo
         env:
           ROUTINE_FIRE_URL: ${{ secrets.ROUTINE_FIRE_URL }}
           ROUTINE_FIRE_TOKEN: ${{ secrets.ROUTINE_FIRE_TOKEN }}
@@ -51,12 +56,14 @@ jobs:
             exit 0
           fi
           TODAY=$(TZ=Europe/Oslo date +%F)
+          MSG="Started by the collector: data/candidates.json for $TODAY is ready."
+          [ "${{ inputs.redo }}" = "true" ] && MSG="$MSG Please redo today's digest even if it is already published."
           for i in 1 2 3; do
             CODE=$(curl -s -o resp.json -w "%{http_code}" -X POST "$ROUTINE_FIRE_URL" \
               -H "Authorization: Bearer $ROUTINE_FIRE_TOKEN" \
               -H "anthropic-version: 2026-10-21" \
               -H "Content-Type: application/json" \
-              -d "{\"text\": \"Started by the collector: data/candidates.json for $TODAY is ready.\"}")
+              -d "{\"text\": \"$MSG\"}")
             echo "Routine fire: HTTP $CODE"
             [ "$CODE" = "200" ] && exit 0
             case "$CODE" in 5*|429) sleep 60 ;; *) break ;; esac

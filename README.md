@@ -53,8 +53,8 @@ You can edit any of these on github.com: open the file, click the ✏️ pencil,
 ## Common tasks
 
 **Run an update now (outside the schedule)**
-1. On GitHub, go to **Actions → "1 · Collect candidates" → Run workflow**.
-2. When it finishes, it starts Claude automatically. If Claude has already finished today's digest from today's list, it stops. To force a redo, open **"CCS research monitor – daily digest"** at https://claude.ai/code/routines, choose **Run now**, and ask it to redo today's digest.
+1. On GitHub, go to **Actions → "1 · Collect candidates" → Run workflow**. Tick **"Also redo today's digest"** if today's digest is already published and you want it redone.
+2. When it finishes, it starts Claude automatically.
 3. The website updates about 10–20 minutes later.
 
 **Change the time**
