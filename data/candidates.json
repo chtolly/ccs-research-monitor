@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-15T12:39:04+01:00",
+ "generated_at": "2026-11-15T12:43:19+01:00",
  "digest_date": "2026-11-15",
- "since": "2026-11-13",
+ "since": "2026-11-11",
  "first_run": false,
  "categories": [
   "research",
@@ -15,46 +15,19 @@
  "max_items_per_day": 25,
  "max_web_searches": 15,
  "counts": {
-  "news": 5,
+  "news": 3,
   "papers": 2,
-  "already_published_skipped": 0
+  "already_published_skipped": 8
  },
  "items": [
   {
    "kind": "news",
    "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "To personer er kendt skyldige i kabelsabotage i Finland 5. NOV 2026 10.35 Kriminalitet Offshore Sikkerhed",
-   "url": "https://www.doi.dk/en/ccs/artikel/to-personer-er-kendt-skyldige-i-kabelsabotage-i-finland",
+   "title": "Klimaminister rejser til COP31 med fokus på CO2-reduktioner 6. NOV 2026 15.00 Energi Klima Politik",
+   "url": "https://www.doi.dk/en/ccs/artikel/klimaminister-rejser-til-cop31-med-fokus-paa-co2-reduktioner",
    "date": null,
    "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "055985d950"
-  },
-  {
-   "kind": "news",
-   "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "Verden halter efter historiske klimamål fra klimatopmøde 31. OKT 2026 8.19 Energi Klima",
-   "url": "https://www.doi.dk/en/ccs/artikel/verden-halter-efter-historiske-klimamaal-fra-klimatopmoede",
-   "date": null,
-   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "a2332c48bb"
-  },
-  {
-   "kind": "news",
-   "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "Flere unge vælger tekniske erhvervsuddannelser 29. OKT 2026 13.36 Uddannelse",
-   "url": "https://www.doi.dk/en/ccs/artikel/flere-unge-vaelger-tekniske-erhvervsuddannelser",
-   "date": null,
-   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "1be81f175c"
-  },
-  {
-   "kind": "news",
-   "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "EU skruer op for produktionen af kritiske råstoffer 9. OKT 2026 10.17 EU Internationalt",
-   "url": "https://www.doi.dk/en/ccs/artikel/eu-skruer-op-for-produktionen-af-kritiske-raastoffer",
-   "date": null,
-   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "9fa321764b"
+   "id": "f01e765fa0"
   },
   {
    "kind": "news",
@@ -66,15 +39,13 @@
    "id": "07b7417def"
   },
   {
-   "kind": "paper",
-   "source": "Applied Economics",
-   "title": "Road to clean skies: assessing the effects of low-carbon transport systems policy on monthly air pollution",
-   "url": "https://doi.org/10.1080/00036846.2026.2763082",
-   "doi": "10.1080/00036846.2026.2763082",
-   "date": "2026-11-14",
-   "authors": "Jiali He, Jinxing Guo, Jingyi Meng, Lei Jiang",
-   "summary": "(No abstract available yet from Crossref, OpenAlex or Semantic Scholar.)",
-   "id": "f4f27ddb03"
+   "kind": "news",
+   "source": "Global CCS Institute",
+   "title": "Media advisory | Global CCS Institute to advance dialogue on carbon management and industrial decarbonisation at COP31",
+   "url": "https://www.globalccsinstitute.com/cop31mediaadvisory/",
+   "date": "2026-11-11",
+   "summary": "ANTALYA, TÜRKIYE, 11 November 2026 – As the need to accelerate industrial decarbonisation and advance progress towards net-zero emissions grows, carbon management technologies will be a key contributor to global climate action. Against this backdrop, discussions at COP31 will bring together policymakers, industry leaders, financial institutions and technical experts to share insights, exchange knowledge and […] The post Media advisory | Global CCS Institute to advance dialogue on carbon management and industrial decarbonisation at COP31 appeared first on Global CCS Institute .",
+   "id": "81aba33c91"
   },
   {
    "kind": "paper",
@@ -86,49 +57,60 @@
    "authors": "Jiarun Chen",
    "summary": "This study systematically explores the intrinsic mechanism and implementation path of the coordinated development of urban green infrastructure (UGI) and carbon neutrality. Based on the four-dimensional analysis framework of input carbon effect synergy institutional guarantee, the contribution characteristics of UGI to carbon neutrality were revealed through remote sensing inversion, model simulation, and multiple case comparisons. Indirect carbon reduction is significantly higher than direct carbon sequestration, becoming the dominant path; In the landscape pattern, compact clustered patches have both carbon fixation and emission reduction advantages, while their shape complexity offsets…",
    "id": "93d3ab7540"
+  },
+  {
+   "kind": "paper",
+   "source": "Industrial & Engineering Chemistry Research",
+   "title": "Balancing CO2 Mass Transport and Salt Precipitation via Multiparameter Optimization for Efficient Syngas Production in MEA Electrolyzers",
+   "url": "https://doi.org/10.1021/acs.iecr.6c04109",
+   "doi": "10.1021/acs.iecr.6c04109",
+   "date": "2026-11-12",
+   "authors": "Pan Huang, Shaojie Zheng, Xuefeng He, Hao Lei, Zhenting Xie, Qin Peng et al.",
+   "summary": "Abstract Electrochemical CO2 reduction (eCO2RR) offers a sustainable route for converting CO2 into value-added chemicals and fuels, yet its practical application is hindered by CO2 transport limitations and salt precipitation in membrane electrode assembly (MEA) electrolyzers. In this work, we systematically investigated the effects of catalyst loading, gas diffusion layer (GDL) wettability, CO2 flow rate, CO2 temperature, and acid-vapor humidification on the eCO2RR performance. By systematically balancing electrode kinetics, CO2 mass transport, and salt precipitation, an optimal combination of operating conditions for the MEA-based eCO2RR is identified: catalyst loading of 1.0 mg cm–2,…",
+   "id": "86fd6b0907"
   }
  ],
  "log": [
-  "Collecting for 2026-11-15 (items since 2026-11-13; first run: False)",
-  "  ✓ feed Global CCS Institute: 12 entries, 0 new & relevant",
+  "Collecting for 2026-11-15 (items since 2026-11-11; first run: False)",
+  "  ✓ feed Global CCS Institute: 12 entries, 1 new & relevant",
   "  ✓ feed CCUS Norway: 20 entries, 0 new & relevant",
-  "  ✓ feed Northern Lights: 10 entries, 0 new & relevant",
   "  ✓ feed IEAGHG: 12 entries, 0 new & relevant",
   "  ✓ feed Int. Journal of Greenhouse Gas Control: 43 entries, 0 new & relevant",
-  "  ✓ feed Longship / Langskip (ccsnorway.com): 10 entries, 0 new & relevant",
-  "  ✓ feed CLIMIT: 10 entries, 0 new & relevant",
+  "  ✓ feed gigaCCS (SINTEF-led research centre): 10 entries, 1 new & relevant",
+  "  ✓ feed Northern Lights: 10 entries, 0 new & relevant",
   "  ✓ feed Norwegian SciTech News (NTNU/SINTEF): 10 entries, 0 new & relevant",
-  "  ✓ feed SINTEF news: 20 entries, 0 new & relevant",
+  "  ✓ feed SINTEF news: 20 entries, 1 new & relevant",
+  "  ✓ feed Longship / Langskip (ccsnorway.com): 10 entries, 1 new & relevant",
+  "  ✓ feed CLIMIT: 10 entries, 0 new & relevant",
+  "  ✓ feed EU Innovation Fund / CINEA: 30 entries, 1 new & relevant",
   "  ✓ feed Gassnova: 10 entries, 0 new & relevant",
-  "  ✓ feed gigaCCS (SINTEF-led research centre): 10 entries, 0 new & relevant",
-  "  ✓ feed Zero Emissions Platform (ZEP): 10 entries, 0 new & relevant",
-  "  ✓ feed Danish Energy Agency (Energistyrelsen): 25 entries, 0 new & relevant",
-  "  ✓ feed SINTEF blog: 10 entries, 0 new & relevant",
   "  ✓ feed NCCS (SINTEF/NTNU research centre): 10 entries, 0 new & relevant",
+  "  ✓ feed Danish Energy Agency (Energistyrelsen): 25 entries, 0 new & relevant",
   "  ✓ feed Clean Air Task Force (CATF): 8 entries, 0 new & relevant",
-  "  ✓ feed Offshore Energy: 50 entries, 0 new & relevant",
+  "  ✓ feed SINTEF blog: 10 entries, 0 new & relevant",
+  "  ✓ feed Zero Emissions Platform (ZEP): 10 entries, 0 new & relevant",
   "  ✓ feed Bellona: 20 entries, 0 new & relevant",
-  "  ✓ feed Splash247 (shipping): 10 entries, 0 new & relevant",
-  "  ✓ feed State of Green (Denmark): 100 entries, 0 new & relevant",
+  "  ✓ feed Offshore Energy: 50 entries, 0 new & relevant",
   "  ✓ feed Stockholm Exergi: 10 entries, 1 new & relevant",
+  "  ✓ feed State of Green (Denmark): 100 entries, 0 new & relevant",
   "  ✓ feed Bellona Europa: 10 entries, 0 new & relevant",
-  "  ✓ feed ZERO: 10 entries, 0 new & relevant",
+  "  ✓ feed Splash247 (shipping): 10 entries, 0 new & relevant",
   "  ✓ feed E24 energi: 39 entries, 0 new & relevant",
+  "  ✓ feed ZERO: 10 entries, 0 new & relevant",
   "  ✓ feed Teknisk Ukeblad (TU.no): 249 entries, 0 new & relevant",
-  "  ✓ feed EU Innovation Fund / CINEA: 30 entries, 0 new & relevant",
+  "  ✓ page DK Havenergi – CCS news (Denmark): 12 news links, 1 new",
   "  ✓ page European Commission – DG CLIMA: 5 news links, 0 new",
-  "  ✓ page DK Havenergi – CCS news (Denmark): 14 news links, 4 new",
   "  ✓ page Project Greensand: 44 news links, 0 new",
   "  ✓ page Equinor: 45 news links, 0 new",
   "  ✓ page NTNU: 10 news links, 0 new",
-  "  ✓ Crossref 'CO2 transport network optimization': 0 relevant",
+  "  ✓ Crossref 'CO2 transport network optimization': 2 relevant",
   "  ✓ Crossref 'CCS supply chain optimization': 0 relevant",
   "  ✓ Crossref 'CO2 shipping': 0 relevant",
   "  ✓ Crossref 'carbon capture transport infrastructure': 2 relevant",
   "  ✓ Crossref 'CO2 pipeline network design': 0 relevant",
   "  ✓ Crossref 'CCS hub cluster': 0 relevant",
-  "  ✓ Crossref 'CO2 intermediate storage terminal': 0 relevant",
-  "  ✓ Crossref 'carbon capture and storage Nordic': 0 relevant",
+  "  ✓ Crossref 'CO2 intermediate storage terminal': 1 relevant",
+  "  ✓ Crossref 'carbon capture and storage Nordic': 1 relevant",
   "  ✓ OpenAlex 'CO2 transport network optimization': 0 relevant",
   "  ✓ OpenAlex 'CCS supply chain optimization': 0 relevant",
   "  ✓ OpenAlex 'CO2 shipping': 0 relevant",
@@ -137,6 +119,6 @@
   "  ✓ OpenAlex 'CCS hub cluster': 0 relevant",
   "  ✓ OpenAlex 'CO2 intermediate storage terminal': 0 relevant",
   "  ✓ OpenAlex 'carbon capture and storage Nordic': 0 relevant",
-  "  ✓ abstracts found for 0 of 1 papers that lacked one"
+  "  ✓ abstracts found for 0 of 0 papers that lacked one"
  ]
 }
