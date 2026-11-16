@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T12:09:31+01:00",
+ "generated_at": "2026-11-16T12:55:39+01:00",
  "digest_date": "2026-11-16",
  "since": "2026-11-12",
  "first_run": false,
@@ -15,7 +15,7 @@
  "max_items_per_day": 25,
  "max_web_searches": 15,
  "counts": {
-  "news": 5,
+  "news": 40,
   "papers": 4,
   "already_published_skipped": 5
  },
@@ -23,47 +23,362 @@
   {
    "kind": "news",
    "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "Finansministeriet vil udbrede grønne regnemodeller til udviklingslande 16. NOV 2026 10.17 Klima",
-   "url": "https://www.doi.dk/en/ccs/artikel/finansministeriet-vil-udbrede-groenne-regnemodeller-til-udviklingslande",
+   "title": "Dan Jørgensen er bekymret for manglende momentum i klimakamp 11. NOV 2026 9.45 Klima Navne Politik",
+   "url": "https://www.doi.dk/en/ccs/artikel/dan-joergensen-er-bekymret-for-manglende-momentum-i-klimakamp",
    "date": null,
    "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "fc58181f06"
+   "id": "37932101da"
   },
   {
    "kind": "news",
    "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "Frivillige tiltag kan overstråle den endelige aftale ved klimatopmøde 9. NOV 2026 9.03 Energi Internationalt Klima",
-   "url": "https://www.doi.dk/en/ccs/artikel/frivillige-tiltag-kan-overstraale-den-endelige-aftale-ved-klimatopmoede",
+   "title": "Danske Rambøll fyrer 400 på ledelsesgangene 27. OKT 2026 13.13 Arbejdsmarked Erhverv Plan & Byg",
+   "url": "https://www.doi.dk/en/ccs/artikel/danske-ramboell-fyrer-400-paa-ledelsesgangene",
    "date": null,
    "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "ef55cbfa4d"
+   "id": "1c586d54e7"
   },
   {
-   "kind": "news",
-   "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "Minister rejser til Kina for at styrke samarbejdet om grøn teknologi 4. NOV 2026 10.23 Erhverv Internationalt Politik",
-   "url": "https://www.doi.dk/en/ccs/artikel/minister-rejser-til-kina-for-at-styrke-samarbejdet-om-groen-teknologi",
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "2026 IEAGHG International CCS Summer School",
+   "url": "https://ieaghg.org/events/2026-ieaghg-international-ccs-summer-school/",
    "date": null,
-   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "a359926890"
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "6361d2af16"
   },
   {
-   "kind": "news",
-   "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "COWI gør midlertidig løsning på direktør for den danske forretning permanent 29. OKT 2026 11.50 Arbejdsmarked Navne",
-   "url": "https://www.doi.dk/en/ccs/artikel/cowi-goer-midlertidig-loesning-paa-direktoer-for-den-danske-forretning-permanent",
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "CO2 Transport and Storage Cost Review Webinar",
+   "url": "https://ieaghg.org/events/co2-transport-and-storage-cost-review/",
    "date": null,
-   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "a23b4977a9"
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "98e58e96f5"
   },
   {
-   "kind": "news",
-   "source": "DK Havenergi – CCS news (Denmark)",
-   "title": "Klimarådet foreslår at hæve flyafgifter med op til 2.420 kr. 8. OKT 2026 13.45 Klima Politik Transport",
-   "url": "https://www.doi.dk/en/ccs/artikel/klimaraadet-foreslaar-at-haeve-flyafgifter-med-op-til-2-420-kr",
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "18th Greenhouse Gas Control Technologies Conference (GHGT-18)",
+   "url": "https://ieaghg.org/events/18th-greenhouse-gas-control-technologies-conference-ghgt-18/",
    "date": null,
-   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
-   "id": "6f80955d15"
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "cd258df8fc"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "Webinar: Guidance for Agreements to Transport CO2 Across National Boundaries Under the London Protocol",
+   "url": "https://ieaghg.org/events/webinar-guidance-for-agreements-to-transport-co2-across-national-boundaries/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "ecce44c205"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "Air Quality Implications of Post-Combustion Capture in Industrial Processes",
+   "url": "https://ieaghg.org/events/air-quality-implications-of-post-combustion-capture-in-industrial-processes/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "b352ae4288"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "8th International Workshop on Offshore Geological CO2 Storage",
+   "url": "https://ieaghg.org/events/8th-international-workshop-on-offshore-geological-co2-storage/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "60ceb315c5"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "10th High-Temperature Solid Looping Cycles Network Meeting",
+   "url": "https://ieaghg.org/events/10th-high-temperature-solid-looping-cycles-network-meeting/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "13231ef7df"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "COP30: Essential takeaways from Belém",
+   "url": "https://ieaghg.org/events/cop30-essential-takeaways-from-belem/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "3e8a874972"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "Market Models for CCUS/CDR – A Global Screening",
+   "url": "https://ieaghg.org/events/market-models-for-ccus-cdr-a-global-screening/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "e601bf612c"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "Webinar: A Critical Study on Waste to Low Carbon (CCS-abated) Hydrogen",
+   "url": "https://ieaghg.org/events/webinar-study-waste-low-carbon-hydrogen/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "a2f6dcaa86"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "Webinar: The Value of Direct Air Carbon Capture and Storage (DACCS)",
+   "url": "https://ieaghg.org/events/webinar-value-direct-air-carbon-capture-and-storage-daccs/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "17e6254664"
+  },
+  {
+   "kind": "event",
+   "source": "IEAGHG – events (GHGT, summer school, workshops)",
+   "title": "Webinar: Review of CO2 storage via in-situ mineralisation in mafic-ultramafic rocks",
+   "url": "https://ieaghg.org/events/co2-storage-via-in-situ-mineralisation-in-mafic-ultramafic-rocks/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "b4b6739dc3"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Event Brussels & online 02/12/2026 89th Advisory Council About The Advisory Council (AC) meeting is Carbon Management Europe’s flagship... Advisory Council 20th anniversary Read More",
+   "url": "https://carbonmanagementeurope.org/event/89th-advisory-council/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "a97b36f621"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Event Full Circle, 89 Chaussée de Vleurgat, 1050 Ixelles, Brussels, Belgium 02/12/2026 One year of Longship operations: What’s next for CCS in Europe? This event will bring together stakeholders from across Europe’s CCS... Workshop ICM Summit Storage",
+   "url": "https://carbonmanagementeurope.org/event/northern-lights-side-event-icm-summit-2026/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "6020c4c012"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Event ING Marnix, Av. Marnix 24, 1000 Brussels 03/12/2026 Industrial Carbon Management Summit 2026 The annual Brussels event for Europe’s Industrial Carbon Management community As Europe’s... Summit CDR Clean Industrial Deal Read More",
+   "url": "https://carbonmanagementeurope.org/event/industrial-carbon-management-summit-2026/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "5d455c1e37"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Event Budapest, Hungary 11/02/2027 Central and Southern Europe CCS & CDR Conference: Building on Hungary’s strengths to create a regional carbon management hub Hungary brings storage geology, subsurface expertise, advanced regulatory frameworks, and.",
+   "url": "https://carbonmanagementeurope.org/event/central-and-southern-europe-ccs-and-cdr-conference/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "c3eb7c5f51"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Workshop Blackrock Castle, Cork, Ireland 03/11/2026 Ireland’s carbon opportunity With hard-to-abate industrial emissions and significant potential for permanent CO₂ removals, Ireland has an opportunity to develop industrial carbon management as part ",
+   "url": "https://carbonmanagementeurope.org/event/ireland-carbon-opportunity-industrial-carbon-management/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "cf1f4eb6f6"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Networking Kamilou - 36 rue Joseph II, 1000 Brussels 28/10/2026 Brussels Carbon Capture Social (B-CCS) – October edition The Brussels Carbon Capture Social (B-CCS) is back for a Halloween edition. Join Europe’s carbon management community on 28 Octob",
+   "url": "https://carbonmanagementeurope.org/event/brussels-carbon-capture-social-october-edition/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "5bcc53a8bc"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Roundtable Brussels 27/10/2026 250 Mt of permanent removals: Can the EU ETS review deliver? The EU Emissions Trading System (EU ETS) review proposal sets out a potential pathway for integrating permanent carbon dioxide removals (CDR) into the EU ETS.",
+   "url": "https://carbonmanagementeurope.org/event/eu-ets-permanent-carbon-removals-250-mt/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "6ab223df27"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Summit QEII Centre, London (UK) 22/09/2026 Carbon Capture Global Summit 2026 The Carbon Capture Global Summit 2026 (CCGS2026) gathers 800+ senior leaders from industry, finance, and policy across Europe, North America, Asia-Pacific, and the Middle Ea",
+   "url": "https://carbonmanagementeurope.org/event/carbon-capture-global-summit-2026/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "abfc5c3ceb"
+  },
+  {
+   "kind": "event",
+   "source": "Carbon Management Europe / ZEP – events",
+   "title": "Advisory Council Brussels & online 17/09/2026 88th Advisory Council About The Advisory Council (AC) meeting is Carbon Management Europe’s flagship one-day gathering, happening quarterly. What to expect: Updates on the latest developments in European ",
+   "url": "https://carbonmanagementeurope.org/event/88th-advisory-council/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "78a48c530f"
+  },
+  {
+   "kind": "event",
+   "source": "gigaCCS – events",
+   "title": "Capture process and impurities",
+   "url": "https://gigaccs.no/event/webinar/capture-process-and-impurities/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "74c7c831d1"
+  },
+  {
+   "kind": "event",
+   "source": "gigaCCS – events",
+   "title": "Basin scale pressure management",
+   "url": "https://gigaccs.no/event/webinar/basin-scale-pressure-management/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "531c57aacf"
+  },
+  {
+   "kind": "event",
+   "source": "gigaCCS – events",
+   "title": "CCS innovation dynamics",
+   "url": "https://gigaccs.no/event/webinar/ccs-innovation-dynamics/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "29c5af4739"
+  },
+  {
+   "kind": "event",
+   "source": "gigaCCS – events",
+   "title": "gigaCCS at Arendalsuka 2026",
+   "url": "https://gigaccs.no/event/gigaccs-at-arendalsuka-2026/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "6724f73ae0"
+  },
+  {
+   "kind": "event",
+   "source": "gigaCCS – events",
+   "title": "Centres for Environment-friendly Energy Research (FME) Conference",
+   "url": "https://gigaccs.no/event/centres-for-environment-friendly-energy-research-fme-conference-2/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "87be9bbba1"
+  },
+  {
+   "kind": "event",
+   "source": "NCCS – events",
+   "title": "Nccs at ghgt 17",
+   "url": "https://nccs.no/event/nccs-at-ghgt-17/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "8edcd1b4eb"
+  },
+  {
+   "kind": "event",
+   "source": "NCCS – events",
+   "title": "NCCS at Arendalsuka 2024",
+   "url": "https://nccs.no/event/nccs-at-arendalsuka-2024/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "9a7b66b555"
+  },
+  {
+   "kind": "event",
+   "source": "NCCS – events",
+   "title": "NCCS Closing Conference",
+   "url": "https://nccs.no/event/nccs-closing-conference/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "c1f493e7c8"
+  },
+  {
+   "kind": "event",
+   "source": "NCCS – events",
+   "title": "The Role of Hydrogen and CCS in the Short and Long Term",
+   "url": "https://nccs.no/event/the-role-of-hydrogen-and-ccs-in-the-short-and-long-term/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "2d6e8b923f"
+  },
+  {
+   "kind": "event",
+   "source": "NCCS – events",
+   "title": "NCCS Lunch Webinars – 2024",
+   "url": "https://nccs.no/event/nccs-lunch-webinars-2024/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "e590150dc6"
+  },
+  {
+   "kind": "event",
+   "source": "NCCS – events",
+   "title": "NCCS Consortium Days 2023",
+   "url": "https://nccs.no/event/nccs-consortium-days-2023/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "ecd606dea8"
+  },
+  {
+   "kind": "event",
+   "source": "SINTEF – events and courses",
+   "title": "INDEE 3 session: Transition towards cleans systems applying natural refrigerants",
+   "url": "https://www.sintef.no/en/events/indee-3-session-transition-towards-cleans-systems-applying-natural-refrigerants/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "59403be839"
+  },
+  {
+   "kind": "event",
+   "source": "SINTEF – events and courses",
+   "title": "Mini-exhibition of innovations for future fisheries",
+   "url": "https://www.sintef.no/en/events/mini-exhibition-of-innovations-for-future-fisheries/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "dae6cdd5dd"
+  },
+  {
+   "kind": "event",
+   "source": "SINTEF – events and courses",
+   "title": "INDEE3: Building skills for sustainable cooling & heating",
+   "url": "https://www.sintef.no/en/events/indee3-building-skills-for-sustainable-cooling-heating/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "9438d6c91e"
+  },
+  {
+   "kind": "event",
+   "source": "SINTEF – events and courses",
+   "title": "Marine Minerals Webinar Series 2026. Session 5: Seabed Minerals on the Norwegian Continental Shelf",
+   "url": "https://www.sintef.no/en/events/archive/2026/marine-minerals-webinar-series-2026.-session-1-critical-minerals-and-the-energy-transition/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "36d095ef18"
+  },
+  {
+   "kind": "event",
+   "source": "SINTEF – events and courses",
+   "title": "AI for a Safer Society? Security, Safety and Trust",
+   "url": "https://www.sintef.no/en/events/ai-for-a-safer-society-security-safety-and-trust/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "3c5a1f4844"
+  },
+  {
+   "kind": "event",
+   "source": "SINTEF – events and courses",
+   "title": "Enter the twetland restoration enabling conditions barriers and nordic recommendationsitle of the page",
+   "url": "https://www.sintef.no/en/events/enter-the-twetland-restoration-enabling-conditions-barriers-and-nordic-recommendationsitle-of-the-page/",
+   "date": null,
+   "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any registration or abstract deadline; keep it only if that is still ahead and relevant.)",
+   "id": "a2b44e44ea"
   },
   {
    "kind": "paper",
@@ -108,41 +423,93 @@
    "authors": "Pan Huang, Shaojie Zheng, Xuefeng He, Hao Lei, Zhenting Xie, Qin Peng et al.",
    "summary": "Abstract Electrochemical CO2 reduction (eCO2RR) offers a sustainable route for converting CO2 into value-added chemicals and fuels, yet its practical application is hindered by CO2 transport limitations and salt precipitation in membrane electrode assembly (MEA) electrolyzers. In this work, we systematically investigated the effects of catalyst loading, gas diffusion layer (GDL) wettability, CO2 flow rate, CO2 temperature, and acid-vapor humidification on the eCO2RR performance. By systematically balancing electrode kinetics, CO2 mass transport, and salt precipitation, an optimal combination of operating conditions for the MEA-based eCO2RR is identified: catalyst loading of 1.0 mg cm–2,…",
    "id": "86fd6b0907"
+  },
+  {
+   "kind": "news",
+   "source": "DK Havenergi – CCS news (Denmark)",
+   "title": "Finansministeriet vil udbrede grønne regnemodeller til udviklingslande 16. NOV 2026 10.17 Klima",
+   "url": "https://www.doi.dk/en/ccs/artikel/finansministeriet-vil-udbrede-groenne-regnemodeller-til-udviklingslande",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "fc58181f06"
+  },
+  {
+   "kind": "news",
+   "source": "DK Havenergi – CCS news (Denmark)",
+   "title": "Frivillige tiltag kan overstråle den endelige aftale ved klimatopmøde 9. NOV 2026 9.03 Energi Internationalt Klima",
+   "url": "https://www.doi.dk/en/ccs/artikel/frivillige-tiltag-kan-overstraale-den-endelige-aftale-ved-klimatopmoede",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "ef55cbfa4d"
+  },
+  {
+   "kind": "news",
+   "source": "DK Havenergi – CCS news (Denmark)",
+   "title": "Minister rejser til Kina for at styrke samarbejdet om grøn teknologi 4. NOV 2026 10.23 Erhverv Internationalt Politik",
+   "url": "https://www.doi.dk/en/ccs/artikel/minister-rejser-til-kina-for-at-styrke-samarbejdet-om-groen-teknologi",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "a359926890"
+  },
+  {
+   "kind": "news",
+   "source": "DK Havenergi – CCS news (Denmark)",
+   "title": "COWI gør midlertidig løsning på direktør for den danske forretning permanent 29. OKT 2026 11.50 Arbejdsmarked Navne",
+   "url": "https://www.doi.dk/en/ccs/artikel/cowi-goer-midlertidig-loesning-paa-direktoer-for-den-danske-forretning-permanent",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "a23b4977a9"
+  },
+  {
+   "kind": "news",
+   "source": "DK Havenergi – CCS news (Denmark)",
+   "title": "Klimarådet foreslår at hæve flyafgifter med op til 2.420 kr. 8. OKT 2026 13.45 Klima Politik Transport",
+   "url": "https://www.doi.dk/en/ccs/artikel/klimaraadet-foreslaar-at-haeve-flyafgifter-med-op-til-2-420-kr",
+   "date": null,
+   "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)",
+   "id": "6f80955d15"
   }
  ],
  "log": [
   "Collecting for 2026-11-16 (items since 2026-11-12; first run: False)",
-  "  ✓ feed Global CCS Institute: 12 entries, 0 new & relevant",
-  "  ✓ feed IEAGHG: 12 entries, 0 new & relevant",
   "  ✓ feed CCUS Norway: 20 entries, 0 new & relevant",
   "  ✓ feed Northern Lights: 10 entries, 0 new & relevant",
-  "  ✓ feed gigaCCS (SINTEF-led research centre): 10 entries, 1 new & relevant",
+  "  ✓ feed Global CCS Institute: 12 entries, 0 new & relevant",
   "  ✓ feed Int. Journal of Greenhouse Gas Control: 44 entries, 0 new & relevant",
+  "  ✓ feed gigaCCS (SINTEF-led research centre): 10 entries, 1 new & relevant",
+  "  ✓ feed IEAGHG: 12 entries, 0 new & relevant",
   "  ✓ feed Longship / Langskip (ccsnorway.com): 10 entries, 0 new & relevant",
   "  ✓ feed CLIMIT: 10 entries, 0 new & relevant",
   "  ✓ feed Norwegian SciTech News (NTNU/SINTEF): 10 entries, 0 new & relevant",
   "  ✓ feed SINTEF news: 20 entries, 0 new & relevant",
-  "  ✓ feed EU Innovation Fund / CINEA: 30 entries, 0 new & relevant",
   "  ✓ feed Gassnova: 10 entries, 0 new & relevant",
+  "  ✓ feed EU Innovation Fund / CINEA: 30 entries, 0 new & relevant",
   "  ✓ feed Danish Energy Agency (Energistyrelsen): 25 entries, 0 new & relevant",
   "  ✓ feed Clean Air Task Force (CATF): 8 entries, 0 new & relevant",
   "  ✓ feed NCCS (SINTEF/NTNU research centre): 10 entries, 0 new & relevant",
   "  ✓ feed Offshore Energy: 50 entries, 0 new & relevant",
-  "  ✓ feed SINTEF blog: 10 entries, 0 new & relevant",
-  "  ✓ feed Bellona Europa: 10 entries, 0 new & relevant",
   "  ✓ feed Zero Emissions Platform (ZEP): 10 entries, 0 new & relevant",
-  "  ✓ feed Bellona: 20 entries, 0 new & relevant",
   "  ✓ feed Splash247 (shipping): 10 entries, 0 new & relevant",
-  "  ✓ feed E24 energi: 39 entries, 0 new & relevant",
+  "  ✓ feed Bellona: 20 entries, 0 new & relevant",
   "  ✓ feed Stockholm Exergi: 10 entries, 1 new & relevant",
+  "  ✓ feed Splash247 – CO2 stories: 10 entries, 0 new & relevant",
   "  ✓ feed State of Green (Denmark): 100 entries, 0 new & relevant",
+  "  ✓ feed Splash247 – carbon capture stories: 10 entries, 0 new & relevant",
+  "  ✓ feed Bellona Europa: 10 entries, 0 new & relevant",
+  "  ✓ feed SINTEF blog: 10 entries, 0 new & relevant",
   "  ✓ feed ZERO: 10 entries, 0 new & relevant",
+  "  ✓ feed E24 energi: 39 entries, 0 new & relevant",
   "  ✓ feed Teknisk Ukeblad (TU.no): 262 entries, 0 new & relevant",
-  "  ✓ page DK Havenergi – CCS news (Denmark): 13 news links, 5 new",
   "  ✓ page European Commission – DG CLIMA: 3 news links, 0 new",
-  "  ✓ page Equinor: 45 news links, 0 new",
+  "  ✓ page DK Havenergi – CCS news (Denmark): 11 news links, 2 new",
   "  ✓ page Project Greensand: 44 news links, 0 new",
+  "  ✓ page Equinor: 45 news links, 0 new",
   "  ✓ page NTNU: 10 news links, 0 new",
+  "  ✓ events IEAGHG – events (GHGT, summer school, workshops): 12 event links, 12 new",
+  "  ✓ events SINTEF – events and courses: 6 event links, 6 new",
+  "  ✓ events gigaCCS – events: 6 event links, 5 new",
+  "  ✓ events Carbon Management Europe / ZEP – events: 9 event links, 9 new",
+  "  ✓ events NCCS – events: 6 event links, 6 new",
   "  ✓ Crossref 'CO2 transport network optimization': 1 relevant",
   "  ✓ Crossref 'CCS supply chain optimization': 0 relevant",
   "  ✓ Crossref 'CO2 shipping': 0 relevant",
@@ -152,13 +519,8 @@
   "  ✓ Crossref 'CO2 intermediate storage terminal': 1 relevant",
   "  ✓ Crossref 'carbon capture and storage Nordic': 1 relevant",
   "  ✓ OpenAlex 'CO2 transport network optimization': 1 relevant",
-  "  ✓ OpenAlex 'CCS supply chain optimization': 0 relevant",
-  "  ✗ OpenAlex 'CO2 shipping': 429 Client Error: Too Many Requests for url: https://api.openalex.org/works?search=CO2+shipping&per_page=25&filter=from_publication_date%3A2026-11-12%2Cto_publication_date%3A2027-01-15%2Ctype%3Aarticle%7Creview%7Creport%7Cpreprint&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Cauthorships%2Cprimary_location%2Cabstract_inverted_index",
-  "  ✓ OpenAlex 'carbon capture transport infrastructure': 0 relevant",
-  "  ✓ OpenAlex 'CO2 pipeline network design': 0 relevant",
-  "  ✓ OpenAlex 'CCS hub cluster': 0 relevant",
-  "  ✗ OpenAlex 'CO2 intermediate storage terminal': 429 Client Error: Too Many Requests for url: https://api.openalex.org/works?search=CO2+intermediate+storage+terminal&per_page=25&filter=from_publication_date%3A2026-11-12%2Cto_publication_date%3A2027-01-15%2Ctype%3Aarticle%7Creview%7Creport%7Cpreprint&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Cauthorships%2Cprimary_location%2Cabstract_inverted_index",
-  "  ✓ OpenAlex 'carbon capture and storage Nordic': 0 relevant",
+  "  ✗ OpenAlex 'CCS supply chain optimization': 429 Client Error: Too Many Requests",
+  "  ✗ OpenAlex daily budget used up (no OPENALEX_API_KEY secret set); Crossref still searched",
   "  ✓ abstracts found for 1 of 1 papers that lacked one"
  ]
 }
