@@ -316,6 +316,15 @@ def main() -> int:
     first_run = not seen_links
 
     today = oslo_today()
+    # GitHub sometimes starts the scheduled run hours late, after the routine has already started
+    # the collector itself. A second run the same day would overwrite the list Claude worked from
+    # (so its items would fail verification) and mark new links as seen although no digest uses
+    # them. So only the first run of the day collects; later ones leave new items for tomorrow.
+    prev = load_json(DATA / "candidates.json", {})
+    if prev.get("digest_date") == today.isoformat() and "--force" not in sys.argv:
+        log(f"Today's list ({today}) already exists; nothing to do. New items will be picked up tomorrow. "
+            "(Use the 'redo' option to collect again.)")
+        return 0
     # "New" = since the last digest before today (re-running on the same day keeps the same window)
     earlier = sorted(d for d in (k.removesuffix(".json") for k in state.get("processed", {})) if d < today.isoformat())
     if earlier:

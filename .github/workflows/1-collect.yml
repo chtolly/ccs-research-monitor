@@ -39,7 +39,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Collect feeds, pages and new papers
-        run: python scripts/collect.py
+        run: python scripts/collect.py ${{ inputs.redo && '--force' || '' }}
       - name: Save candidates to the repository
         run: |
           git config user.name "github-actions[bot]"

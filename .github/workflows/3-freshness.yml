@@ -6,6 +6,7 @@ name: 3 · Check today's update
 on:
   schedule:
     - cron: "45 9 * * *"
+    - cron: "15 14 * * *"   # second try: GitHub sometimes skips scheduled runs entirely
   workflow_dispatch:
 
 permissions:

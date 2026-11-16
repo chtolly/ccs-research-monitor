@@ -15,7 +15,7 @@ Maintained by Kshitij Chaudhary.
 | from 04:17 / 05:17 | **Collect.** A script reads about 33 news feeds and organisation pages, plus the OpenAlex and Crossref research databases. It keeps only items that are new and match the keywords, and saves them to `data/candidates.json`. **When it finishes, it starts step 2 itself.** GitHub sometimes starts this step late, even by hours, so Claude waits for it instead of working from an old list. | GitHub Actions (workflow "1 · Collect candidates") | Free |
 | right after step 1 | **Select and summarise.** Claude reads the candidates, runs up to 15 web searches for news the feeds missed, drops anything off-topic or already published, writes the summaries, and saves a draft in `data/inbox/`. Its instructions are in `ROUTINE.md`. A backup schedule also starts Claude later in the morning. If today's digest is already done, that run stops at once. | A Claude Code scheduled task ("routine") on Kshitij's Claude subscription | Uses the subscription's normal usage. No API key, no extra bill |
 | ~15 min later | **Check and publish.** A script checks every link (dead or unverifiable links are removed), removes duplicates, saves the day's digest, and rebuilds the website and RSS feed. | GitHub Actions ("2 · Verify & publish") | Free |
-| 10:45 / 11:45 | **Safety check.** Sends an email if today's update is missing, **or** if it was built from an old list because step 1 was late. | GitHub Actions ("3 · Check today's update") | Free |
+| 10:45 / 11:45, again 15:15 / 16:15 | **Safety check.** Sends an email if today's update is missing, **or** if it was built from an old list because step 1 was late. | GitHub Actions ("3 · Check today's update") | Free |
 
 Schedules are fixed in UTC, so everything runs an hour later in summer.
 
@@ -26,6 +26,8 @@ Schedules are fixed in UTC, so everything runs an hour later in summer.
 Without these secrets everything still works, but Claude runs only at its scheduled time and may then use the previous day's list. The token can only start this one routine. It cannot read anything.
 
 **Claude's internet access.** The task runs in its own cloud environment, "CCS monitor (full web)", with **Full** network access, so Claude can open articles to check titles, dates and original sources. Your other Claude cloud sessions keep the default Limited access. Some sites block GitHub's servers (IEA, the Norwegian Offshore Directorate, the Swedish Energy Agency, Carbon Herald). Claude checks those itself each morning; they are listed under `claude_checks` in `config.yaml`.
+
+**Only one collection per day.** If GitHub starts the collector again later the same day, that run does nothing, so it can't overwrite the list Claude worked from. Anything new it would have found is picked up the next morning. The "redo" switch overrides this.
 
 **Broken sources.** The collector records which feeds and pages fail. If one fails 3 days in a row, the daily safety check emails you with its name (details in `data/source_health.json`).
 
