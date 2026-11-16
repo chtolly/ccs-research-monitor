@@ -1,0 +1,10 @@
+{
+ "date": "2026-11-16",
+ "published_at": "2026-11-16T07:31:06+01:00",
+ "searches_used": 14,
+ "notes": "collector late: web search only (candidates.json still dated 2026-11-15 after 20 min wait); IEA and Sodir returned 403, site: searches found nothing new; Energimyndigheten checked, only a non-CCS Article 6 item; Carbon Herald page returned empty; 14 web searches found nothing new since 11 Nov that passes the relevance test",
+ "items": [],
+ "dropped": [],
+ "candidates_seen": 5,
+ "candidates_date": "2026-11-15"
+}
