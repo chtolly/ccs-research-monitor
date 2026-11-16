@@ -15,6 +15,10 @@ on:
         description: "Also redo today's digest even if it is already published"
         type: boolean
         default: false
+      start_routine:
+        description: "Start the Claude routine when the list is ready (the routine itself turns this off when it starts the collector)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -46,7 +50,7 @@ jobs:
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
           echo "PUSHED=1" >> "$GITHUB_ENV"
       - name: Start the Claude routine now that today's list is ready
-        if: env.PUSHED == '1' || inputs.redo
+        if: (env.PUSHED == '1' || inputs.redo) && (github.event_name != 'workflow_dispatch' || inputs.start_routine)
         env:
           ROUTINE_FIRE_URL: ${{ secrets.ROUTINE_FIRE_URL }}
           ROUTINE_FIRE_TOKEN: ${{ secrets.ROUTINE_FIRE_TOKEN }}

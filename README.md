@@ -37,7 +37,7 @@ Without these secrets everything still works, but Claude runs only at its schedu
 - Items found by web search must open, and the page must contain the claimed title. Their publication date is read from the page itself, and anything older than the window is dropped.
 - Papers without an abstract yet get an honest one-line description instead of invented findings.
 - Nothing already published in the last few months is repeated.
-- If nothing relevant is new, the page says "No significant new items today".
+- An empty digest is never shown. If the collector is late, Claude starts it and waits; if it still has no list for today, nothing is published and you get a notification. On a genuinely quiet day the page keeps showing the latest digest that has items, with a short note.
 
 ## Files you might want to edit
 

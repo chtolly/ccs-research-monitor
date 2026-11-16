@@ -433,23 +433,32 @@ def build_site(cfg: dict) -> None:
     keep = ["title", "title_en", "source", "date", "event_date", "authors", "url", "category", "summary", "why_it_matters", "digest_date"]
     (SITE / "items.json").write_text(json.dumps([{k: i.get(k) for k in keep if i.get(k)} for i in all_items], ensure_ascii=False), encoding="utf-8")
 
-    # Archive pages
+    # Archive pages (digests with items only)
     for d in digests:
+        if not d["items"]:
+            continue
         body = header(cfg, updated, 1) + f'<main class="wrap"><h2>Digest of {e(nice_date(d["date"]))}</h2>' + \
             render_digest_body(d, categories) + "</main>" + footer(cfg)
         (SITE / "archive" / f"{d['date']}.html").write_text(page(f"{nice_date(d['date'])} · {cfg['site']['title']}", body, cfg, 1), encoding="utf-8")
 
-    latest = digests[0] if digests else None
+    # An empty digest is never shown: the page and archive only list digests that have items.
+    shown = [d for d in digests if d["items"]]
+    today_iso = oslo_today().isoformat()
+    latest = shown[0] if shown else None
     chips = '<button class="chip" data-cat="all" aria-pressed="true">All</button>' + "".join(
         f'<button class="chip" data-cat="{e(c["key"])}" aria-pressed="false">{e(c["name"])}</button>' for c in categories)
     if latest:
         today_html = f'<h2>Digest of {e(nice_date(latest["date"]))} <span class="tag">{len(latest["items"])} item{"s" if len(latest["items"]) != 1 else ""}</span></h2>' + \
             render_digest_body(latest, categories)
-        if latest["date"] != oslo_today().isoformat():
-            today_html = '<p class="meta">Today\'s update has not been published yet; showing the most recent digest.</p>' + today_html
+        if latest["date"] != today_iso:
+            if digests[0]["date"] == today_iso:
+                note = f'Nothing new passed the relevance filter today ({e(nice_date(today_iso))}); showing the most recent digest.'
+            else:
+                note = "Today's update has not been published yet; showing the most recent digest."
+            today_html = f'<p class="meta">{note}</p>' + today_html
     else:
-        today_html = '<p class="empty">The first digest has not been published yet.</p>'
-    arch = "".join(f'<li><a href="archive/{d["date"]}.html">{e(nice_date(d["date"]))}</a> <span class="tag">{len(d["items"])}</span></li>' for d in digests)
+        today_html = '<p class="meta">The first digest has not been published yet.</p>'
+    arch = "".join(f'<li><a href="archive/{d["date"]}.html">{e(nice_date(d["date"]))}</a> <span class="tag">{len(d["items"])}</span></li>' for d in shown)
     cat_list = "".join(f"<li><strong>{e(c['name'])}</strong> — {e(c['description'])}</li>" for c in categories)
     n_src = len(cfg.get("feeds", [])) + len(cfg.get("watch_pages", []))
     about = f"""<section id="about" class="about"><h2>About</h2>
@@ -501,6 +510,9 @@ def main() -> int:
         doc = json.loads(Path(args.check).read_text(encoding="utf-8"))
         cand = load_json(DATA / "candidates.json", {})
         errs = check_format(doc, cand.get("categories") or [], {c["id"] for c in cand.get("items", [])})
+        if cand.get("digest_date") != doc.get("date"):
+            errs.append(f"data/candidates.json is dated {cand.get('digest_date')!r}, not {doc.get('date')!r}: the collector has not "
+                        "delivered today's list. Start it and wait (ROUTINE.md step 1); never push a digest from a stale list.")
         if errs:
             print("FORMAT ERRORS — fix these and run the check again:")
             print("\n".join(" - " + x for x in errs))

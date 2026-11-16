@@ -23,7 +23,12 @@ python3 -c "import json;print(json.load(open('data/digests/$TODAY.json')).get('c
 
 If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest.
 
-**Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, the collector is late. Run `bash scripts/wait_for_candidates.sh 20` **with `run_in_background: true`** and wait for it to finish. If it prints `FRESH`, re-read `data/candidates.json` and continue. If it prints `STALE`, continue with web search only and say so in `notes` (for example "collector late: web search only"). When the collector finishes later, it starts this routine again and the digest is redone with the full list.
+**Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, the collector is late (GitHub sometimes starts its scheduled run hours late, or skips it). **Start it yourself; never work from yesterday's list:**
+
+1. Start the collector workflow with the GitHub tool `mcp__github__actions_run_trigger` (load it with ToolSearch if needed): `method: "run_workflow"`, `owner: "chtolly"`, `repo: "ccs-research-monitor"`, `workflow_id: "1-collect.yml"`, `ref: "main"`, `inputs: {"start_routine": false}`. (`start_routine: false` stops the collector from starting a second copy of this routine, since this run will do the digest itself.)
+2. Run `bash scripts/wait_for_candidates.sh 25` **with `run_in_background: true`** and wait for it to finish. The collector normally takes about 2 minutes.
+3. If it prints `FRESH`, re-read `data/candidates.json` and continue with Step 2.
+4. If it prints `STALE` (or the workflow could not be started), **do not write or push any digest.** Send a PushNotification saying the collector did not deliver today's list and why (for example "workflow start refused" or "collector ran but list still dated X"), then stop. Yesterday's digest stays on the page, and when the collector does finish it starts this routine again.
 
 ## Step 2 — Screen the candidates
 
@@ -75,7 +80,7 @@ LEAVE OUT:
 - company financial results
 - anything that is clearly old
 
-**Padding is worse than an empty day.** If nothing passes the test, publish an empty list. The page will then say "No significant new items today".
+**Padding is worse than a quiet day.** Never pad with off-topic or old items. But a quiet day must be earned: before concluding that nothing is new, you must have screened every candidate, opened every `claude_checks` page, and used **all** `max_web_searches` searches (try Swedish and Danish wording, specific project names such as Northern Lights, Greensand, Bifrost, Beccs Stockholm, Klaipėda, and specific outlets). If nothing passes even then, push the file with an empty `items` list and say in `notes` what you checked. The website never shows an empty digest: it keeps showing the most recent digest that has items, with a one-line note that nothing new passed the filter today.
 
 ## Step 4 — Write the draft
 
