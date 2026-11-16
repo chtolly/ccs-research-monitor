@@ -23,12 +23,12 @@ python3 -c "import json;print(json.load(open('data/digests/$TODAY.json')).get('c
 
 If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest.
 
-**Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, the collector is late (GitHub sometimes starts its scheduled run hours late, or skips it). **Start it yourself; never work from yesterday's list:**
+**Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, GitHub's scheduled collector has not run yet (it is often hours late or skipped). **Do not wait for it. Run the collector yourself; never work from yesterday's list:**
 
-1. Start the collector workflow with the GitHub tool `mcp__github__actions_run_trigger` (load it with ToolSearch if needed): `method: "run_workflow"`, `owner: "chtolly"`, `repo: "ccs-research-monitor"`, `workflow_id: "1-collect.yml"`, `ref: "main"`, `inputs: {"start_routine": false}`. (`start_routine: false` stops the collector from starting a second copy of this routine, since this run will do the digest itself.)
-2. Run `bash scripts/wait_for_candidates.sh 25` **with `run_in_background: true`** and wait for it to finish. The collector normally takes about 2 minutes.
-3. If it prints `FRESH`, re-read `data/candidates.json` and continue with Step 2.
-4. If it prints `STALE` (or the workflow could not be started), **do not write or push any digest.** Send a PushNotification saying the collector did not deliver today's list and why (for example "workflow start refused" or "collector ran but list still dated X"), then stop. Yesterday's digest stays on the page, and when the collector does finish it starts this routine again.
+1. Run `bash scripts/run_collector.sh` **with `run_in_background: true`** and wait for it to finish (about 2–4 minutes). It installs the collector's packages, collects today's list in this sandbox and pushes it to `main`. If GitHub's collector pushes today's list first, the script uses that one instead.
+2. If the last line starts with `FRESH`, re-read `data/candidates.json` and continue with Step 2.
+3. If it starts with `STALE`, try once more through GitHub: start the workflow with the GitHub tool `mcp__github__actions_run_trigger` (load it with ToolSearch if needed): `method: "run_workflow"`, `owner: "chtolly"`, `repo: "ccs-research-monitor"`, `workflow_id: "1-collect.yml"`, `ref: "main"`, `inputs: {"start_routine": false}`. Then run `bash scripts/wait_for_candidates.sh 15` with `run_in_background: true`. If it prints `FRESH`, continue with Step 2.
+4. Only if both fail: **do not write or push any digest.** Send a PushNotification that quotes the `STALE` reason, then stop. The page keeps the previous digest, and this routine runs again at its second scheduled time.
 
 ## Step 2 — Screen the candidates
 

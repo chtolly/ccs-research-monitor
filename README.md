@@ -12,8 +12,8 @@ Maintained by Kshitij Chaudhary.
 
 | Time (Oslo, winter / summer) | What happens | Where it runs | Cost |
 |---|---|---|---|
-| from 04:17 / 05:17 | **Collect.** A script reads about 33 news feeds and organisation pages, plus the OpenAlex and Crossref research databases. It keeps only items that are new and match the keywords, and saves them to `data/candidates.json`. **When it finishes, it starts step 2 itself.** GitHub sometimes starts this step late, even by hours, so Claude waits for it instead of working from an old list. | GitHub Actions (workflow "1 · Collect candidates") | Free |
-| right after step 1 | **Select and summarise.** Claude reads the candidates, runs up to 15 web searches for news the feeds missed, drops anything off-topic or already published, writes the summaries, and saves a draft in `data/inbox/`. Its instructions are in `ROUTINE.md`. A backup schedule also starts Claude later in the morning. If today's digest is already done, that run stops at once. | A Claude Code scheduled task ("routine") on Kshitij's Claude subscription | Uses the subscription's normal usage. No API key, no extra bill |
+| from 04:17 / 05:17 | **Collect.** A script reads about 33 news feeds and organisation pages, plus the OpenAlex and Crossref research databases. It keeps only items that are new and match the keywords, and saves them to `data/candidates.json`. **When it finishes, it starts step 2 itself.** GitHub often starts this step late, even by hours, or skips it. Claude does not wait for it: if today's list is missing, Claude runs the collector itself in its own cloud sandbox (`scripts/run_collector.sh`, about 3 minutes). | GitHub Actions (workflow "1 · Collect candidates") | Free |
+| right after step 1 | **Select and summarise.** Claude reads the candidates, runs up to 15 web searches for news the feeds missed, drops anything off-topic or already published, writes the summaries, and saves a draft in `data/inbox/`. Its instructions are in `ROUTINE.md`. Claude's own schedule (07:00 and again 10:00 Oslo) also starts it; this schedule is run by Anthropic, not GitHub, and is on time. If today's digest is already done, that run stops at once. | A Claude Code scheduled task ("routine") on Kshitij's Claude subscription | Uses the subscription's normal usage. No API key, no extra bill |
 | ~15 min later | **Check and publish.** A script checks every link (dead or unverifiable links are removed), removes duplicates, saves the day's digest, and rebuilds the website and RSS feed. | GitHub Actions ("2 · Verify & publish") | Free |
 | 10:45 / 11:45, again 15:15 / 16:15 | **Safety check.** Sends an email if today's update is missing, **or** if it was built from an old list because step 1 was late. | GitHub Actions ("3 · Check today's update") | Free |
 
@@ -91,7 +91,7 @@ The routine belongs to one person's Claude account, and the repository to one Gi
    1. They connect GitHub at https://claude.ai/code and install the Claude GitHub app on the repository.
    2. They create a scheduled task at https://claude.ai/code/routines with:
       - the repository
-      - the schedule `0 6 * * *` (UTC)
+      - the schedule `0 6,9 * * *` (UTC)
       - the model of their choice
       - this prompt: *"Follow the instructions in ROUTINE.md in this repository exactly."*
    3. The old maintainer then turns their own task off.
