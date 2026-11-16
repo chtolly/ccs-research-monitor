@@ -139,6 +139,10 @@ feeds:
   - {name: "ZERO", url: "https://zero.no/feed/", filter: true}
   - {name: "Offshore Energy", url: "https://www.offshore-energy.biz/feed/", filter: true}
   - {name: "Splash247 (shipping)", url: "https://splash247.com/feed/", filter: true}
+  # Splash's main feed only lists its last 10 posts (it publishes more per day), so CO2 stories
+  # scroll off before the daily run. Its search feeds list the latest posts on a topic instead.
+  - {name: "Splash247 – CO2 stories", url: "https://splash247.com/?s=CO2&feed=rss2", filter: true}
+  - {name: "Splash247 – carbon capture stories", url: "https://splash247.com/?s=carbon+capture&feed=rss2", filter: true}
   - {name: "E24 energi", url: "https://e24.no/rss2/?seksjon=energi", filter: true}
   - {name: "Teknisk Ukeblad (TU.no)", url: "https://www.tu.no/rss", filter: true}
 
@@ -152,6 +156,17 @@ watch_pages:
   - {name: "Project Greensand", url: "https://www.greensandfuture.com/news", link_contains: "/news/"}
   - {name: "NTNU", url: "https://www.ntnu.edu/news", link_contains: "/news/"}
   - {name: "DK Havenergi – CCS news (Denmark)", url: "https://www.doi.dk/en/ccs", link_contains: "/en/ccs/artikel/"}
+
+# Conference, course and event lists. Unlike news pages, every event link not seen before is
+# passed to Claude (also the first time), because an upcoming event matters however long it has
+# been listed. Claude opens each one and keeps only relevant events whose date or deadline is ahead.
+# other_hosts: true = the list links to event pages on another website.
+event_pages:
+  - {name: "IEAGHG – events (GHGT, summer school, workshops)", url: "https://ieaghg.org/events/", link_contains: "/events/"}
+  - {name: "Carbon Management Europe / ZEP – events", url: "https://carbonmanagementeurope.org/events/", link_contains: "/event/"}
+  - {name: "gigaCCS – events", url: "https://gigaccs.no/events/", link_contains: "/event/"}
+  - {name: "NCCS – events", url: "https://nccs.no/events/", link_contains: "/event/"}
+  - {name: "SINTEF – events and courses", url: "https://www.sintef.no/en/events/", link_contains: "/en/events/"}
 
 # Pages Claude opens itself each morning (they block GitHub's servers or are built by
 # JavaScript, so the free collector cannot read them). Claude looks for items dated on
@@ -182,4 +197,5 @@ search_topics:
   - "IEA report CCUS carbon capture"
   - "koldioxidavskiljning bio-CCS Sverige nyheter"
   - "CCS Danmark CO2-lagring nyheder"
-  - "CCS conference call for papers 2027"
+  - "carbon capture and storage conference 2027 call for abstracts"
+  - "CO2 transport storage course OR summer school 2027"

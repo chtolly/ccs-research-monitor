@@ -21,7 +21,7 @@ Read these files:
 python3 -c "import json;print(json.load(open('data/digests/$TODAY.json')).get('candidates_date',''))" 2>/dev/null
 ```
 
-If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest.
+If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest. **When redoing,** first read the existing `data/inbox/$TODAY.json` and keep its items (they were already checked), then add what is new; a redo must never lose items that were already published today.
 
 **Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, GitHub's scheduled collector has not run yet (it is often hours late or skipped). **Do not wait for it. Run the collector yourself; never work from yesterday's list:**
 
@@ -32,7 +32,9 @@ If this prints `$TODAY`, today's digest was already made from today's list. **St
 
 ## Step 2 — Screen the candidates
 
-Go through **every** candidate and keep only those that pass the relevance test below. Candidates labelled "New link on the organisation's news page" have no date. **Open the page with WebFetch** to read its date and content. Keep it only if it was published on or after `since`, and put that date on the item. For news candidates with a short or empty summary, open the page too and write the summary from what it says. For papers whose summary says "No abstract available yet", write one honest sentence saying what the title indicates and that the abstract is not yet available. Never invent findings.
+Go through **every** candidate and keep only those that pass the relevance test below. Candidates labelled "New link on the organisation's news page" have no date. **Open the page with WebFetch** to read its date and content. Keep it only if it was published on or after `since`, and put that date on the item. For news candidates with a short or empty summary, open the page too and write the summary from what it says. Candidates with `"kind": "event"` come from conference and course lists. Open each one that might be relevant (CCS, CO₂ transport, storage, networks, CDR or CCS policy; skip unrelated events such as refrigeration or fisheries). Keep it only if the event, or its registration or abstract deadline, is still ahead. Use category `events`, put the event start date (or the deadline, if that comes first and is the point of the item) in `event_date`, set `date` to the page's publication date if it shows one, otherwise to `$TODAY`, and use the event's real name as `title` (the collected title may be rough). Published events stay in the "Upcoming" box on the website until their date passes.
+
+For papers whose summary says "No abstract available yet", write one honest sentence saying what the title indicates and that the abstract is not yet available. Never invent findings.
 
 ## Step 3 — Web search for what the feeds missed
 

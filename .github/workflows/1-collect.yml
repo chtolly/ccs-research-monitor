@@ -39,6 +39,8 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Collect feeds, pages and new papers
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: python scripts/collect.py ${{ inputs.redo && '--force' || '' }}
       - name: Save candidates to the repository
         run: |

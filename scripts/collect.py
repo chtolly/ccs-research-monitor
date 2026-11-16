@@ -8,6 +8,7 @@ Nothing here uses AI; every candidate comes from a page actually retrieved.
 from __future__ import annotations
 
 import html
+import os
 import re
 import sys
 import time
@@ -136,7 +137,15 @@ def all_feed_links(src: dict) -> list[str]:
 A_RX = re.compile(r'<a\b[^>]*href="([^"#]+)"[^>]*>(.*?)</a>', re.S | re.I)
 
 
-def read_watch_page(src: dict, seen_links: set, first_run: bool) -> tuple[list[dict], list[str]]:
+GENERIC_LINK = re.compile(r"^(view|read|see|learn|more|details|event details|view event details|read more|register)\b", re.I)
+
+
+def slug_title(url: str) -> str:
+    slug = [p for p in urlsplit(url).path.split("/") if p][-1:] or [""]
+    return re.sub(r"[-_]+", " ", slug[0]).strip().capitalize()
+
+
+def read_watch_page(src: dict, seen_links: set, first_run: bool, events: bool = False) -> tuple[list[dict], list[str]]:
     try:
         r = get(src["url"])
     except Exception as e:
@@ -149,18 +158,33 @@ def read_watch_page(src: dict, seen_links: set, first_run: bool) -> tuple[list[d
     found: dict[str, str] = {}
     for m in A_RX.finditer(r.text):
         href = urljoin(src["url"], html.unescape(m.group(1)))
-        if urlsplit(href).netloc.removeprefix("www.") != host:
+        if urlsplit(href).netloc.removeprefix("www.") != host and not src.get("other_hosts"):
+            continue
+        if norm_url(href) == norm_url(src["url"]):
             continue
         want = src.get("link_contains")
         if want and not any(w in href for w in ([want] if isinstance(want, str) else want)):
             continue
         text = strip_html(m.group(2))
-        if len(text) < 20:
+        if events and (len(text) < 20 or GENERIC_LINK.match(text)):
+            text = found.get(href) or slug_title(href)  # "View Event Details" → name from the address
+        elif len(text) < 20:
             continue
-        found.setdefault(href, text[:250])
+        if len(text) >= len(found.get(href, "")) or GENERIC_LINK.match(found.get(href, "")):
+            found[href] = text[:250]
     # A page added to config.yaml later gets its own baseline: if none of its current links
     # have been seen before, they are all old news and only later additions count as new.
-    baseline = first_run or not any(norm_url(u) in seen_links for u in found)
+    if events:  # drop pagination and other non-event links ("2", "Next")
+        found = {u: t for u, t in found.items() if len(t) >= 8 and not t.replace(" ", "").isdigit()}
+    # Event pages have no baseline: an upcoming event is worth showing however long it has been listed.
+    baseline = not events and (first_run or not any(norm_url(u) in seen_links for u in found))
+    if events:
+        new = [{"kind": "event", "source": src["name"], "title": t, "url": u, "date": None,
+                "summary": "(Listed on the organisation's events page. Open it to confirm the event, its date, place and any "
+                           "registration or abstract deadline; keep it only if that is still ahead and relevant.)"}
+               for u, t in found.items() if norm_url(u) not in seen_links]
+        log(f"  ✓ events {src['name']}: {len(found)} event links, {len(new)} new")
+        return new, list(found)
     new = [] if baseline else [
         {"kind": "news", "source": src["name"], "title": t, "url": u, "date": None,
          "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)"}
@@ -172,16 +196,20 @@ def read_watch_page(src: dict, seen_links: set, first_run: bool) -> tuple[list[d
 
 def openalex(queries: list[str], since: date, today: date) -> list[dict]:
     out = []
+    key = os.environ.get("OPENALEX_API_KEY", "").strip()  # free key (openalex.org/settings/api); without one, GitHub's shared IP often runs out
     for q in queries:
         try:
-            r = get("https://api.openalex.org/works", params={
+            r = get("https://api.openalex.org/works", params={**({"api_key": key} if key else {}),
                 "search": q, "per_page": 25,
                 "filter": f"from_publication_date:{since},to_publication_date:{today + timedelta(days=60)},type:article|review|report|preprint",
                 "select": "id,doi,title,publication_date,authorships,primary_location,abstract_inverted_index",
             })
             r.raise_for_status()
         except Exception as e:
-            log(f"  ✗ OpenAlex '{q}': {e}")
+            log(f"  ✗ OpenAlex '{q}': {str(e).split(' for url')[0]}")
+            if "429" in str(e):
+                log("  ✗ OpenAlex daily budget used up" + ("" if key else " (no OPENALEX_API_KEY secret set)") + "; Crossref still searched")
+                break
             continue
         n = 0
         for w in r.json().get("results", []):
@@ -340,6 +368,7 @@ def main() -> int:
     with ThreadPoolExecutor(8) as ex:
         feed_results = list(ex.map(lambda s: read_feed(s, since, match, seen_links, first_run), cfg.get("feeds", [])))
         page_results = list(ex.map(lambda s: read_watch_page(s, seen_links, first_run), cfg.get("watch_pages", [])))
+        page_results += list(ex.map(lambda s: read_watch_page(s, seen_links, first_run, events=True), cfg.get("event_pages", [])))
         undated_links = list(ex.map(all_feed_links, cfg.get("feeds", [])))
     for r in feed_results:
         cands += r
@@ -383,6 +412,11 @@ def main() -> int:
     news = [c for c in items if c["kind"] != "paper"][: cap // 2 + cap // 4]
     pap = [c for c in items if c["kind"] == "paper"][: cap - len(news)]
     items = news + pap
+    # A forced re-run on the same day keeps the earlier list's candidates, so items already
+    # published today from that list still match a candidate (the redo keeps them).
+    if prev.get("digest_date") == today.isoformat():
+        have = {c["id"] for c in items}
+        items += [c for c in prev.get("items", []) if c.get("id") not in have]
 
     out = {
         "generated_at": oslo_now().isoformat(timespec="seconds"),

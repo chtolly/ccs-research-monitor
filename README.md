@@ -29,6 +29,10 @@ Without these secrets everything still works, but Claude runs only at its schedu
 
 **Only one collection per day.** If GitHub starts the collector again later the same day, that run does nothing, so it can't overwrite the list Claude worked from. Anything new it would have found is picked up the next morning. The "redo" switch overrides this.
 
+**Conferences, courses and deadlines.** The collector reads the event lists of IEAGHG (GHGT, summer school, workshops), Carbon Management Europe/ZEP, gigaCCS, NCCS and SINTEF. Claude keeps relevant events whose date or deadline is still ahead. The front page lists them under "Upcoming conferences, courses & deadlines" until the date passes.
+
+**Research papers (OpenAlex).** OpenAlex limits free use to a small daily allowance per internet address. GitHub's servers share addresses, so that allowance is often used up, and Crossref (the other paper database) then does the work alone. To fix this, create a free OpenAlex API key at https://openalex.org/settings/api, then add it on GitHub under **Settings → Secrets and variables → Actions** as `OPENALEX_API_KEY`.
+
 **Broken sources.** The collector records which feeds and pages fail. If one fails 3 days in a row, the daily safety check emails you with its name (details in `data/source_health.json`).
 
 **If something fails,** the website keeps showing the previous day's digest. GitHub then emails whoever last edited the workflow files.
@@ -47,7 +51,7 @@ You can edit any of these on github.com: open the file, click the ✏️ pencil,
 
 | File | What it controls |
 |---|---|
-| `config.yaml` | **Sources** (`feeds`, `watch_pages`, and `claude_checks` for sites Claude opens itself), **keywords** (`keywords: core`), **paper searches** (`paper_queries`), Claude's **search topics** (`search_topics`), **limits** (`max_web_searches`, `max_items_per_day`), category names, and the page title and "maintained by" text. Each section has comments explaining it. |
+| `config.yaml` | **Sources** (`feeds`, `watch_pages`, `event_pages` for conference and course lists, and `claude_checks` for sites Claude opens itself), **keywords** (`keywords: core`), **paper searches** (`paper_queries`), Claude's **search topics** (`search_topics`), **limits** (`max_web_searches`, `max_items_per_day`), category names, and the page title and "maintained by" text. Each section has comments explaining it. |
 | `ROUTINE.md` | Claude's instructions: what counts as relevant, how to write summaries, and the format of the draft. Edit it in plain English. Changes apply from the next morning. |
 
 **To add a news source:** add a line under `feeds:` with the site's RSS address. Many WordPress sites have one at `https://site.com/feed/`. Use `filter: false` if the source is only about CCS, or `filter: true` to keep only entries that mention a keyword.

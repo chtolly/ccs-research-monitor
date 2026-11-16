@@ -125,7 +125,7 @@ def verify_item(it: dict, cands: dict[str, dict]) -> str | None:
             return "candidate_id not in today's candidate list"
         if norm_url(c["url"]) != norm_url(url):
             return "URL differs from the collected candidate"
-        if title_similarity(c["title"], it["title"]) < 0.6:
+        if c.get("kind") != "event" and title_similarity(c["title"], it["title"]) < 0.6:
             return "title differs from the collected candidate"
         if c.get("doi") and doi_exists(c["doi"]):
             return None
@@ -459,8 +459,21 @@ def build_site(cfg: dict) -> None:
     else:
         today_html = '<p class="meta">The first digest has not been published yet.</p>'
     arch = "".join(f'<li><a href="archive/{d["date"]}.html">{e(nice_date(d["date"]))}</a> <span class="tag">{len(d["items"])}</span></li>' for d in shown)
+    # Upcoming conferences, courses and deadlines stay visible until their date passes
+    today_d = oslo_today().isoformat()
+    upcoming, seen_ev = [], set()
+    for it in sorted((i for i in all_items if i.get("category") == "events" and (i.get("event_date") or "") >= today_d),
+                     key=lambda i: i["event_date"]):
+        if norm_url(it["url"]) not in seen_ev:
+            seen_ev.add(norm_url(it["url"]))
+            upcoming.append(it)
+    events_html = ""
+    if upcoming:
+        rows = "".join(f'<li><span class="tag">{e(nice_date(i["event_date"]))}</span> <a href="{e(i["url"])}" rel="noopener" target="_blank">'
+                       f'{e(i["title"])}</a> <span class="meta">· {e(i["source"])}</span></li>' for i in upcoming[:30])
+        events_html = f'<section id="upcoming"><h2>Upcoming conferences, courses &amp; deadlines</h2><ul class="archive">{rows}</ul></section>'
     cat_list = "".join(f"<li><strong>{e(c['name'])}</strong> — {e(c['description'])}</li>" for c in categories)
-    n_src = len(cfg.get("feeds", [])) + len(cfg.get("watch_pages", []))
+    n_src = len(cfg.get("feeds", [])) + len(cfg.get("watch_pages", [])) + len(cfg.get("event_pages", []))
     about = f"""<section id="about" class="about"><h2>About</h2>
 <p>This page tracks new research, projects, policy and events relevant to the {e(cfg['site']['project'])}. It updates automatically every morning (about 07:00 Oslo time in winter, 08:00 in summer).</p>
 <p><strong>What is tracked:</strong></p><ul>{cat_list}</ul>
@@ -470,7 +483,7 @@ def build_site(cfg: dict) -> None:
 <p>Maintained by {e(cfg['site']['maintainer'])}. Subscribe via the <a href="feed.xml">RSS feed</a>.</p></section>"""
     body = header(cfg, updated) + f"""<div class="tools"><div class="wrap"><input id="q" class="search" type="search" placeholder="Search all digests (e.g. ship, Greensand, ETS)…" aria-label="Search all digests">
 <div class="chips" role="group" aria-label="Filter by category">{chips}</div></div></div>
-<main class="wrap"><section id="today">{today_html}</section><section id="results" class="hidden"></section>
+<main class="wrap"><section id="today">{today_html}</section><section id="results" class="hidden"></section>{events_html}
 <section id="archive"><h2>Archive</h2><ul class="archive">{arch or '<li>No earlier digests yet.</li>'}</ul></section>{about}</main>{footer(cfg)}
 <script>const CATS={json.dumps(cats, ensure_ascii=False)};{JS}</script>"""
     (SITE / "index.html").write_text(page(cfg["site"]["title"], body, cfg), encoding="utf-8")
