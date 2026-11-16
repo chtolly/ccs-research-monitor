@@ -1,10 +1,28 @@
 {
  "date": "2026-11-16",
- "published_at": "2026-11-16T07:31:06+01:00",
- "searches_used": 14,
- "notes": "collector late: web search only (candidates.json still dated 2026-11-15 after 20 min wait); IEA and Sodir returned 403, site: searches found nothing new; Energimyndigheten checked, only a non-CCS Article 6 item; Carbon Herald page returned empty; 14 web searches found nothing new since 11 Nov that passes the relevance test",
- "items": [],
+ "published_at": "2026-11-16T10:43:05+01:00",
+ "searches_used": 13,
+ "notes": "redo with today's candidates (collector OK, 7 candidates; 1 kept). DK Havenergi links dated Oct and off-topic; IEA and Sodir 403, site: searches found nothing new; Energimyndigheten only non-CCS Article 6 item; Carbon Herald Öresundskraft FID is the INNOZHERO story already published 13 Nov; Havstjerne-EcoLog deal dated 29 Oct; no new web items since 12 Nov",
+ "items": [
+  {
+   "title": "Advancements in Pipeline Corrosion Monitoring for Supercritical CO2 Environments: A Review",
+   "title_en": null,
+   "source": "Journal of Materials Engineering and Performance",
+   "date": "2026-11-13",
+   "url": "https://doi.org/10.1007/s11665-026-15433-2",
+   "category": "research",
+   "summary": "A review of corrosion evaluation and monitoring techniques for pipelines carrying CO2 in the supercritical state. The authors note that impurities such as water, SO2, O2, H2S and NO2 make supercritical-CO2 corrosion a major challenge for pipeline transport, and that earlier reviews focused on mechanisms and prevention rather than monitoring.",
+   "why_it_matters": "Impurity limits and corrosion monitoring requirements shape CO2 stream specifications, pipeline material choices and operating costs in shared multi-emitter pipeline networks.",
+   "origin": "candidate",
+   "candidate_id": "811a306ebb",
+   "authors": "Prosper Dadzie, Aliyu Adebayo Sulaimon, Shiferaw Regassa Jufar, Yen Adams Sokama‐Neuyam, Joshua Nsiah Turkson, Muhammad Ayoub et al.",
+   "event_date": null,
+   "also_reported_by": [],
+   "id": "811a306ebb",
+   "doi": "10.1007/s11665-026-15433-2"
+  }
+ ],
  "dropped": [],
- "candidates_seen": 5,
- "candidates_date": "2026-11-15"
+ "candidates_seen": 7,
+ "candidates_date": "2026-11-16"
 }
