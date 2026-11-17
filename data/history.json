@@ -169,5 +169,23 @@
   "date": "2026-11-16",
   "category": "events",
   "digest_date": "2026-11-16"
+ },
+ {
+  "id": "1fa3809f25",
+  "url": "https://doi.org/10.3390/rsee3040018",
+  "doi": "10.3390/rsee3040018",
+  "title": "Beyond Construction: The Platform Effect of Environmental Infrastructure in Carbon Capture and Storage",
+  "date": "2026-11-16",
+  "category": "research",
+  "digest_date": "2026-11-17"
+ },
+ {
+  "id": "75f80829b7",
+  "url": "https://doi.org/10.1016/j.ccst.2026.100718",
+  "doi": "10.1016/j.ccst.2026.100718",
+  "title": "Prospective Life Cycle Optimization of Carbon Capture and Storage/Utilization (CCS/CCU) Supply Chains in the Cement Industry",
+  "date": "2026-11-17",
+  "category": "research",
+  "digest_date": "2026-11-17"
  }
 ]
