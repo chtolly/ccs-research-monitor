@@ -21,7 +21,7 @@ Read these files:
 python3 -c "import json;print(json.load(open('data/digests/$TODAY.json')).get('candidates_date',''))" 2>/dev/null
 ```
 
-If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest. **When redoing,** first read the existing `data/inbox/$TODAY.json` and keep its items (they were already checked), then add what is new; a redo must never lose items that were already published today.
+If this prints `$TODAY`, today's digest was already made from today's list. **Stop here** and reply "Already done for $TODAY". This is normal: the routine is started both by the collector and by a backup schedule. Only continue anyway if the message that started this run explicitly says to redo today's digest. **If the message says TOP-UP,** only screen the candidates whose `id` is not already used in `data/inbox/$TODAY.json` (they come from sites that blocked the morning collection, such as SINTEF), keep all existing items, skip Step 3 (no web searches or `claude_checks`), and push. **When redoing,** first read the existing `data/inbox/$TODAY.json` and keep its items (they were already checked), then add what is new; a redo must never lose items that were already published today.
 
 **Then make sure the candidates are today's.** If `digest_date` in `data/candidates.json` is not `$TODAY`, GitHub's scheduled collector has not run yet (it is often hours late or skipped). **Do not wait for it. Run the collector yourself; never work from yesterday's list:**
 

@@ -38,6 +38,8 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Note which list this run starts from
+        run: echo "START_GEN=$(python3 -c "import json;print(json.load(open('data/candidates.json')).get('generated_at',''))")" >> "$GITHUB_ENV"
       - name: Collect feeds, pages and new papers
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
@@ -49,15 +51,15 @@ jobs:
           git add data/candidates.json data/seen_links.json data/source_health.json
           git diff --cached --quiet && exit 0
           TODAY=$(TZ=Europe/Oslo date +%F)
-          # The Claude routine may have collected today's list itself while this run was queued: keep that one
+          # If the Claude routine pushed a new list while this run was collecting, keep that one
           git fetch -q origin main
-          MAIN=$(git show origin/main:data/candidates.json | python3 -c "import json,sys;print(json.load(sys.stdin).get('digest_date',''))")
-          if [ "$MAIN" = "$TODAY" ] && [ "${{ inputs.redo }}" != "true" ]; then echo "Today's list is already on main; nothing to save."; exit 0; fi
+          MAIN=$(git show origin/main:data/candidates.json | python3 -c "import json,sys;print(json.load(sys.stdin).get('generated_at',''))")
+          if [ "$MAIN" != "$START_GEN" ] && [ "${{ inputs.redo }}" != "true" ]; then echo "A newer list was pushed meanwhile; keeping it."; exit 0; fi
           git commit -m "Candidates $TODAY"
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
           echo "PUSHED=1" >> "$GITHUB_ENV"
       - name: Start the Claude routine now that today's list is ready
-        if: (env.PUSHED == '1' || inputs.redo) && (github.event_name != 'workflow_dispatch' || inputs.start_routine)
+        if: (env.PUSHED == '1' || inputs.redo) && (github.event_name != 'workflow_dispatch' || inputs.start_routine) && (env.TOPUP != '1' || env.TOPUP_NEW != '')
         env:
           ROUTINE_FIRE_URL: ${{ secrets.ROUTINE_FIRE_URL }}
           ROUTINE_FIRE_TOKEN: ${{ secrets.ROUTINE_FIRE_TOKEN }}
@@ -69,6 +71,7 @@ jobs:
           TODAY=$(TZ=Europe/Oslo date +%F)
           MSG="Started by the collector: data/candidates.json for $TODAY is ready."
           [ "${{ inputs.redo }}" = "true" ] && MSG="$MSG Please redo today's digest even if it is already published."
+          [ -n "${TOPUP_NEW:-}" ] && MSG="Started by the collector: TOP-UP. $TOPUP_NEW new candidates from sites that blocked the morning collection were added to data/candidates.json for $TODAY. Please redo today's digest as a top-up."
           for i in 1 2 3; do
             CODE=$(curl -s -o resp.json -w "%{http_code}" -X POST "$ROUTINE_FIRE_URL" \
               -H "Authorization: Bearer $ROUTINE_FIRE_TOKEN" \

@@ -349,10 +349,21 @@ def main() -> int:
     # (so its items would fail verification) and mark new links as seen although no digest uses
     # them. So only the first run of the day collects; later ones leave new items for tomorrow.
     prev = load_json(DATA / "candidates.json", {})
+    on_github = bool(os.environ.get("GITHUB_ACTIONS"))
+    topup = False
     if prev.get("digest_date") == today.isoformat() and "--force" not in sys.argv:
-        log(f"Today's list ({today}) already exists; nothing to do. New items will be picked up tomorrow. "
-            "(Use the 'redo' option to collect again.)")
-        return 0
+        # Some sites (e.g. SINTEF) block Claude's cloud machine but not GitHub. When the morning list was
+        # collected by the Claude routine, GitHub's (late) run tops it up with what those sites have.
+        if on_github and prev.get("collected_by") == "routine":
+            topup = True
+            if os.environ.get("GITHUB_ENV"):
+                with open(os.environ["GITHUB_ENV"], "a") as f:
+                    f.write("TOPUP=1\n")
+            log(f"Today's list was collected by the Claude routine; topping it up with sources it could not reach.")
+        else:
+            log(f"Today's list ({today}) already exists; nothing to do. New items will be picked up tomorrow. "
+                "(Use the 'redo' option to collect again.)")
+            return 0
     # "New" = since the last digest before today (re-running on the same day keeps the same window)
     earlier = sorted(d for d in (k.removesuffix(".json") for k in state.get("processed", {})) if d < today.isoformat())
     if earlier:
@@ -415,11 +426,23 @@ def main() -> int:
     # A forced re-run on the same day keeps the earlier list's candidates, so items already
     # published today from that list still match a candidate (the redo keeps them).
     if prev.get("digest_date") == today.isoformat():
+        before = {c.get("id") for c in prev.get("items", [])}
+        added = [c for c in items if c["id"] not in before]
+        if topup and not added:
+            log("Top-up found nothing new; today's list is unchanged.")
+            update_source_health(cfg, today)  # sites that worked from GitHub are not counted as broken
+            return 0
         have = {c["id"] for c in items}
         items += [c for c in prev.get("items", []) if c.get("id") not in have]
+        if topup:
+            log(f"Top-up: {len(added)} new candidates added to today's list.")
+            if os.environ.get("GITHUB_ENV"):
+                with open(os.environ["GITHUB_ENV"], "a") as f:
+                    f.write(f"TOPUP_NEW={len(added)}\n")
 
     out = {
         "generated_at": oslo_now().isoformat(timespec="seconds"),
+        "collected_by": "github" if on_github else "routine",
         "digest_date": today.isoformat(),
         "since": since.isoformat(),
         "first_run": first_run,

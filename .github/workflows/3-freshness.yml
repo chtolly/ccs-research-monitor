@@ -1,11 +1,11 @@
-# Safety net. At 09:45 UTC (10:45 Oslo winter / 11:45 summer), after the routine's
-# backup run, this checks that today's digest was published AND was built from today's
-# collector list. If not, the run fails and GitHub emails you.
+# Safety net. At 11:00 UTC (12:00 Oslo winter / 13:00 summer), after both routine runs, and again
+# at 14:15 UTC, this checks that today's digest was published AND was built from today's list,
+# and that no source has failed 3 days in a row. If not, the run fails and GitHub emails you.
 name: 3 · Check today's update
 
 on:
   schedule:
-    - cron: "45 9 * * *"
+    - cron: "0 11 * * *"
     - cron: "15 14 * * *"   # second try: GitHub sometimes skips scheduled runs entirely
   workflow_dispatch:
 
@@ -19,7 +19,9 @@ jobs:
       - uses: actions/checkout@v7
       - name: Was today's digest published?
         run: |
-          TODAY=$(TZ=Europe/Oslo date +%F)
+          # GitHub sometimes starts this check many hours late. Before noon (Oslo), today's runs may not be
+          # finished yet, so a check that starts then (e.g. a late one after midnight) looks at yesterday.
+          if [ "$(TZ=Europe/Oslo date +%H)" -lt 12 ]; then TODAY=$(TZ=Europe/Oslo date -d yesterday +%F); else TODAY=$(TZ=Europe/Oslo date +%F); fi
           LAST=$(python3 -c "import json;print(json.load(open('data/state.json')).get('last_digest_date',''))" 2>/dev/null || echo "")
           CAND=$(python3 -c "import json;print(json.load(open('data/candidates.json')).get('digest_date',''))" 2>/dev/null || echo "")
           echo "Today (Oslo): $TODAY | last published digest: ${LAST:-none} | last collector run: ${CAND:-none}"

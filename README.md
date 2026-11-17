@@ -15,7 +15,7 @@ Maintained by Kshitij Chaudhary.
 | from 04:17 / 05:17 | **Collect.** A script reads about 33 news feeds and organisation pages, plus the OpenAlex and Crossref research databases. It keeps only items that are new and match the keywords, and saves them to `data/candidates.json`. **When it finishes, it starts step 2 itself.** GitHub often starts this step late, even by hours, or skips it. Claude does not wait for it: if today's list is missing, Claude runs the collector itself in its own cloud sandbox (`scripts/run_collector.sh`, about 3 minutes). | GitHub Actions (workflow "1 · Collect candidates") | Free |
 | right after step 1 | **Select and summarise.** Claude reads the candidates, runs up to 15 web searches for news the feeds missed, drops anything off-topic or already published, writes the summaries, and saves a draft in `data/inbox/`. Its instructions are in `ROUTINE.md`. Claude's own schedule (07:00 and again 10:00 Oslo) also starts it; this schedule is run by Anthropic, not GitHub, and is on time. If today's digest is already done, that run stops at once. | A Claude Code scheduled task ("routine") on Kshitij's Claude subscription | Uses the subscription's normal usage. No API key, no extra bill |
 | ~15 min later | **Check and publish.** A script checks every link (dead or unverifiable links are removed), removes duplicates, saves the day's digest, and rebuilds the website and RSS feed. | GitHub Actions ("2 · Verify & publish") | Free |
-| 10:45 / 11:45, again 15:15 / 16:15 | **Safety check.** Sends an email if today's update is missing, **or** if it was built from an old list because step 1 was late. | GitHub Actions ("3 · Check today's update") | Free |
+| 12:00 / 13:00, again 15:15 / 16:15 | **Safety check.** Sends an email if today's update is missing, **or** if it was built from an old list because step 1 was late. | GitHub Actions ("3 · Check today's update") | Free |
 
 Schedules are fixed in UTC, so everything runs an hour later in summer.
 
@@ -27,7 +27,9 @@ Without these secrets everything still works, but Claude runs only at its schedu
 
 **Claude's internet access.** The task runs in its own cloud environment, "CCS monitor (full web)", with **Full** network access, so Claude can open articles to check titles, dates and original sources. Your other Claude cloud sessions keep the default Limited access. Some sites block GitHub's servers (IEA, the Norwegian Offshore Directorate, the Swedish Energy Agency, Carbon Herald). Claude checks those itself each morning; they are listed under `claude_checks` in `config.yaml`.
 
-**Only one collection per day.** If GitHub starts the collector again later the same day, that run does nothing, so it can't overwrite the list Claude worked from. Anything new it would have found is picked up the next morning. The "redo" switch overrides this.
+**Sites that block Claude's cloud machine** (for example SINTEF news and NCCS) still work from GitHub. When Claude collected the morning list itself, GitHub's own run, whenever it arrives, adds what those sites have and asks Claude to add any relevant new items to today's digest (a short "top-up" run with no new web searches).
+
+**Only one collection per day otherwise.** If GitHub starts the collector again later the same day, that run does nothing, so it can't overwrite the list Claude worked from. Anything new it would have found is picked up the next morning. The "redo" switch overrides this.
 
 **Conferences, courses and deadlines.** The collector reads the event lists of IEAGHG (GHGT, summer school, workshops), Carbon Management Europe/ZEP, gigaCCS, NCCS and SINTEF. Claude keeps relevant events whose date or deadline is still ahead. The front page lists them under "Upcoming conferences, courses & deadlines" until the date passes.
 
@@ -66,7 +68,7 @@ You can edit any of these on github.com: open the file, click the ✏️ pencil,
 **Change the time**
 - **Collector (sets the time of the update):** change `cron: "17 3 * * *"` in `.github/workflows/1-collect.yml`. Times are in UTC. Claude starts as soon as this finishes.
 - **Claude's backup run:** at https://claude.ai/code/routines, open the task, click **Edit**, and change the schedule (UTC).
-- **Safety check:** change `cron: "45 9 * * *"` in `.github/workflows/3-freshness.yml`. Keep it after Claude's backup run.
+- **Safety check:** change `cron: "0 11 * * *"` in `.github/workflows/3-freshness.yml`. Keep it after Claude's backup run.
 
 **Change the Claude model**
 At https://claude.ai/code/routines, open the task, click **Edit**, and pick another model in the model selector. It currently uses Claude Opus 5.5. Sonnet uses less of the subscription allowance, and Opus is a bit stricter about relevance.
