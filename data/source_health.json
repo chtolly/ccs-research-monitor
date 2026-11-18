@@ -25,8 +25,8 @@
   "last_day": "2026-11-18"
  },
  "NCCS (SINTEF/NTNU research centre)": {
-  "fails": 2,
-  "last_ok": "2026-11-16",
+  "fails": 0,
+  "last_ok": "2026-11-18",
   "last_day": "2026-11-18"
  },
  "gigaCCS (SINTEF-led research centre)": {
@@ -55,8 +55,8 @@
   "last_day": "2026-11-18"
  },
  "SINTEF news": {
-  "fails": 2,
-  "last_ok": "2026-11-16",
+  "fails": 0,
+  "last_ok": "2026-11-18",
   "last_day": "2026-11-18"
  },
  "SINTEF blog": {
