@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-18",
+  "searches_used": 15,
+  "notes": "collector run by routine; 3 of 8 candidates kept; 1 item from web search; IEA and Sodir returned 403 (site searches used), Swedish Energy Agency and Carbon Herald checked with nothing relevant",
+  "items": [
+    {
+      "title": "CO2 Transport and Storage Availability Webinar",
+      "title_en": null,
+      "source": "IEAGHG",
+      "date": "2026-11-18",
+      "url": "https://ieaghg.org/events/co2-transport-and-storage-availability-webinar/",
+      "category": "events",
+      "summary": "Free virtual IEAGHG webinar on 24 November 2026 (13:00–14:00) presenting a study by TNO with SINTEF and SCCS on designing CO2 transport and storage networks for high availability and limited downtime for emitters. The study estimates realistic operational availability rates for pipeline transport and for storage in saline aquifers and depleted fields. Speakers include Ragnhild Skagestad (SINTEF), Filip Neele and Wouter Janssen (TNO) and Navraj Singh Ghaleigh (University of Edinburgh).",
+      "why_it_matters": "Availability and downtime figures for pipelines and storage sites are direct inputs for redundancy, buffer storage and reliability constraints in CCS network-optimisation models.",
+      "origin": "candidate",
+      "candidate_id": "a9f4dfe749",
+      "authors": null,
+      "event_date": "2026-11-24",
+      "also_reported_by": []
+    },
+    {
+      "title": "Registrations open for the Innovation Fund 2026 Info Days",
+      "title_en": null,
+      "source": "EU Innovation Fund / CINEA",
+      "date": "2026-11-16",
+      "url": "https://cinea.ec.europa.eu/news-events/news/registrations-open-innovation-fund-2026-info-days-2026-11-17_en",
+      "category": "events",
+      "summary": "CINEA has opened registration for four online Info Days on the Innovation Fund 2026 calls and auctions. The joint session on the Net-Zero Technologies call (€3.3 billion) and the new Maritime call (€200 million) takes place on 15 December 2026; other sessions on 9–10 December cover the hydrogen and heat auctions and the SME call.",
+      "why_it_matters": "The Net-Zero Technologies call is the main EU grant route that Nordic-Baltic capture, transport and storage projects have used, so its timeline shapes the project pipeline that network models must assume.",
+      "origin": "candidate",
+      "candidate_id": "86f384595c",
+      "authors": null,
+      "event_date": "2026-12-15",
+      "also_reported_by": []
+    },
+    {
+      "title": "A small labour case may have major consequences for Norwegian energy policy",
+      "title_en": null,
+      "source": "gigaCCS (SINTEF-led research centre)",
+      "date": "2026-11-17",
+      "url": "https://gigaccs.no/from-the-web/small-case-major-consequences-for-norwegian-energy-policy/",
+      "category": "research",
+      "summary": "gigaCCS highlights an article by Mona Mølnvik published in Altinget.no on how a small labour case may affect Norwegian energy policy. The gigaCCS page could not be opened for further detail.",
+      "why_it_matters": "Commentary from the gigaCCS centre on Norwegian energy-policy risk is relevant context for the regulatory stability assumed in Norwegian CCS value-chain planning.",
+      "origin": "candidate",
+      "candidate_id": "0477c475e9",
+      "authors": null,
+      "event_date": null,
+      "also_reported_by": []
+    },
+    {
+      "title": "Carbon Capture, Utilization and Storage (GRS) 2027: Science, Systems, and Society for Scaling Carbon Management",
+      "title_en": null,
+      "source": "Gordon Research Conferences",
+      "date": null,
+      "url": "https://www.grc.org/carbon-capture-utilization-and-storage-grs-conference/2027/",
+      "category": "events",
+      "summary": "Gordon Research Seminar on carbon capture, utilization and storage for early-career researchers, held 29–30 May 2027 at Les Diablerets, Switzerland. Abstracts to be considered for oral presentations are due 21 February 2027 and applications close 1 May 2027.",
+      "why_it_matters": "A systems-and-society focused CCUS seminar is a venue for early-career researchers to present CCS supply-chain and network-optimisation work.",
+      "origin": "web_search",
+      "candidate_id": null,
+      "authors": null,
+      "event_date": "2027-02-21",
+      "also_reported_by": []
+    }
+  ]
+}
