@@ -1,8 +1,8 @@
 {
  "date": "2026-11-18",
- "published_at": "2026-11-18T07:13:30+01:00",
+ "published_at": "2026-11-18T12:37:04+01:00",
  "searches_used": 15,
- "notes": "collector run by routine; 3 of 8 candidates kept; 1 item from web search; IEA and Sodir returned 403 (site searches used), Swedish Energy Agency and Carbon Herald checked with nothing relevant",
+ "notes": "collector run by routine; 3 of 8 candidates kept; 1 item from web search; IEA and Sodir returned 403 (site searches used), Swedish Energy Agency and Carbon Herald checked with nothing relevant; top-up: screened 2 added candidates (DG CLIMA, Equinor), kept 1 (DG CLIMA CRCF consultation)",
  "items": [
   {
    "title": "A small labour case may have major consequences for Norwegian energy policy",
@@ -19,6 +19,22 @@
    "event_date": null,
    "also_reported_by": [],
    "id": "0477c475e9"
+  },
+  {
+   "title": "Commission invites public to shape new carbon storage certification for buildings",
+   "title_en": null,
+   "source": "European Commission – DG CLIMA",
+   "date": "2026-11-18",
+   "url": "https://climate.ec.europa.eu/news-other-reads/news/commission-invites-public-shape-new-carbon-storage-certification-buildings-2026-11-18_en",
+   "category": "policy",
+   "summary": "The Commission has opened public feedback until 10 December 2026 on a draft certification methodology under the CRCF Regulation for carbon storage in buildings using bio-based construction materials such as timber. It is the first proposed methodology for carbon storage in products, following methodologies already adopted for permanent carbon removals and carbon farming. The Commission is also assessing applications from nine certification schemes seeking recognition under the regulation.",
+   "why_it_matters": "Completes the CRCF methodology set and coincides with the recognition of certification schemes, which will also certify permanent removals such as BECCS whose credit revenue underpins Nordic capture-and-storage chains.",
+   "origin": "candidate",
+   "candidate_id": "c40b453674",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "id": "c40b453674"
   },
   {
    "title": "Registrations open for the Innovation Fund 2026 Info Days",
@@ -60,6 +76,6 @@
    "reason": "could not confirm the publication date from the page"
   }
  ],
- "candidates_seen": 8,
+ "candidates_seen": 10,
  "candidates_date": "2026-11-18"
 }
