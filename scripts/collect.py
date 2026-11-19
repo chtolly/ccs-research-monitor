@@ -1,4 +1,4 @@
-"""Step 1 (free, runs on GitHub Actions ~03:17 UTC, or started by the Claude routine).
+"""Step 1 (free, runs on GitHub Actions every Monday 05:30 Oslo time, or started by the Claude routine).
 
 Collects candidate items from RSS/Atom feeds, organisation news pages, OpenAlex
 and Crossref, keeps only items that are new since the previous digest and not
@@ -21,7 +21,7 @@ import requests
 import yaml
 
 from common import (DATA, ROOT, item_id, load_json, norm_doi, norm_title, norm_url,
-                    oslo_now, oslo_today, save_json, strip_html, title_similarity)
+                    oslo_now, oslo_today, review_api, save_json, strip_html, title_similarity)
 
 UA = {"User-Agent": "Mozilla/5.0 (compatible; ccs-research-monitor/1.0; +https://github.com/chtolly/ccs-research-monitor)"}
 TIMEOUT = 25
@@ -118,11 +118,19 @@ def read_feed(src: dict, since: date, match, seen_links: set, first_run: bool) -
         if src.get("kind") == "paper" and not paper_relevant(title, summary):
             continue
         out.append({
-            "kind": src.get("kind", "news"), "source": src["name"], "title": title, "url": link,
+            "kind": src_kind(src), "source": src["name"], "title": title, "url": link,
             "date": d.isoformat() if d else None, "summary": summary,
+            **({"paywalled_source": True} if src.get("paywalled") else {}),
         })
     log(f"  ✓ feed {src['name']}: {len(f.entries)} entries, {len(out)} new & relevant")
     return out
+
+
+def src_kind(src: dict) -> str:
+    """paper (journal feeds), report (technical/industry report listings) or news."""
+    if src.get("kind") == "paper":
+        return "paper"
+    return "report" if src.get("type") == "report" else "news"
 
 
 def all_feed_links(src: dict) -> list[str]:
@@ -145,7 +153,7 @@ def slug_title(url: str) -> str:
     return re.sub(r"[-_]+", " ", slug[0]).strip().capitalize()
 
 
-def read_watch_page(src: dict, seen_links: set, first_run: bool, events: bool = False) -> tuple[list[dict], list[str]]:
+def read_watch_page(src: dict, seen_links: set, first_run: bool, events: bool = False, match=None) -> tuple[list[dict], list[str]]:
     try:
         r = get(src["url"])
     except Exception as e:
@@ -185,10 +193,13 @@ def read_watch_page(src: dict, seen_links: set, first_run: bool, events: bool = 
                for u, t in found.items() if norm_url(u) not in seen_links]
         log(f"  ✓ events {src['name']}: {len(found)} event links, {len(new)} new")
         return new, list(found)
+    what = "reports page" if src_kind(src) == "report" else "news page"
+    keep = (lambda t: True) if not (src.get("filter") and match) else match  # filter: true = link text must mention a core keyword
     new = [] if baseline else [
-        {"kind": "news", "source": src["name"], "title": t, "url": u, "date": None,
-         "summary": "(New link on the organisation's news page; publication date not given by the page list — confirm before use.)"}
-        for u, t in found.items() if norm_url(u) not in seen_links
+        {"kind": src_kind(src), "source": src["name"], "title": t, "url": u, "date": None,
+         "summary": f"(New link on the organisation's {what}; publication date not given by the page list — confirm before use.)",
+         **({"paywalled_source": True} if src.get("paywalled") else {})}
+        for u, t in found.items() if norm_url(u) not in seen_links and keep(t)
     ]
     log(f"  ✓ page {src['name']}: {len(found)} news links, {len(new)} new" + (" (baseline)" if baseline and not first_run else ""))
     return new, list(found)
@@ -369,7 +380,7 @@ def main() -> int:
     if earlier:
         since = date.fromisoformat(earlier[-1]) - timedelta(days=3)  # 3-day overlap so late-indexed news is not lost; dedupe removes repeats
     else:
-        since = today - timedelta(days=st.get("first_run_lookback_days", 7))
+        since = today - timedelta(days=st.get("first_run_lookback_days", 10))
     log(f"Collecting for {today} (items since {since}; first run: {first_run})")
 
     match = build_matcher(cfg["keywords"]["core"])
@@ -378,7 +389,7 @@ def main() -> int:
 
     with ThreadPoolExecutor(8) as ex:
         feed_results = list(ex.map(lambda s: read_feed(s, since, match, seen_links, first_run), cfg.get("feeds", [])))
-        page_results = list(ex.map(lambda s: read_watch_page(s, seen_links, first_run), cfg.get("watch_pages", [])))
+        page_results = list(ex.map(lambda s: read_watch_page(s, seen_links, first_run, match=match), cfg.get("watch_pages", [])))
         page_results += list(ex.map(lambda s: read_watch_page(s, seen_links, first_run, events=True), cfg.get("event_pages", [])))
         undated_links = list(ex.map(all_feed_links, cfg.get("feeds", [])))
     for r in feed_results:
@@ -394,7 +405,16 @@ def main() -> int:
 
     # Remove anything already published (URL, DOI or near-identical title) and internal duplicates
     # Items published on earlier days are excluded. Today's own digest is not, so a re-run today keeps them.
-    prior = [h for h in history if h.get("digest_date") != today.isoformat()]
+    # history.json = published and rejected items (rebuilt by build.py). Items waiting in the review
+    # queue are excluded too, so they are not suggested twice.
+    prior = [h for h in history if h.get("digest_date") != today.isoformat() or h.get("status") == "rejected"]
+    review_state = None
+    try:
+        review_state = review_api("/api/agent/state", base=(cfg.get("review") or {}).get("api_url"))
+    except Exception as ex:  # noqa: BLE001
+        log(f"  ✗ review queue: could not read pending items ({type(ex).__name__}); continuing without them")
+    pending = (review_state or {}).get("pending", [])
+    prior += [{"url": p["url"], "doi": p.get("doi") or "", "title": p["title"]} for p in pending]
     hist_urls = {norm_url(h["url"]) for h in prior}
     hist_dois = {h.get("doi") for h in prior if h.get("doi")}
     hist_titles = [h["title"] for h in prior[-1500:]]
@@ -419,7 +439,7 @@ def main() -> int:
     enrich_abstracts([c for c in items if c["kind"] == "paper" and len(c.get("summary") or "") < 80])
     fix_paper_dates([c for c in items if c["kind"] == "paper"])
     items.sort(key=lambda c: (c.get("date") or "9999"), reverse=True)  # undated (=newly seen) first
-    cap = st.get("max_candidates_for_claude", 150)
+    cap = st.get("max_candidates_for_claude", 400)
     news = [c for c in items if c["kind"] != "paper"][: cap // 2 + cap // 4]
     pap = [c for c in items if c["kind"] == "paper"][: cap - len(news)]
     items = news + pap
@@ -447,8 +467,14 @@ def main() -> int:
         "since": since.isoformat(),
         "first_run": first_run,
         "categories": [c["key"] for c in cfg["categories"]],
-        "max_items_per_day": st.get("max_items_per_day", 25),
-        "max_web_searches": st.get("max_web_searches", 15),
+        "max_items_per_run": st.get("max_items_per_run", 60),
+        "max_web_searches": st.get("max_web_searches", 40),
+        "max_page_visits": st.get("max_page_visits", 120),
+        "max_related_searches": st.get("max_related_searches", 20),
+        "related_links_per_item": st.get("related_links_per_item", 5),
+        # Items already approved or waiting for review that still have no related links (manual submissions)
+        "needs_related": needs_related(review_state),
+        "pending_in_review": [{"title": p["title"], "url": p["url"]} for p in pending],
         "counts": {"news": len(news), "papers": len(pap), "already_published_skipped": dropped_dupes},
         "items": items,
         "log": LOG,
@@ -461,8 +487,18 @@ def main() -> int:
     return 0
 
 
+def needs_related(review_state) -> list[dict]:
+    out = list((review_state or {}).get("needs_related", []))
+    busy = set((review_state or {}).get("pending_related_targets", []))
+    for p in sorted((DATA / "approved").glob("*.json")):
+        it = load_json(p, {})
+        if it.get("origin") == "manual" and not it.get("related") and it.get("id") not in busy:
+            out.append({k: it.get(k) for k in ("id", "title", "url", "summary", "category", "type")})
+    return out
+
+
 def update_source_health(cfg: dict, today: date) -> None:
-    """Count consecutive failed days per feed/page, so the daily check can warn about broken sources."""
+    """Count consecutive failed days per feed/page, so the weekly check can warn about broken sources."""
     path = DATA / "source_health.json"
     health = load_json(path, {})
     failed = {m.group(1).strip() for m in (re.match(r"\s*✗ (?:feed|page) (.+?): ", l) for l in LOG) if m}

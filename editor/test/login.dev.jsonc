@@ -1,0 +1,8 @@
+// Local test only: simulates a Cloudflare Access login for the login Worker.
+{
+  "name": "ccs-review-login",
+  "main": "../login/src/index.js",
+  "compatibility_date": "2026-11-01",
+  "vars": { "REVIEW_URL": "http://localhost:8000/_site/review/", "DEV": "true" },
+  "access": { "dev": { "aud": "local-test-aud", "identity": { "email": "approver.one@example.test" } } }
+}

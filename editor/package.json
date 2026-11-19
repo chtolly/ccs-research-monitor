@@ -1,0 +1,13 @@
+{
+  "name": "ccs-monitor-review",
+  "private": true,
+  "description": "Review space for the Nordic CCS Supply-Chain Monitor (Cloudflare Workers + D1)",
+  "scripts": {
+    "dev:api": "wrangler dev -c api/wrangler.jsonc --port 8787",
+    "dev:login": "wrangler dev -c login/wrangler.jsonc --port 8788",
+    "deploy": "wrangler deploy -c api/wrangler.jsonc && wrangler deploy -c login/wrangler.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "^4.165.0"
+  }
+}

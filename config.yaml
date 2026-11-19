@@ -6,24 +6,38 @@
 
 site:
   title: "Nordic CCS Supply-Chain Monitor"
-  subtitle: "Daily digest of research, projects, policy and events on CO₂ capture, transport and storage networks"
+  subtitle: "Weekly digest of research, technical reports, news, projects, policy and events on CO₂ capture, transport and storage networks"
   maintainer: "Kshitij Chaudhary, BI Norwegian Business School"
   project: "CCS supply-chain and network optimisation project (BI Norwegian Business School with Swedish university partners)"
   base_url: "https://chtolly.github.io/ccs-research-monitor/"
   timezone: "Europe/Oslo"
 
+# The agent runs once a week (Monday 06:00 Oslo time). Each run covers everything new since
+# the previous run (plus 3 days of overlap; duplicates are removed).
 settings:
-  first_run_lookback_days: 7     # how far back the very first run looks
-  max_items_per_day: 25          # hard cap on items published per day
-  max_web_searches: 15           # cap on Claude's web searches per run
-  max_candidates_for_claude: 150 # cap on feed/paper candidates handed to Claude
+  first_run_lookback_days: 10    # how far back a run looks if there is no earlier run
+  max_items_per_run: 60          # cap on items sent to the review queue per weekly run
+  max_web_searches: 40           # cap on Claude's web searches per run (news, reports, events)
+  max_page_visits: 120           # cap on pages Claude opens per run (to check dates, titles, sources)
+  max_related_searches: 20       # extra searches for "You might also be interested in" links
+  related_links_per_item: 5      # at most this many related links per item (3–5 when good ones exist)
+  max_candidates_for_claude: 400 # cap on feed/paper candidates handed to Claude
 
-# The seven categories every item is tagged with. Change the names freely;
+# The review space (editors submit, approvers approve). Filled in after the Cloudflare setup.
+review:
+  api_url: ""     # e.g. https://ccs-review-api.<account>.workers.dev
+  login_url: ""   # e.g. https://ccs-review-login.<account>.workers.dev
+
+# Content types (fixed): paper = journal/conference paper, report = technical or industry report
+# (DNV, SINTEF, IEAGHG, Clarksons…; mark "paywalled" when the full text is not free),
+# news = news article or project announcement, event = conference, course, call or deadline.
+
+# The seven topics every item is tagged with. Change the names freely;
 # keep the short "key" values unchanged (they are used in the data files).
 categories:
   - key: research
-    name: "Research & publications"
-    description: "CCS network design, transport and infrastructure research (SINTEF, NTNU, international)"
+    name: "Network design & infrastructure"
+    description: "CCS network design, transport and infrastructure research and analysis (SINTEF, NTNU, international)"
   - key: transport
     name: "Transport modes & logistics"
     description: "Pipeline, ship, rail, truck; multimodal chains; optimisation"
@@ -104,7 +118,8 @@ keywords:
     - "CO2 intermediate storage terminal"
     - "carbon capture and storage Nordic"
 
-# News feeds read by the free collector every morning (RSS/Atom).
+# News feeds read by the free collector every week (RSS/Atom).
+# type: news (default) or report (technical/industry reports). paywalled: true = full text usually not free.
 # filter: true  = only keep entries mentioning a core keyword (general feeds)
 # filter: false = keep everything (feeds that are already CCS-specific)
 #
@@ -123,7 +138,7 @@ feeds:
   - {name: "gigaCCS (SINTEF-led research centre)", url: "https://gigaccs.no/feed/", filter: false}
   - {name: "Global CCS Institute", url: "https://www.globalccsinstitute.com/feed/", filter: false}
   - {name: "IEAGHG", url: "https://ieaghg.org/feed/", filter: false}
-  - {name: "Zero Emissions Platform (ZEP)", url: "https://zeroemissionsplatform.eu/feed/", filter: false}
+  - {name: "Carbon Management Europe (formerly ZEP)", url: "https://carbonmanagementeurope.org/feed/", filter: false}
   - {name: "Int. Journal of Greenhouse Gas Control", url: "https://rss.sciencedirect.com/publication/science/17505836", filter: true, kind: paper}
   # General sources: keep only entries that mention a core keyword
   - {name: "SINTEF news", url: "https://www.sintef.no/en/latest-news/feed/", filter: true}
@@ -146,8 +161,37 @@ feeds:
   - {name: "E24 energi", url: "https://e24.no/rss2/?seksjon=energi", filter: true}
   - {name: "Teknisk Ukeblad (TU.no)", url: "https://www.tu.no/rss", filter: true}
 
-# Organisation news pages without a working feed. The collector reads the
-# page each morning and passes NEW links (not seen on earlier days) to Claude.
+  # ── Added 2026-11-19 for "News & projects" (all tested that day; type: news) ──
+  - {name: "Riviera – Carbon Capture & Storage", url: "https://www.rivieramm.com/Syndication/DF.cfm?f=29&ft=10", filter: false, type: news}
+  - {name: "Riviera – Ports & Terminals", url: "https://www.rivieramm.com/Syndication/DF.cfm?f=19&ft=10", filter: true, type: news}
+  - {name: "The Maritime Executive", url: "https://www.maritime-executive.com/articles.rss", filter: true, type: news}
+  - {name: "Hellenic Shipping News", url: "https://www.hellenicshippingnews.com/feed/", filter: true, type: news}
+  - {name: "gCaptain", url: "https://gcaptain.com/feed/", filter: true, type: news}
+  - {name: "MarineLink", url: "https://www.marinelink.com/news/rss", filter: true, type: news}
+  - {name: "Offshore Engineer (OEDigital)", url: "https://www.oedigital.com/rss", filter: true, type: news}
+  - {name: "Seatrade Maritime", url: "https://www.seatrade-maritime.com/rss.xml", filter: true, type: news}
+  - {name: "Baird Maritime", url: "https://www.bairdmaritime.com/feed/", filter: true, type: news}
+  - {name: "ShippingWatch", url: "https://shippingwatch.com/rss/seneste.rss", filter: true, type: news}
+  - {name: "LNG Prime", url: "https://lngprime.com/feed/", filter: true, type: news}
+  - {name: "Pipeline Technology Journal", url: "https://www.pipeline-journal.net/rss.xml", filter: true, type: news}
+  - {name: "Offshore Technology", url: "https://www.offshore-technology.com/feed/", filter: true, type: news}
+  - {name: "Carbon Pulse (headlines; articles paywalled)", url: "https://carbon-pulse.com/feed/", filter: true, type: news, paywalled: true}
+  - {name: "Höegh Evi", url: "https://www.hoeghevi.com/feed/", filter: true, type: news}
+  - {name: "Aker BP", url: "https://akerbp.com/en/feed/", filter: true, type: news}
+  - {name: "Gassco", url: "https://gassco.eu/en/feed/", filter: true, type: news}
+  - {name: "Knutsen OAS Shipping", url: "https://knutsenoas.com/feed/", filter: true, type: news}
+  - {name: "OGCI", url: "https://www.ogci.com/feed/", filter: true, type: news}
+  - {name: "IOGP", url: "https://www.iogp.org/feed/", filter: true, type: news}
+  # ── Technical and industry reports (type: report; shown as "Technical report") ──
+  - {name: "IEAGHG – technical reports", url: "https://ieaghg.org/publications/feed/", filter: false, type: report}
+  - {name: "CATF – reports & papers", url: "https://www.catf.us/resource_type/reports-papers/feed/", filter: true, type: report}
+  - {name: "Oxford Institute for Energy Studies – publications", url: "https://www.oxfordenergy.org/publications/feed/", filter: true, type: report}
+  - {name: "Energy Transitions Commission", url: "https://www.energy-transitions.org/feed/", filter: true, type: report}
+  # Clarksons Research: reports are paywalled; its public feed had no new post since Sep 2025 when tested.
+  - {name: "Clarksons Research – insights", url: "https://insights.clarksons.net/feed/", filter: true, type: report, paywalled: true}
+
+# Organisation news and report pages without a working feed. The collector reads the
+# page each week and passes NEW links (not seen on earlier days) to Claude.
 # link_contains = only links whose address contains this text (or one of a list) count as news.
 # A page added here later starts with a baseline: only links that appear after that count as new.
 watch_pages:
@@ -156,6 +200,25 @@ watch_pages:
   - {name: "Project Greensand", url: "https://www.greensandfuture.com/news", link_contains: "/news/"}
   - {name: "NTNU", url: "https://www.ntnu.edu/news", link_contains: "/news/"}
   - {name: "DK Havenergi – CCS news (Denmark)", url: "https://www.doi.dk/en/ccs", link_contains: "/en/ccs/artikel/"}
+  # ── Added 2026-11-19 (tested that day). filter: true = only links whose text mentions a core keyword ──
+  - {name: "Upstream – carbon capture (paywalled)", url: "https://www.upstreamonline.com/carbon_capture", link_contains: "/carbon-capture/", type: news, paywalled: true}
+  - {name: "Aramis CCS (Netherlands)", url: "https://www.aramis-ccs.com/news", link_contains: "/news/", type: news}
+  - {name: "Porthos CO2 (Netherlands)", url: "https://www.porthosco2.nl/en/news/", link_contains: "porthosco2.nl/en/", type: news}
+  - {name: "Port of Rotterdam – news", url: "https://www.portofrotterdam.com/en/news-and-press-releases", link_contains: "/en/news-and-press-releases/", type: news, filter: true}
+  - {name: "Port Esbjerg – news", url: "https://www.portesbjerg.dk/en/news", link_contains: "/en/news/", type: news, filter: true}
+  - {name: "DNV – news", url: "https://www.dnv.com/news/", link_contains: "/news/20", type: news, filter: true}
+  - {name: "Wärtsilä – news", url: "https://www.wartsila.com/media/news", link_contains: "/media/news/", type: news, filter: true}
+  - {name: "IEAGHG – news & insights", url: "https://ieaghg.org/news-and-insights/", link_contains: "/news/", type: news}
+  - {name: "North Sea Transition Authority (UK)", url: "https://www.nstauthority.co.uk/news-publications/", link_contains: "/news-publications/", type: news, filter: true}
+  # Technical and industry reports
+  - {name: "DNV – publications", url: "https://www.dnv.com/publications/", link_contains: "/publications/", type: report, filter: true}
+  - {name: "Carbon Management Europe – publications", url: "https://carbonmanagementeurope.org/knowledge-hub/", link_contains: "/publication/", type: report}
+  - {name: "SINTEF – publications", url: "https://www.sintef.no/en/publications/", link_contains: "/en/publications/publication/", type: report, filter: true}
+  - {name: "Rystad Energy – newsroom", url: "https://www.rystadenergy.com/news", link_contains: "/news/", type: report, filter: true}
+  # Tested 2026-11-19 but NOT usable: gasworld, Energy Voice, reNEWS, Euractiv, clarksons.net, Ørsted (block robots);
+  # Global CCS Institute resources, Bellona EU publications, Gassnova publications, Port of Gothenburg (built by JavaScript);
+  # Recharge, TradeWinds, Ship & Bunker, Fortum, Preem (no feed); Carbon Capture Journal (its web server sends an
+  # incomplete security certificate, so automatic checks fail); Dan-Unity, Larvik Shipping (no news since 2022).
 
 # Conference, course and event lists. Unlike news pages, every event link not seen before is
 # passed to Claude (also the first time), because an upcoming event matters however long it has
@@ -168,7 +231,7 @@ event_pages:
   - {name: "NCCS – events", url: "https://nccs.no/events/", link_contains: "/event/"}
   - {name: "SINTEF – events and courses", url: "https://www.sintef.no/en/events/", link_contains: "/en/events/"}
 
-# Pages Claude opens itself each morning (they block GitHub's servers or are built by
+# Pages Claude opens itself each week (they block GitHub's servers or are built by
 # JavaScript, so the free collector cannot read them). Claude looks for items dated on
 # or after the "since" date.
 claude_checks:
@@ -178,7 +241,7 @@ claude_checks:
   - {name: "Swedish Energy Agency – news", url: "https://www.energimyndigheten.se/en/news/"}
   - {name: "Carbon Herald", url: "https://carbonherald.com/"}
 
-# Topics Claude web-searches each morning (limited by max_web_searches)
+# Topics Claude web-searches each week (limited by max_web_searches)
 search_topics:
   - "CO2 shipping vessel order OR contract"
   - "CO2 terminal port hub Nordic"
@@ -199,3 +262,14 @@ search_topics:
   - "CCS Danmark CO2-lagring nyheder"
   - "carbon capture and storage conference 2027 call for abstracts"
   - "CO2 transport storage course OR summer school 2027"
+  # News & projects
+  - "CO2 carrier newbuild order shipyard"
+  - "CCS project final investment decision FID 2026"
+  - "CO2 storage contract offtake agreement Nordic"
+  # Technical and industry reports (public pages only; mark paywalled ones)
+  - "DNV CO2 shipping OR CCS report"
+  - "SINTEF report CO2 transport OR CCS value chain"
+  - "Clarksons Research CO2 carrier OR CCS"
+  - "IEAGHG technical report CO2 transport"
+  - "Global CCS Institute report 2026"
+  - "Bellona OR CATF OR ZEP report CO2 infrastructure Europe"

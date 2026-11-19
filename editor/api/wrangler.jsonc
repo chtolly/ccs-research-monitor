@@ -1,0 +1,22 @@
+// API Worker for the review space. Not behind Access: every request must carry a session
+// signed by the login Worker, and the person must be on the people list in the database.
+{
+  "name": "ccs-review-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "d1_databases": [
+    { "binding": "DB", "database_name": "ccs-review", "database_id": "REPLACE_AFTER_d1_create" }
+  ],
+  "vars": {
+    "SITE_URL": "https://chtolly.github.io/ccs-research-monitor/",
+    "ALLOWED_ORIGINS": "https://chtolly.github.io",
+    "GITHUB_REPO": "chtolly/ccs-research-monitor",
+    "GITHUB_BRANCH": "main",
+    "GITHUB_API": "https://api.github.com"
+  }
+  // Secrets (npx wrangler secret put NAME -c api/wrangler.jsonc):
+  //   SESSION_SECRET  same value as in the login Worker
+  //   INGEST_SECRET   same value as the GitHub repository secret REVIEW_INGEST_KEY
+  //   GITHUB_TOKEN    fine-grained token: only this repository, Contents read & write
+}

@@ -1,18 +1,19 @@
-# Step 1 — free collector. Scheduled at 03:17 UTC (04:17 Oslo winter / 05:17 summer).
-# GitHub often starts scheduled runs late (sometimes hours), so when this finishes it
-# starts the Claude routine itself through the routine's API trigger. Claude therefore
-# always works on today's list, however late GitHub is. The routine's own schedule is
-# only a late backup. Needs two repository secrets (Settings → Secrets → Actions):
-#   ROUTINE_FIRE_URL and ROUTINE_FIRE_TOKEN (from the routine's API trigger, see README).
+# Step 1 — free collector. Runs every Monday at 05:30 Oslo time (GitHub handles summer/winter time
+# through the timezone setting). GitHub often starts scheduled runs late (sometimes hours), so when
+# this finishes it starts the Claude routine itself through the routine's API trigger. The routine's
+# own schedule (Monday 06:00 and 09:00 Oslo in winter, 07:00 and 10:00 in summer) is a backup.
+# Repository secrets (Settings → Secrets → Actions): ROUTINE_FIRE_URL, ROUTINE_FIRE_TOKEN (routine trigger),
+# REVIEW_INGEST_KEY (review space; used to skip items already waiting for review).
 name: 1 · Collect candidates
 
 on:
   schedule:
-    - cron: "17 3 * * *"
+    - cron: "30 5 * * 1"
+      timezone: "Europe/Oslo"
   workflow_dispatch:
     inputs:
       redo:
-        description: "Also redo today's digest even if it is already published"
+        description: "Also redo this week's run even if it is already done"
         type: boolean
         default: false
       start_routine:
@@ -43,6 +44,7 @@ jobs:
       - name: Collect feeds, pages and new papers
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          REVIEW_INGEST_KEY: ${{ secrets.REVIEW_INGEST_KEY }}
         run: python scripts/collect.py ${{ inputs.redo && '--force' || '' }}
       - name: Save candidates to the repository
         run: |
@@ -69,9 +71,9 @@ jobs:
             exit 0
           fi
           TODAY=$(TZ=Europe/Oslo date +%F)
-          MSG="Started by the collector: data/candidates.json for $TODAY is ready."
-          [ "${{ inputs.redo }}" = "true" ] && MSG="$MSG Please redo today's digest even if it is already published."
-          [ -n "${TOPUP_NEW:-}" ] && MSG="Started by the collector: TOP-UP. $TOPUP_NEW new candidates from sites that blocked the morning collection were added to data/candidates.json for $TODAY. Please redo today's digest as a top-up."
+          MSG="Started by the collector: data/candidates.json for $TODAY (this week's run) is ready."
+          [ "${{ inputs.redo }}" = "true" ] && MSG="$MSG Please redo this week's run even if it is already done."
+          [ -n "${TOPUP_NEW:-}" ] && MSG="Started by the collector: TOP-UP. $TOPUP_NEW new candidates from sites that blocked the morning collection were added to data/candidates.json for $TODAY. Please redo this week's draft as a top-up."
           for i in 1 2 3; do
             CODE=$(curl -s -o resp.json -w "%{http_code}" -X POST "$ROUTINE_FIRE_URL" \
               -H "Authorization: Bearer $ROUTINE_FIRE_TOKEN" \

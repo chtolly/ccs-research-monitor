@@ -1,12 +1,14 @@
-# Safety net. At 11:00 UTC (12:00 Oslo winter / 13:00 summer), after both routine runs, and again
-# at 14:15 UTC, this checks that today's digest was published AND was built from today's list,
-# and that no source has failed 3 days in a row. If not, the run fails and GitHub emails you.
-name: 3 · Check today's update
+# Safety net. Every Monday at 12:00 Oslo time (after both routine runs), and again at 15:15, this checks
+# that this week's agent run reached the review queue AND was made from this week's collector list,
+# and that no source has failed 2 weekly runs in a row. If not, the run fails and GitHub emails you.
+name: 3 · Check this week's run
 
 on:
   schedule:
-    - cron: "0 11 * * *"
-    - cron: "15 14 * * *"   # second try: GitHub sometimes skips scheduled runs entirely
+    - cron: "0 12 * * 1"
+      timezone: "Europe/Oslo"
+    - cron: "15 15 * * 1"   # second try: GitHub sometimes skips scheduled runs entirely
+      timezone: "Europe/Oslo"
   workflow_dispatch:
 
 permissions:
@@ -17,34 +19,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Was today's digest published?
+      - name: Did this week's run reach the review queue?
         run: |
-          # GitHub sometimes starts this check many hours late. Before noon (Oslo), today's runs may not be
-          # finished yet, so a check that starts then (e.g. a late one after midnight) looks at yesterday.
-          if [ "$(TZ=Europe/Oslo date +%H)" -lt 12 ]; then TODAY=$(TZ=Europe/Oslo date -d yesterday +%F); else TODAY=$(TZ=Europe/Oslo date +%F); fi
-          LAST=$(python3 -c "import json;print(json.load(open('data/state.json')).get('last_digest_date',''))" 2>/dev/null || echo "")
+          # The run happens on Monday; a check started later in the week (GitHub can be late) checks that Monday.
+          MONDAY=$(TZ=Europe/Oslo date -d "$(TZ=Europe/Oslo date +%F) -$(( $(TZ=Europe/Oslo date +%u) - 1 )) days" +%F)
+          LAST=$(python3 -c "import json;print(json.load(open('data/state.json')).get('last_run_date',''))" 2>/dev/null || echo "")
           CAND=$(python3 -c "import json;print(json.load(open('data/candidates.json')).get('digest_date',''))" 2>/dev/null || echo "")
-          echo "Today (Oslo): $TODAY | last published digest: ${LAST:-none} | last collector run: ${CAND:-none}"
-          if [ "$LAST" != "$TODAY" ]; then
-            echo "::error::Today's digest was NOT published. Website still shows ${LAST:-nothing}."
-            [ "$CAND" != "$TODAY" ] && echo "::error::The collector (workflow 1) did not run today either — check the Actions tab."
-            echo "::error::Otherwise check the Claude routine at https://claude.ai/code/routines (usage limit? GitHub access?)."
+          echo "This week's run day (Oslo): $MONDAY | last processed run: ${LAST:-none} | last collector run: ${CAND:-none}"
+          if [ "$LAST" != "$MONDAY" ]; then
+            echo "::error::This week's agent run has NOT reached the review queue. The review space has nothing new from the agent."
+            [ "$CAND" != "$MONDAY" ] && echo "::error::The collector (workflow 1) did not run this week either — check the Actions tab."
+            echo "::error::Otherwise check the Claude routine at https://claude.ai/code/routines (usage limit? GitHub access?) and workflow 2."
             exit 1
           fi
-          USED=$(python3 -c "import json;print(json.load(open('data/digests/$TODAY.json')).get('candidates_date',''))" 2>/dev/null || echo "")
-          if [ "$USED" != "$TODAY" ]; then
-            echo "::error::Today's digest was published, but from an OLD collector list (${USED:-unknown}), so items from news feeds and journals are missing."
-            echo "::error::The collector (workflow 1) ran late or failed — check the Actions tab. When it finishes it restarts Claude and the page refreshes by itself."
+          USED=$(python3 -c "import json;print(json.load(open('data/runs/$MONDAY.json')).get('candidates_date',''))" 2>/dev/null || echo "")
+          if [ "$USED" != "$MONDAY" ]; then
+            echo "::error::This week's run was made from an OLD collector list (${USED:-unknown}), so items from news feeds and journals are missing."
+            echo "::error::The collector (workflow 1) ran late or failed — check the Actions tab. When it finishes it restarts Claude by itself."
             exit 1
           fi
           BROKEN=$(python3 -c "
           import json
           h = json.load(open('data/source_health.json'))
-          print('; '.join(f'{n} (failing {v[\"fails\"]} days, last OK {v.get(\"last_ok\") or \"never\"})' for n, v in h.items() if v.get('fails', 0) >= 3))
+          print('; '.join(f'{n} (failed {v[\"fails\"]} runs in a row, last OK {v.get(\"last_ok\") or \"never\"})' for n, v in h.items() if v.get('fails', 0) >= 2))
           " 2>/dev/null || echo "")
           if [ -n "$BROKEN" ]; then
-            echo "::error::Today's digest is live, but these news sources have failed for 3+ days in a row: $BROKEN"
+            echo "::error::This week's run is in the review queue, but these sources have failed 2 weekly runs in a row: $BROKEN"
             echo "::error::Their news is not being collected. Fix or replace their address in config.yaml (feeds / watch_pages)."
             exit 1
           fi
-          echo "OK — today's digest is live and built from today's list, and all sources are working."
+          echo "OK — this week's run is in the review queue, made from this week's list, and all sources are working."

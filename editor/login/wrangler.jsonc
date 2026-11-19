@@ -1,0 +1,11 @@
+// Login Worker: protect it with Cloudflare Access (Workers & Pages → ccs-review-login → Access → All traffic).
+{
+  "name": "ccs-review-login",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "vars": {
+    "REVIEW_URL": "https://chtolly.github.io/ccs-research-monitor/review/"
+  }
+  // Secret (set with: npx wrangler secret put SESSION_SECRET -c login/wrangler.jsonc): SESSION_SECRET
+}

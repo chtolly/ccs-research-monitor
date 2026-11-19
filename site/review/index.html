@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Review space · Nordic CCS Supply-Chain Monitor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230b6e69'/%3E%3Ctext x='16' y='21' font-size='12' text-anchor='middle' fill='white' font-family='Arial'%3ECO2%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="review.css">
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Review space</h1>
+  <p class="sub">Nordic CCS Supply-Chain Monitor · for editors and approvers · <a href="../">back to the public page</a></p>
+  <p class="meta" id="who" hidden></p>
+</div></header>
+
+<main class="wrap">
+  <div id="msg" role="status" aria-live="polite"></div>
+
+  <section id="login" class="card" hidden>
+    <h2>Log in</h2>
+    <p>Click the button and type your email address. You will get a 6-digit code by email (from Cloudflare, <em>noreply@notify.cloudflare.com</em>). Type the code, and you are back here, logged in for 14 days.</p>
+    <p class="meta">Only people on the list can log in. If you think you should be on it, ask Kshitij or Erna.</p>
+    <p><button type="button" class="btn primary" id="login-btn">Log in with my email</button></p>
+  </section>
+
+  <section id="app" hidden>
+    <nav class="tabs" role="tablist" aria-label="Review space sections">
+      <button type="button" role="tab" id="tab-queue" aria-controls="p-queue" data-role="approver">Waiting for review <span class="count" id="n-queue"></span></button>
+      <button type="button" role="tab" id="tab-submit" aria-controls="p-submit">Submit an item</button>
+      <button type="button" role="tab" id="tab-mine" aria-controls="p-mine">My submissions</button>
+      <button type="button" role="tab" id="tab-people" aria-controls="p-people" data-role="approver">People</button>
+      <button type="button" role="tab" id="tab-log" aria-controls="p-log" data-role="approver">Activity log</button>
+    </nav>
+
+    <!-- Approvers: the shared pending queue -->
+    <section id="p-queue" role="tabpanel" aria-labelledby="tab-queue" hidden>
+      <p class="help">Everything new waits here: items found by the weekly agent run and items submitted by editors. Nothing here is public. <strong>Approve</strong> puts an item on the public page (it appears within a few minutes). <strong>Reject</strong> removes it, and it will never be suggested again.</p>
+      <div class="bulk" id="bulk" hidden>
+        <label><input type="checkbox" id="sel-all"> Select all</label>
+        <button type="button" class="btn primary" id="bulk-approve" disabled>Approve selected</button>
+        <span class="meta" id="bulk-n"></span>
+      </div>
+      <div id="queue"></div>
+    </section>
+
+    <!-- Everyone: submit an item -->
+    <section id="p-submit" role="tabpanel" aria-labelledby="tab-submit" hidden>
+      <p class="help">Found something relevant? Fill in the form. An approver will check it before it appears on the public page. Please only submit real pages you have opened, and write the summary from what the page says.</p>
+      <form id="submit-form" class="card" novalidate></form>
+    </section>
+
+    <!-- Everyone: own submissions -->
+    <section id="p-mine" role="tabpanel" aria-labelledby="tab-mine" hidden>
+      <div id="mine"></div>
+    </section>
+
+    <!-- Approvers: people -->
+    <section id="p-people" role="tabpanel" aria-labelledby="tab-people" hidden>
+      <p class="help"><strong>Editors</strong> can submit items. <strong>Approvers</strong> can also approve and reject items and manage this list. A person can log in as soon as they are added here.</p>
+      <form id="person-form" class="card row" novalidate>
+        <label>Email <input name="email" type="email" required autocomplete="off" placeholder="name@university.se"></label>
+        <label>Name <input name="name" required autocomplete="off" placeholder="First Last"></label>
+        <label>Role <select name="role"><option value="editor">Editor</option><option value="approver">Approver</option></select></label>
+        <button class="btn primary" type="submit">Add person</button>
+      </form>
+      <div id="people"></div>
+    </section>
+
+    <!-- Approvers: activity log -->
+    <section id="p-log" role="tabpanel" aria-labelledby="tab-log" hidden>
+      <p class="help">Who did what, and when. This list cannot be changed.</p>
+      <div id="log"></div>
+    </section>
+  </section>
+
+  <section id="notsetup" class="card" hidden>
+    <h2>Not set up yet</h2>
+    <p>The review space has not been connected yet. Please ask the maintainer.</p>
+  </section>
+</main>
+<footer><div class="wrap">Summaries can contain mistakes. Always open the link before approving.</div></footer>
+<script src="review.js"></script>
+</body>
+</html>

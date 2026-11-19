@@ -1,236 +1,11 @@
 [
  {
-  "id": "cc109945ad",
-  "url": "https://doi.org/10.1016/j.cie.2026.112506",
-  "doi": "10.1016/j.cie.2026.112506",
-  "title": "Industry perspectives on CO2 transport optimization models and case studies",
-  "date": "2026-11-11",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "96ecd53eb1",
-  "url": "https://doi.org/10.1016/j.petsci.2026.11.012",
-  "doi": "10.1016/j.petsci.2026.11.012",
-  "title": "Toward lower-cost carbon capture, utilization, and storage: Fit-for-purpose CO2 conditioning and source–sink coordination",
-  "date": "2026-11-12",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "be83cb28ce",
-  "url": "https://doi.org/10.1016/j.ijpe.2026.110280",
-  "doi": "10.1016/j.ijpe.2026.110280",
-  "title": "Sustainable closed-loop supply chain network planning with CCUS: A multi-objective robust optimization framework under two carbon policies",
-  "date": "2026-11-10",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "6caefdca97",
-  "url": "https://doi.org/10.1016/j.ijggc.2026.104829",
-  "doi": "10.1016/j.ijggc.2026.104829",
-  "title": "A novel approach for preliminary sizing and cost screening of CO2 pipeline transport: The ECOB method",
-  "date": "2026-11-07",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "f36ffb12e4",
-  "url": "https://gigaccs.no/news/who-keeps-ccs-data-alive-a-call-for-more-data-sharing-at-the-gigaccs-consortium-days/",
-  "doi": "",
-  "title": "Who keeps CCS data alive? A call for more data sharing at the gigaCCS Consortium Days",
-  "date": "2026-11-09",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "cf304bbb06",
-  "url": "https://gigaccs.no/news/gigaccs-consortium-days-2026-celebrating-how-far-ccs-has-come-while-recognising-how-far-it-has-to-go/",
-  "doi": "",
-  "title": "gigaCCS Consortium Days 2026: Celebrating how far CCS has come, while recognising how far it has to go",
-  "date": "2026-11-10",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "b73aca4143",
-  "url": "https://gigaccs.no/news/research-works-and-the-global-south-should-be-part-of-it-gigaccs-at-cop31/",
-  "doi": "",
-  "title": "Research works – and the Global South should be part of it: gigaCCS at COP31",
-  "date": "2026-11-12",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "638c6f01c3",
-  "url": "https://doi.org/10.1016/j.biombioe.2026.110283",
-  "doi": "10.1016/j.biombioe.2026.110283",
-  "title": "Biomass as a transportable biogenic carbon carrier for e-methanol production: Techno-economic comparison with CO2 transport and direct air capture",
-  "date": "2026-11-10",
-  "category": "research",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "a51bcc8065",
-  "url": "https://www.stockholmexergi.se/nyheter/first-process-equipment-installed-at-beccs-stockholm/",
-  "doi": "",
-  "title": "First process equipment installed at Beccs Stockholm",
-  "date": "2026-11-06",
-  "category": "nordic_projects",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "7eab7b92ac",
-  "url": "https://cinea.ec.europa.eu/news-events/news/innozhero-major-step-towards-capturing-carbon-emissions-waste-2026-11-12_en",
-  "doi": "",
-  "title": "INNOZHERO: A major step towards capturing carbon emissions from waste",
-  "date": "2026-11-11",
-  "category": "nordic_projects",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "769cc5fcf0",
-  "url": "https://ccsnorway.com/norway-supports-ccus-development-poland/",
-  "doi": "",
-  "title": "Norway supports CCUS development in Poland",
-  "date": "2026-11-11",
-  "category": "policy",
-  "digest_date": "2026-11-13"
- },
- {
-  "id": "07b7417def",
-  "url": "https://www.stockholmexergi.se/nyheter/what-energy-sector-expertise-can-bring-to-europes-emerging-carbon-removal-industry/",
-  "doi": "",
-  "title": "What energy-sector expertise can bring to Europe’s emerging carbon removal industry",
-  "date": "2026-11-13",
-  "category": "nordic_projects",
-  "digest_date": "2026-11-15"
- },
- {
-  "id": "cac3339df5",
-  "url": "https://ieefa.org/resources/polluter-pays-or-taxpayer-pays-weaker-eu-carbon-prices-widen-carbon-capture-funding-gap",
-  "doi": "",
-  "title": "Polluter pays or taxpayer pays? Weaker EU carbon prices widen the carbon capture funding gap",
-  "date": "2026-11-11",
-  "category": "policy",
-  "digest_date": "2026-11-15"
- },
- {
-  "id": "811a306ebb",
-  "url": "https://doi.org/10.1007/s11665-026-15433-2",
-  "doi": "10.1007/s11665-026-15433-2",
-  "title": "Advancements in Pipeline Corrosion Monitoring for Supercritical CO2 Environments: A Review",
-  "date": "2026-11-13",
-  "category": "research",
-  "digest_date": "2026-11-16"
- },
- {
-  "id": "e6818c74ea",
-  "url": "https://carbonherald.com/cnpc-commissions-chinas-longest-co2-pipeline/",
-  "doi": "",
-  "title": "CNPC Commissions China's Longest CO2 Pipeline",
-  "date": "2026-11-16",
-  "category": "transport",
-  "digest_date": "2026-11-16"
- },
- {
-  "id": "98e58e96f5",
-  "url": "https://ieaghg.org/events/co2-transport-and-storage-cost-review/",
-  "doi": "",
-  "title": "CO2 Transport and Storage Cost Review Webinar",
-  "date": "2026-11-16",
-  "category": "events",
-  "digest_date": "2026-11-16"
- },
- {
-  "id": "6020c4c012",
-  "url": "https://carbonmanagementeurope.org/event/northern-lights-side-event-icm-summit-2026/",
-  "doi": "",
-  "title": "One year of Longship operations: What's next for CCS in Europe?",
-  "date": "2026-11-16",
-  "category": "events",
-  "digest_date": "2026-11-16"
- },
- {
-  "id": "5d455c1e37",
-  "url": "https://carbonmanagementeurope.org/event/industrial-carbon-management-summit-2026/",
-  "doi": "",
-  "title": "Industrial Carbon Management Summit 2026",
-  "date": "2026-11-16",
-  "category": "events",
-  "digest_date": "2026-11-16"
- },
- {
-  "id": "c3eb7c5f51",
-  "url": "https://carbonmanagementeurope.org/event/central-and-southern-europe-ccs-and-cdr-conference/",
-  "doi": "",
-  "title": "Central and Southern Europe CCS & CDR Conference: Building on Hungary's strengths to create a regional carbon management hub",
-  "date": "2026-11-16",
-  "category": "events",
-  "digest_date": "2026-11-16"
- },
- {
-  "id": "1fa3809f25",
-  "url": "https://doi.org/10.3390/rsee3040018",
-  "doi": "10.3390/rsee3040018",
-  "title": "Beyond Construction: The Platform Effect of Environmental Infrastructure in Carbon Capture and Storage",
-  "date": "2026-11-16",
-  "category": "research",
-  "digest_date": "2026-11-17"
- },
- {
-  "id": "75f80829b7",
-  "url": "https://doi.org/10.1016/j.ccst.2026.100718",
-  "doi": "10.1016/j.ccst.2026.100718",
-  "title": "Prospective Life Cycle Optimization of Carbon Capture and Storage/Utilization (CCS/CCU) Supply Chains in the Cement Industry",
-  "date": "2026-11-17",
-  "category": "research",
-  "digest_date": "2026-11-17"
- },
- {
-  "id": "0477c475e9",
-  "url": "https://gigaccs.no/from-the-web/small-case-major-consequences-for-norwegian-energy-policy/",
-  "doi": "",
-  "title": "A small labour case may have major consequences for Norwegian energy policy",
-  "date": "2026-11-17",
-  "category": "research",
-  "digest_date": "2026-11-18"
- },
- {
-  "id": "c40b453674",
-  "url": "https://climate.ec.europa.eu/news-other-reads/news/commission-invites-public-shape-new-carbon-storage-certification-buildings-2026-11-18_en",
-  "doi": "",
-  "title": "Commission invites public to shape new carbon storage certification for buildings",
-  "date": "2026-11-18",
-  "category": "policy",
-  "digest_date": "2026-11-18"
- },
- {
-  "id": "86f384595c",
-  "url": "https://cinea.ec.europa.eu/news-events/news/registrations-open-innovation-fund-2026-info-days-2026-11-17_en",
-  "doi": "",
-  "title": "Registrations open for the Innovation Fund 2026 Info Days",
-  "date": "2026-11-16",
-  "category": "events",
-  "digest_date": "2026-11-18"
- },
- {
-  "id": "a9f4dfe749",
-  "url": "https://ieaghg.org/events/co2-transport-and-storage-availability-webinar/",
-  "doi": "",
-  "title": "CO2 Transport and Storage Availability Webinar",
-  "date": "2026-11-18",
-  "category": "events",
-  "digest_date": "2026-11-18"
- },
- {
   "id": "90055b5c42",
   "url": "https://www.sintef.no/en/latest-news/2026/can-ccs-stop-the-ai-boom-from-blowing-the-carbon-budget/",
   "doi": "",
   "title": "Can CCS stop the AI boom from blowing the carbon budget?",
   "date": "2026-11-19",
-  "category": "research",
+  "status": "published",
   "digest_date": "2026-11-19"
  },
  {
@@ -239,7 +14,232 @@
   "doi": "",
   "title": "Building Europe’s CO₂ infrastructure: The EU regulatory framework and managing cross-chain risks",
   "date": "2026-11-19",
-  "category": "events",
+  "status": "published",
   "digest_date": "2026-11-19"
+ },
+ {
+  "id": "a9f4dfe749",
+  "url": "https://ieaghg.org/events/co2-transport-and-storage-availability-webinar/",
+  "doi": "",
+  "title": "CO2 Transport and Storage Availability Webinar",
+  "date": "2026-11-18",
+  "status": "published",
+  "digest_date": "2026-11-18"
+ },
+ {
+  "id": "c40b453674",
+  "url": "https://climate.ec.europa.eu/news-other-reads/news/commission-invites-public-shape-new-carbon-storage-certification-buildings-2026-11-18_en",
+  "doi": "",
+  "title": "Commission invites public to shape new carbon storage certification for buildings",
+  "date": "2026-11-18",
+  "status": "published",
+  "digest_date": "2026-11-18"
+ },
+ {
+  "id": "0477c475e9",
+  "url": "https://gigaccs.no/from-the-web/small-case-major-consequences-for-norwegian-energy-policy/",
+  "doi": "",
+  "title": "A small labour case may have major consequences for Norwegian energy policy",
+  "date": "2026-11-17",
+  "status": "published",
+  "digest_date": "2026-11-18"
+ },
+ {
+  "id": "86f384595c",
+  "url": "https://cinea.ec.europa.eu/news-events/news/registrations-open-innovation-fund-2026-info-days-2026-11-17_en",
+  "doi": "",
+  "title": "Registrations open for the Innovation Fund 2026 Info Days",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-18"
+ },
+ {
+  "id": "75f80829b7",
+  "url": "https://doi.org/10.1016/j.ccst.2026.100718",
+  "doi": "10.1016/j.ccst.2026.100718",
+  "title": "Prospective Life Cycle Optimization of Carbon Capture and Storage/Utilization (CCS/CCU) Supply Chains in the Cement Industry",
+  "date": "2026-11-17",
+  "status": "published",
+  "digest_date": "2026-11-17"
+ },
+ {
+  "id": "1fa3809f25",
+  "url": "https://doi.org/10.3390/rsee3040018",
+  "doi": "10.3390/rsee3040018",
+  "title": "Beyond Construction: The Platform Effect of Environmental Infrastructure in Carbon Capture and Storage",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-17"
+ },
+ {
+  "id": "5d455c1e37",
+  "url": "https://carbonmanagementeurope.org/event/industrial-carbon-management-summit-2026/",
+  "doi": "",
+  "title": "Industrial Carbon Management Summit 2026",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-16"
+ },
+ {
+  "id": "6020c4c012",
+  "url": "https://carbonmanagementeurope.org/event/northern-lights-side-event-icm-summit-2026/",
+  "doi": "",
+  "title": "One year of Longship operations: What's next for CCS in Europe?",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-16"
+ },
+ {
+  "id": "98e58e96f5",
+  "url": "https://ieaghg.org/events/co2-transport-and-storage-cost-review/",
+  "doi": "",
+  "title": "CO2 Transport and Storage Cost Review Webinar",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-16"
+ },
+ {
+  "id": "c3eb7c5f51",
+  "url": "https://carbonmanagementeurope.org/event/central-and-southern-europe-ccs-and-cdr-conference/",
+  "doi": "",
+  "title": "Central and Southern Europe CCS & CDR Conference: Building on Hungary's strengths to create a regional carbon management hub",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-16"
+ },
+ {
+  "id": "e6818c74ea",
+  "url": "https://carbonherald.com/cnpc-commissions-chinas-longest-co2-pipeline/",
+  "doi": "",
+  "title": "CNPC Commissions China's Longest CO2 Pipeline",
+  "date": "2026-11-16",
+  "status": "published",
+  "digest_date": "2026-11-16"
+ },
+ {
+  "id": "811a306ebb",
+  "url": "https://doi.org/10.1007/s11665-026-15433-2",
+  "doi": "10.1007/s11665-026-15433-2",
+  "title": "Advancements in Pipeline Corrosion Monitoring for Supercritical CO2 Environments: A Review",
+  "date": "2026-11-13",
+  "status": "published",
+  "digest_date": "2026-11-16"
+ },
+ {
+  "id": "07b7417def",
+  "url": "https://www.stockholmexergi.se/nyheter/what-energy-sector-expertise-can-bring-to-europes-emerging-carbon-removal-industry/",
+  "doi": "",
+  "title": "What energy-sector expertise can bring to Europe’s emerging carbon removal industry",
+  "date": "2026-11-13",
+  "status": "published",
+  "digest_date": "2026-11-15"
+ },
+ {
+  "id": "cac3339df5",
+  "url": "https://ieefa.org/resources/polluter-pays-or-taxpayer-pays-weaker-eu-carbon-prices-widen-carbon-capture-funding-gap",
+  "doi": "",
+  "title": "Polluter pays or taxpayer pays? Weaker EU carbon prices widen the carbon capture funding gap",
+  "date": "2026-11-11",
+  "status": "published",
+  "digest_date": "2026-11-15"
+ },
+ {
+  "id": "96ecd53eb1",
+  "url": "https://doi.org/10.1016/j.petsci.2026.11.012",
+  "doi": "10.1016/j.petsci.2026.11.012",
+  "title": "Toward lower-cost carbon capture, utilization, and storage: Fit-for-purpose CO2 conditioning and source–sink coordination",
+  "date": "2026-11-12",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "b73aca4143",
+  "url": "https://gigaccs.no/news/research-works-and-the-global-south-should-be-part-of-it-gigaccs-at-cop31/",
+  "doi": "",
+  "title": "Research works – and the Global South should be part of it: gigaCCS at COP31",
+  "date": "2026-11-12",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "769cc5fcf0",
+  "url": "https://ccsnorway.com/norway-supports-ccus-development-poland/",
+  "doi": "",
+  "title": "Norway supports CCUS development in Poland",
+  "date": "2026-11-11",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "7eab7b92ac",
+  "url": "https://cinea.ec.europa.eu/news-events/news/innozhero-major-step-towards-capturing-carbon-emissions-waste-2026-11-12_en",
+  "doi": "",
+  "title": "INNOZHERO: A major step towards capturing carbon emissions from waste",
+  "date": "2026-11-11",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "cc109945ad",
+  "url": "https://doi.org/10.1016/j.cie.2026.112506",
+  "doi": "10.1016/j.cie.2026.112506",
+  "title": "Industry perspectives on CO2 transport optimization models and case studies",
+  "date": "2026-11-11",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "638c6f01c3",
+  "url": "https://doi.org/10.1016/j.biombioe.2026.110283",
+  "doi": "10.1016/j.biombioe.2026.110283",
+  "title": "Biomass as a transportable biogenic carbon carrier for e-methanol production: Techno-economic comparison with CO2 transport and direct air capture",
+  "date": "2026-11-10",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "be83cb28ce",
+  "url": "https://doi.org/10.1016/j.ijpe.2026.110280",
+  "doi": "10.1016/j.ijpe.2026.110280",
+  "title": "Sustainable closed-loop supply chain network planning with CCUS: A multi-objective robust optimization framework under two carbon policies",
+  "date": "2026-11-10",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "cf304bbb06",
+  "url": "https://gigaccs.no/news/gigaccs-consortium-days-2026-celebrating-how-far-ccs-has-come-while-recognising-how-far-it-has-to-go/",
+  "doi": "",
+  "title": "gigaCCS Consortium Days 2026: Celebrating how far CCS has come, while recognising how far it has to go",
+  "date": "2026-11-10",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "f36ffb12e4",
+  "url": "https://gigaccs.no/news/who-keeps-ccs-data-alive-a-call-for-more-data-sharing-at-the-gigaccs-consortium-days/",
+  "doi": "",
+  "title": "Who keeps CCS data alive? A call for more data sharing at the gigaCCS Consortium Days",
+  "date": "2026-11-09",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "6caefdca97",
+  "url": "https://doi.org/10.1016/j.ijggc.2026.104829",
+  "doi": "10.1016/j.ijggc.2026.104829",
+  "title": "A novel approach for preliminary sizing and cost screening of CO2 pipeline transport: The ECOB method",
+  "date": "2026-11-07",
+  "status": "published",
+  "digest_date": "2026-11-13"
+ },
+ {
+  "id": "a51bcc8065",
+  "url": "https://www.stockholmexergi.se/nyheter/first-process-equipment-installed-at-beccs-stockholm/",
+  "doi": "",
+  "title": "First process equipment installed at Beccs Stockholm",
+  "date": "2026-11-06",
+  "status": "published",
+  "digest_date": "2026-11-13"
  }
 ]

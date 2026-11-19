@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import unicodedata
 from datetime import date, datetime
@@ -81,3 +82,19 @@ def strip_html(s: str, limit: int | None = None) -> str:
     if limit and len(s) > limit:
         s = s[: limit - 1].rsplit(" ", 1)[0] + "…"
     return s
+
+
+def review_api(path: str, payload: dict | None = None, base: str | None = None):
+    """Call the review space API (Cloudflare Worker) with the ingest key.
+    Returns None when it is not configured (no REVIEW_INGEST_KEY, e.g. local testing)."""
+    import urllib.request
+    base = os.environ.get("REVIEW_API_URL") or base or ""
+    key = os.environ.get("REVIEW_INGEST_KEY", "")
+    if not base or not key:
+        return None
+    req = urllib.request.Request(base.rstrip("/") + path, method="POST" if payload is not None else "GET",
+                                 data=json.dumps(payload).encode() if payload is not None else None,
+                                 headers={"x-ingest-key": key, "content-type": "application/json",
+                                          "user-agent": "ccs-research-monitor"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read().decode())
