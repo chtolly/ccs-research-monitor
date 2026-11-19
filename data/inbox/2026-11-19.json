@@ -1,7 +1,7 @@
 {
   "date": "2026-11-19",
   "searches_used": 15,
-  "notes": "collector run by routine (FRESH); 1 of 5 candidates kept (ZEP/CME webinar); 0 items from web search; IEA (both pages) and Sodir returned 403 (site searches used, nothing dated since 2026-11-15); Swedish Energy Agency had no CCS news; Carbon Herald returned empty pages",
+  "notes": "collector run by routine (FRESH); 1 of 5 candidates kept (ZEP/CME webinar); 0 items from web search; IEA (both pages) and Sodir returned 403 (site searches used, nothing dated since 2026-11-15); Swedish Energy Agency had no CCS news; Carbon Herald returned empty pages; TOP-UP: 10 new candidates screened, 1 kept (SINTEF COP31 CCS item; page 403, feed text used)",
   "items": [
     {
       "title": "Building Europe’s CO₂ infrastructure: The EU regulatory framework and managing cross-chain risks",
@@ -16,6 +16,21 @@
       "candidate_id": "c25766469b",
       "authors": null,
       "event_date": "2026-11-27",
+      "also_reported_by": []
+    },
+    {
+      "title": "Can CCS stop the AI boom from blowing the carbon budget?",
+      "title_en": null,
+      "source": "SINTEF",
+      "date": "2026-11-19",
+      "url": "https://www.sintef.no/en/latest-news/2026/can-ccs-stop-the-ai-boom-from-blowing-the-carbon-budget/",
+      "category": "research",
+      "summary": "SINTEF news item noting that data centres could account for 7 per cent of global electricity demand. At the UN climate summit COP31, SINTEF's Mona Mølnvik argued that gas power with carbon capture is a possible solution, provided that solutions that cannot be fixed afterwards are not locked in. (Summary from the SINTEF feed; the page could not be opened.)",
+      "why_it_matters": "Gas power with CCS to supply data centres would add a new class of CO₂ sources that Nordic transport and storage networks would have to collect, which changes demand scenarios for hub and storage capacity planning.",
+      "origin": "candidate",
+      "candidate_id": "90055b5c42",
+      "authors": null,
+      "event_date": null,
       "also_reported_by": []
     }
   ]
