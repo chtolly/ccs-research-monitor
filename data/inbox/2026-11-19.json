@@ -1,37 +1,106 @@
 {
-  "date": "2026-11-19",
-  "searches_used": 15,
-  "notes": "collector run by routine (FRESH); 1 of 5 candidates kept (ZEP/CME webinar); 0 items from web search; IEA (both pages) and Sodir returned 403 (site searches used, nothing dated since 2026-11-15); Swedish Energy Agency had no CCS news; Carbon Herald returned empty pages; TOP-UP: 10 new candidates screened, 1 kept (SINTEF COP31 CCS item; page 403, feed text used)",
-  "items": [
+ "date": "2026-11-19",
+ "searches_used": 40,
+ "notes": "collector run by routine (FRESH); 1 of 5 candidates kept (ZEP/CME webinar); 0 items from web search; IEA (both pages) and Sodir returned 403 (site searches used, nothing dated since 2026-11-15); Swedish Energy Agency had no CCS news; Carbon Herald returned empty pages; TOP-UP: 10 new candidates screened, 1 kept (SINTEF COP31 CCS item; page 403, feed text used); REDO (collector-triggered): 18 candidates rescreened, no further candidate kept (DG CLIMA COP items, China pipeline already published, capture/solvent papers off-scope); claude_checks: IEA and Sodir 403 (site searches, nothing new), Energimyndigheten newest item 13 Nov, Carbon Herald empty; 40 web searches; 2 events added (GRC CCUS 2027, DTU Offshore Summer School 2027); 4 related links",
+ "items": [
+  {
+   "title": "Building Europe’s CO₂ infrastructure: The EU regulatory framework and managing cross-chain risks",
+   "title_en": null,
+   "source": "Carbon Management Europe",
+   "date": "2026-11-19",
+   "url": "https://carbonmanagementeurope.org/event/building-europes-co%e2%82%82-infrastructure-the-eu-regulatory-framework-and-managing-cross-chain-risks/",
+   "category": "events",
+   "summary": "Online webinar on 27 November 2026 (10:00–11:00), organised by CCUS Innovation, Bellona and Carbon Management Europe, on the EU regulatory challenges and opportunities for CO₂ transport and storage infrastructure. It discusses how an EU-wide framework could support investment, enable cross-border transport and create a European CO₂ market ahead of the Commission's CO₂ Infrastructure and Markets legislation, expected in early 2027, as well as the impact of transport and storage disruptions on emitters and possible EU-level risk-sharing such as an EU Guarantee Mechanism. Speakers are Aymeric Amand (Carbon Management Europe), Tom Mikunda (Bellona Europa) and Marton Volstad (CCUS Innovation).",
+   "why_it_matters": "The coming CO₂ Infrastructure and Markets law will set third-party access, tariff and cross-chain liability rules that shape cross-border Nordic CO₂ flows and the risk allocation assumed in network-design models.",
+   "origin": "candidate",
+   "candidate_id": "c25766469b",
+   "authors": null,
+   "event_date": "2026-11-27",
+   "also_reported_by": [],
+   "type": "event",
+   "paywalled": false,
+   "related": []
+  },
+  {
+   "title": "Can CCS stop the AI boom from blowing the carbon budget?",
+   "title_en": null,
+   "source": "SINTEF",
+   "date": "2026-11-19",
+   "url": "https://www.sintef.no/en/latest-news/2026/can-ccs-stop-the-ai-boom-from-blowing-the-carbon-budget/",
+   "category": "research",
+   "summary": "SINTEF news item noting that data centres could account for 7 per cent of global electricity demand. At the UN climate summit COP31, SINTEF's Mona Mølnvik argued that gas power with carbon capture is a possible solution, provided that solutions that cannot be fixed afterwards are not locked in. (Summary from the SINTEF feed; the page could not be opened.)",
+   "why_it_matters": "Gas power with CCS to supply data centres would add a new class of CO₂ sources that Nordic transport and storage networks would have to collect, which changes demand scenarios for hub and storage capacity planning.",
+   "origin": "candidate",
+   "candidate_id": "90055b5c42",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "type": "news",
+   "paywalled": false,
+   "related": []
+  },
+  {
+   "title": "Carbon Capture, Utilization and Storage Gordon Research Conference",
+   "title_en": null,
+   "source": "Gordon Research Conferences",
+   "date": "2026-11-19",
+   "url": "https://www.grc.org/carbon-capture-utilization-and-storage-conference/2027/",
+   "type": "event",
+   "paywalled": false,
+   "category": "events",
+   "summary": "The 2027 Gordon Research Conference on Carbon Capture, Utilization and Storage, subtitled \"Scientific Foundations for the Carbon Management Infrastructure of the 21st Century\", takes place 30 May to 4 June 2027 at Les Diablerets, Switzerland. Sessions include advances in CO₂ utilization, transport and storage science, systems science for carbon management, lessons from deployment, and policy and societal dimensions of scaling. Applications close on 2 May 2027; the detailed programme is due by 30 January 2027.",
+   "why_it_matters": "A small, research-focused meeting with dedicated sessions on CO₂ transport and systems-level integration of capture, transport and storage, a natural venue for presenting CCS network-optimisation work.",
+   "origin": "web_search",
+   "candidate_id": null,
+   "authors": null,
+   "event_date": "2027-05-30",
+   "also_reported_by": [],
+   "related": [
     {
-      "title": "Building Europe’s CO₂ infrastructure: The EU regulatory framework and managing cross-chain risks",
-      "title_en": null,
-      "source": "Carbon Management Europe",
-      "date": "2026-11-19",
-      "url": "https://carbonmanagementeurope.org/event/building-europes-co%e2%82%82-infrastructure-the-eu-regulatory-framework-and-managing-cross-chain-risks/",
-      "category": "events",
-      "summary": "Online webinar on 27 November 2026 (10:00–11:00), organised by CCUS Innovation, Bellona and Carbon Management Europe, on the EU regulatory challenges and opportunities for CO₂ transport and storage infrastructure. It discusses how an EU-wide framework could support investment, enable cross-border transport and create a European CO₂ market ahead of the Commission's CO₂ Infrastructure and Markets legislation, expected in early 2027, as well as the impact of transport and storage disruptions on emitters and possible EU-level risk-sharing such as an EU Guarantee Mechanism. Speakers are Aymeric Amand (Carbon Management Europe), Tom Mikunda (Bellona Europa) and Marton Volstad (CCUS Innovation).",
-      "why_it_matters": "The coming CO₂ Infrastructure and Markets law will set third-party access, tariff and cross-chain liability rules that shape cross-border Nordic CO₂ flows and the risk allocation assumed in network-design models.",
-      "origin": "candidate",
-      "candidate_id": "c25766469b",
-      "authors": null,
-      "event_date": "2026-11-27",
-      "also_reported_by": []
+     "title": "2027 Carbon Capture, Utilization and Storage (GRS) Seminar",
+     "url": "https://www.grc.org/carbon-capture-utilization-and-storage-grs-conference/2027/",
+     "source": "Gordon Research Conferences",
+     "reason": "Companion early-career seminar (29–30 May 2027) held just before the conference; oral-talk abstracts are due 21 February 2027."
     },
     {
-      "title": "Can CCS stop the AI boom from blowing the carbon budget?",
-      "title_en": null,
-      "source": "SINTEF",
-      "date": "2026-11-19",
-      "url": "https://www.sintef.no/en/latest-news/2026/can-ccs-stop-the-ai-boom-from-blowing-the-carbon-budget/",
-      "category": "research",
-      "summary": "SINTEF news item noting that data centres could account for 7 per cent of global electricity demand. At the UN climate summit COP31, SINTEF's Mona Mølnvik argued that gas power with carbon capture is a possible solution, provided that solutions that cannot be fixed afterwards are not locked in. (Summary from the SINTEF feed; the page could not be opened.)",
-      "why_it_matters": "Gas power with CCS to supply data centres would add a new class of CO₂ sources that Nordic transport and storage networks would have to collect, which changes demand scenarios for hub and storage capacity planning.",
-      "origin": "candidate",
-      "candidate_id": "90055b5c42",
-      "authors": null,
-      "event_date": null,
-      "also_reported_by": []
+     "title": "Europe needs 65-strong CO2 shipping fleet and 33 ports to store carbon at scale, Xodus report finds",
+     "url": "https://www.worldpipelines.com/project-news/17062026/europe-needs-65-strong-co2-shipping-fleet-and-33-ports-to-store-carbon-at-scale-xodus-report-finds/",
+     "source": "World Pipelines",
+     "reason": "Recent system-level estimate of Europe's CO₂ pipeline/ship split, fleet and port needs to 2050: the kind of infrastructure question the conference's systems sessions address."
+    },
+    {
+     "title": "International Carbon Dioxide Flows",
+     "url": "https://ieaghg.org/publications/international-carbon-dioxide-flows/",
+     "source": "IEAGHG",
+     "reason": "IEAGHG study of the drivers, size and direction of cross-border CO₂ flows to 2035 and 2050, relevant background for transport and systems research."
     }
-  ]
+   ]
+  },
+  {
+   "title": "Summer School 2027",
+   "title_en": null,
+   "source": "DTU Offshore",
+   "date": "2026-11-19",
+   "url": "https://offshore.dtu.dk/about/events/summer-school",
+   "type": "event",
+   "paywalled": false,
+   "category": "events",
+   "summary": "DTU Offshore's 2027 Summer School on subsurface storage runs 7–10 September 2027 at DTU Lyngby Campus, Denmark. The four-day programme includes a track on CO₂ storage and carbon management (regulation, site characterisation, well integrity, monitoring and risk), alongside underground hydrogen and gas storage, geothermal, digitalisation and AI, and technical excursions. Registration is open via the page; no deadline is stated.",
+   "why_it_matters": "A Danish course on the storage end of the chain, including storage regulation and risk, useful for researchers who model storage-site capacity and constraints in Nordic CCS networks.",
+   "origin": "web_search",
+   "candidate_id": null,
+   "authors": null,
+   "event_date": "2027-09-07",
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "12th Delft Summer School",
+     "url": "https://tudelft.nl/en/ceg/about-faculty/departments/geoscience-engineering/sections/reservoir-engineering/summer-school",
+     "source": "TU Delft",
+     "reason": "Comparable European summer school on subsurface energy storage, including CCS in aquifers and depleted fields and underground hydrogen storage."
+    }
+   ]
+  }
+ ],
+ "related_updates": []
 }
