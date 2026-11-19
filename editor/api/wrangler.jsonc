@@ -6,7 +6,7 @@
   "compatibility_date": "2026-11-01",
   "workers_dev": true,
   "d1_databases": [
-    { "binding": "DB", "database_name": "ccs-review", "database_id": "REPLACE_AFTER_d1_create" }
+    { "binding": "DB", "database_name": "ccs-review", "database_id": "c0b52ef5-562b-4b08-ab0a-59b7a1c11682" }
   ],
   "vars": {
     "SITE_URL": "https://chtolly.github.io/ccs-research-monitor/",

@@ -23,10 +23,10 @@ settings:
   related_links_per_item: 5      # at most this many related links per item (3–5 when good ones exist)
   max_candidates_for_claude: 400 # cap on feed/paper candidates handed to Claude
 
-# The review space (editors submit, approvers approve). Filled in after the Cloudflare setup.
+# The review space (editors submit, approvers approve): two Cloudflare Workers (see README → One-time setup).
 review:
-  api_url: ""     # e.g. https://ccs-review-api.<account>.workers.dev
-  login_url: ""   # e.g. https://ccs-review-login.<account>.workers.dev
+  api_url: "https://ccs-review-api.ccs-monitor-review.workers.dev"
+  login_url: "https://ccs-review-login.ccs-monitor-review.workers.dev"
 
 # Content types (fixed): paper = journal/conference paper, report = technical or industry report
 # (DNV, SINTEF, IEAGHG, Clarksons…; mark "paywalled" when the full text is not free),
