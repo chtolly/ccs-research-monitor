@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-19",
+  "searches_used": 15,
+  "notes": "collector run by routine (FRESH); 1 of 5 candidates kept (ZEP/CME webinar); 0 items from web search; IEA (both pages) and Sodir returned 403 (site searches used, nothing dated since 2026-11-15); Swedish Energy Agency had no CCS news; Carbon Herald returned empty pages",
+  "items": [
+    {
+      "title": "Building Europe’s CO₂ infrastructure: The EU regulatory framework and managing cross-chain risks",
+      "title_en": null,
+      "source": "Carbon Management Europe",
+      "date": "2026-11-19",
+      "url": "https://carbonmanagementeurope.org/event/building-europes-co%e2%82%82-infrastructure-the-eu-regulatory-framework-and-managing-cross-chain-risks/",
+      "category": "events",
+      "summary": "Online webinar on 27 November 2026 (10:00–11:00), organised by CCUS Innovation, Bellona and Carbon Management Europe, on the EU regulatory challenges and opportunities for CO₂ transport and storage infrastructure. It discusses how an EU-wide framework could support investment, enable cross-border transport and create a European CO₂ market ahead of the Commission's CO₂ Infrastructure and Markets legislation, expected in early 2027, as well as the impact of transport and storage disruptions on emitters and possible EU-level risk-sharing such as an EU Guarantee Mechanism. Speakers are Aymeric Amand (Carbon Management Europe), Tom Mikunda (Bellona Europa) and Marton Volstad (CCUS Innovation).",
+      "why_it_matters": "The coming CO₂ Infrastructure and Markets law will set third-party access, tariff and cross-chain liability rules that shape cross-border Nordic CO₂ flows and the risk allocation assumed in network-design models.",
+      "origin": "candidate",
+      "candidate_id": "c25766469b",
+      "authors": null,
+      "event_date": "2026-11-27",
+      "also_reported_by": []
+    }
+  ]
+}
