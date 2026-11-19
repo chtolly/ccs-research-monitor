@@ -1,0 +1,45 @@
+{
+ "id": "1b6539b842",
+ "title": "Carbon Capture, Utilization and Storage Gordon Research Conference",
+ "title_en": null,
+ "source": "Gordon Research Conferences",
+ "date": "2026-11-19",
+ "url": "https://www.grc.org/carbon-capture-utilization-and-storage-conference/2027/",
+ "type": "event",
+ "paywalled": false,
+ "category": "events",
+ "summary": "The 2027 Gordon Research Conference on Carbon Capture, Utilization and Storage, subtitled \"Scientific Foundations for the Carbon Management Infrastructure of the 21st Century\", takes place 30 May to 4 June 2027 at Les Diablerets, Switzerland. Sessions include advances in CO₂ utilization, transport and storage science, systems science for carbon management, lessons from deployment, and policy and societal dimensions of scaling. Applications close on 2 May 2027; the detailed programme is due by 30 January 2027.",
+ "why_it_matters": "A small, research-focused meeting with dedicated sessions on CO₂ transport and systems-level integration of capture, transport and storage, a natural venue for presenting CCS network-optimisation work.",
+ "candidate_id": null,
+ "authors": null,
+ "event_date": "2027-05-30",
+ "also_reported_by": [],
+ "related": [
+  {
+   "title": "2027 Carbon Capture, Utilization and Storage (GRS) Seminar",
+   "url": "https://www.grc.org/carbon-capture-utilization-and-storage-grs-conference/2027/",
+   "source": "Gordon Research Conferences",
+   "reason": "Companion early-career seminar (29–30 May 2027) held just before the conference; oral-talk abstracts are due 21 February 2027."
+  },
+  {
+   "title": "Europe needs 65-strong CO2 shipping fleet and 33 ports to store carbon at scale, Xodus report finds",
+   "url": "https://www.worldpipelines.com/project-news/17062026/europe-needs-65-strong-co2-shipping-fleet-and-33-ports-to-store-carbon-at-scale-xodus-report-finds/",
+   "source": "World Pipelines",
+   "reason": "Recent system-level estimate of Europe's CO₂ pipeline/ship split, fleet and port needs to 2050: the kind of infrastructure question the conference's systems sessions address."
+  },
+  {
+   "title": "International Carbon Dioxide Flows",
+   "url": "https://ieaghg.org/publications/international-carbon-dioxide-flows/",
+   "source": "IEAGHG",
+   "reason": "IEAGHG study of the drivers, size and direction of cross-border CO₂ flows to 2035 and 2050, relevant background for transport and systems research."
+  }
+ ],
+ "date_unconfirmed": true,
+ "found_by": "web_search",
+ "run_date": "2026-11-19",
+ "origin": "agent",
+ "submitted_by": "Claude (weekly run 2026-11-19)",
+ "submitted_at": "2026-11-19T16:16:21Z",
+ "approved_by": "Kshitij Chaudhary",
+ "approved_at": "2026-11-19T16:28:38Z"
+}
