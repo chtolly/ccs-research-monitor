@@ -185,7 +185,6 @@ feeds:
   # ── Technical and industry reports (type: report; shown as "Technical report") ──
   - {name: "IEAGHG – technical reports", url: "https://ieaghg.org/publications/feed/", filter: false, type: report}
   - {name: "CATF – reports & papers", url: "https://www.catf.us/resource_type/reports-papers/feed/", filter: true, type: report}
-  - {name: "Oxford Institute for Energy Studies – publications", url: "https://www.oxfordenergy.org/publications/feed/", filter: true, type: report}
   - {name: "Energy Transitions Commission", url: "https://www.energy-transitions.org/feed/", filter: true, type: report}
   # Clarksons Research: reports are paywalled; its public feed had no new post since Sep 2025 when tested.
   - {name: "Clarksons Research – insights", url: "https://insights.clarksons.net/feed/", filter: true, type: report, paywalled: true}
@@ -213,7 +212,6 @@ watch_pages:
   # Technical and industry reports
   - {name: "DNV – publications", url: "https://www.dnv.com/publications/", link_contains: "/publications/", type: report, filter: true}
   - {name: "Carbon Management Europe – publications", url: "https://carbonmanagementeurope.org/knowledge-hub/", link_contains: "/publication/", type: report}
-  - {name: "SINTEF – publications", url: "https://www.sintef.no/en/publications/", link_contains: "/en/publications/publication/", type: report, filter: true}
   - {name: "Rystad Energy – newsroom", url: "https://www.rystadenergy.com/news", link_contains: "/news/", type: report, filter: true}
   # Tested 2026-11-19 but NOT usable: gasworld, Energy Voice, reNEWS, Euractiv, clarksons.net, Ørsted (block robots);
   # Global CCS Institute resources, Bellona EU publications, Gassnova publications, Port of Gothenburg (built by JavaScript);
@@ -240,6 +238,7 @@ claude_checks:
   - {name: "Norwegian Offshore Directorate (Sodir) – news", url: "https://www.sodir.no/en/whats-new/news/"}
   - {name: "Swedish Energy Agency – news", url: "https://www.energimyndigheten.se/en/news/"}
   - {name: "Carbon Herald", url: "https://carbonherald.com/"}
+  - {name: "Oxford Institute for Energy Studies – publications (blocks GitHub)", url: "https://www.oxfordenergy.org/publications/"}
 
 # Topics Claude web-searches each week (limited by max_web_searches)
 search_topics:
