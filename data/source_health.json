@@ -1,357 +1,347 @@
 {
  "CCUS Norway": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Northern Lights": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Longship / Langskip (ccsnorway.com)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Gassnova": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "CLIMIT": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "NCCS (SINTEF/NTNU research centre)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "gigaCCS (SINTEF-led research centre)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Global CCS Institute": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "IEAGHG": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Carbon Management Europe (formerly ZEP)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Int. Journal of Greenhouse Gas Control": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "SINTEF news": {
-  "fails": 0,
+  "fails": 1,
   "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_day": "2026-11-23"
  },
  "SINTEF blog": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Norwegian SciTech News (NTNU/SINTEF)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "EU Innovation Fund / CINEA": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Danish Energy Agency (Energistyrelsen)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "State of Green (Denmark)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Stockholm Exergi": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Bellona": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Bellona Europa": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Clean Air Task Force (CATF)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "ZERO": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Offshore Energy": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Splash247 (shipping)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Splash247 – CO2 stories": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Splash247 – carbon capture stories": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "E24 energi": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Teknisk Ukeblad (TU.no)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Riviera – Carbon Capture & Storage": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Riviera – Ports & Terminals": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "The Maritime Executive": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Hellenic Shipping News": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "gCaptain": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "MarineLink": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Offshore Engineer (OEDigital)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Seatrade Maritime": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Baird Maritime": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "ShippingWatch": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "LNG Prime": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Pipeline Technology Journal": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Offshore Technology": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Carbon Pulse (headlines; articles paywalled)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Höegh Evi": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Aker BP": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Gassco": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Knutsen OAS Shipping": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "OGCI": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "IOGP": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "IEAGHG – technical reports": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "CATF – reports & papers": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
- },
- "Oxford Institute for Energy Studies – publications": {
-  "fails": 1,
-  "last_ok": null,
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Energy Transitions Commission": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Clarksons Research – insights": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "European Commission – DG CLIMA": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Equinor": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Project Greensand": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "NTNU": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "DK Havenergi – CCS news (Denmark)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Upstream – carbon capture (paywalled)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Aramis CCS (Netherlands)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Porthos CO2 (Netherlands)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Port of Rotterdam – news": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Port Esbjerg – news": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "DNV – news": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Wärtsilä – news": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "IEAGHG – news & insights": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "North Sea Transition Authority (UK)": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "DNV – publications": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Carbon Management Europe – publications": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
- },
- "SINTEF – publications": {
-  "fails": 1,
-  "last_ok": null,
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  },
  "Rystad Energy – newsroom": {
   "fails": 0,
-  "last_ok": "2026-11-19",
-  "last_day": "2026-11-19"
+  "last_ok": "2026-11-23",
+  "last_day": "2026-11-23"
  }
 }
