@@ -1,8 +1,8 @@
 {
  "date": "2026-11-23",
- "processed_at": "2026-11-23T06:11:35+01:00",
+ "processed_at": "2026-11-23T16:16:21+01:00",
  "searches_used": 40,
- "notes": "collector run by routine (FRESH, 30 candidates); 5 of 30 kept (EU-UK ETS link, Porthos budget, CME IPCEI letter, 2 CTS deliverables); COP31 Carbon Pulse items, capture/geology papers, China pipeline (already published) and Equinor dividend left out; claude_checks: IEA (both), Sodir, OIES 403 (site searches, nothing new), Energimyndigheten newest 13 Nov (no CCS), Carbon Herald empty; 40 web searches, 2 items added; 19 related links",
+ "notes": "collector run by routine (FRESH, 30 candidates); 5 of 30 kept (EU-UK ETS link, Porthos budget, CME IPCEI letter, 2 CTS deliverables); COP31 Carbon Pulse items, capture/geology papers, China pipeline (already published) and Equinor dividend left out; claude_checks: IEA (both), Sodir, OIES 403 (site searches, nothing new), Energimyndigheten newest 13 Nov (no CCS), Carbon Herald empty; 40 web searches, 2 items added; 19 related links; TOP-UP: 7 new candidates screened, 2 kept (EnEarth/Acorn stake, KIT CCS infrastructure risk review); COP31 commentary, EIC DAC funding and LATAM roundup left out; 4 related searches, 8 related links",
  "sent_to_review": [
   {
    "title": "Negotiations finalised to link EU and UK Emissions Trading Systems",
@@ -278,16 +278,101 @@
    "id": "6508edaa54",
    "found_by": "web_search",
    "run_date": "2026-11-23"
+  },
+  {
+   "title": "Identifying and Structuring Risks in CCS Infrastructures - A Systematic Literature Review",
+   "title_en": null,
+   "source": "Repository KITopen (Karlsruhe Institute of Technology)",
+   "date": "2026-11-18",
+   "url": "https://doi.org/10.5445/ir/1000199259",
+   "type": "paper",
+   "paywalled": false,
+   "category": "research",
+   "summary": "KIT working paper (Working Paper Series in Production and Energy, No. 84) reviewing 76 full-text publications on risks in large-scale CCS infrastructure linking capture, conditioning, transport and geological storage. The identified risks are mapped to five CCS stages and seven risk categories and consolidated into 35 risk clusters, presented as a risk matrix and a risk register with causes, impacts, mitigation measures and sources. The authors find that storage limitations, capacity shortfalls, technical interfaces and coordination problems often affect more than one stage, and note the tools do not replace quantitative risk assessment.",
+   "why_it_matters": "A structured catalogue of cross-stage risks (capacity shortfalls, interfaces, coordination) that can be turned into uncertainty sets or scenarios for stochastic and robust CCS network-design models.",
+   "candidate_id": "4cb95f126c",
+   "authors": "Moritz Fierke, Sonja Rosenberg, Vincent Bäsler, Frank Schultmann",
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "Making carbon capture & storage work",
+     "url": "https://www.rolandberger.com/en/Insights/Publications/Making-carbon-capture-storage-work.html",
+     "source": "Roland Berger",
+     "reason": "Industry view that CCS is now mainly a coordination problem, with liability frameworks and shared transport infrastructure as key barriers, the same cross-chain risks the review structures."
+    },
+    {
+     "title": "Hydrogen supply chain uncertainty: A systematic literature review",
+     "url": "https://energy-proceedings.org/?p=11515",
+     "source": "Energy Proceedings",
+     "reason": "Systematic review of uncertainty factors in hydrogen supply chain models, a methodological counterpart for turning risk lists into optimisation inputs."
+    }
+   ],
+   "related_dropped": [
+    {
+     "title": "DNV-RP-F104 Design and operation of carbon dioxide pipelines",
+     "url": "https://www.dnv.com/energy/standards-guidelines/dnv-rp-f104-design-and-operation-of-carbon-dioxide-pipelines/",
+     "source": "DNV",
+     "reason": "The industry recommended practice for CO2 pipeline design, operation and re-qualification, which addresses many of the transport-stage technical risks.",
+     "reason_dropped": "could not verify page (HTTP 403)"
+    },
+    {
+     "title": "Risks in the design of regional hydrogen hub systems: A review and commentary",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11954725/",
+     "source": "Risk Analysis (via PubMed Central)",
+     "reason": "Parallel risk review for hydrogen hubs (stranded capital, leakage), useful for comparing how hub-based CCS and H2 networks frame infrastructure risk.",
+     "reason_dropped": "page text does not match the title"
+    }
+   ],
+   "id": "4cb95f126c",
+   "found_by": "candidate",
+   "run_date": "2026-11-23",
+   "doi": "10.5445/ir/1000199259"
   }
  ],
  "related_updates": [],
- "dropped": [],
+ "dropped": [
+  {
+   "title": "EnEarth to acquire Storegga's interest in Acorn to create one of Europe's largest CO2 transport and storage platforms",
+   "url": "https://storegga.earth/news/storegga-agrees-to-sell-its-interest-in-acorn-to-enearth",
+   "reason": "URL differs from the collected candidate"
+  }
+ ],
  "review_queue_result": {
   "ok": true,
-  "added": 7,
-  "skipped": [],
+  "added": 1,
+  "skipped": [
+   {
+    "id": "a95029db0c",
+    "why": "already pending"
+   },
+   {
+    "id": "9d47119b16",
+    "why": "already pending"
+   },
+   {
+    "id": "bc450d6cf2",
+    "why": "already pending"
+   },
+   {
+    "id": "059ca9205a",
+    "why": "already pending"
+   },
+   {
+    "id": "53e43f774f",
+    "why": "already pending"
+   },
+   {
+    "id": "a71b92d588",
+    "why": "already pending"
+   },
+   {
+    "id": "6508edaa54",
+    "why": "already pending"
+   }
+  ],
   "related_added": 0
  },
- "candidates_seen": 30,
+ "candidates_seen": 37,
  "candidates_date": "2026-11-23"
 }
