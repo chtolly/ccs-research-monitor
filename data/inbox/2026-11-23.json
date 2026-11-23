@@ -1,258 +1,353 @@
 {
-  "date": "2026-11-23",
-  "searches_used": 40,
-  "notes": "collector run by routine (FRESH, 30 candidates); 5 of 30 kept (EU-UK ETS link, Porthos budget, CME IPCEI letter, 2 CTS deliverables); COP31 Carbon Pulse items, capture/geology papers, China pipeline (already published) and Equinor dividend left out; claude_checks: IEA (both), Sodir, OIES 403 (site searches, nothing new), Energimyndigheten newest 13 Nov (no CCS), Carbon Herald empty; 40 web searches, 2 items added; 19 related links",
-  "items": [
+ "date": "2026-11-23",
+ "searches_used": 40,
+ "notes": "collector run by routine (FRESH, 30 candidates); 5 of 30 kept (EU-UK ETS link, Porthos budget, CME IPCEI letter, 2 CTS deliverables); COP31 Carbon Pulse items, capture/geology papers, China pipeline (already published) and Equinor dividend left out; claude_checks: IEA (both), Sodir, OIES 403 (site searches, nothing new), Energimyndigheten newest 13 Nov (no CCS), Carbon Herald empty; 40 web searches, 2 items added; 19 related links; TOP-UP: 7 new candidates screened, 2 kept (EnEarth/Acorn stake, KIT CCS infrastructure risk review); COP31 commentary, EIC DAC funding and LATAM roundup left out; 4 related searches, 8 related links",
+ "items": [
+  {
+   "title": "Negotiations finalised to link EU and UK Emissions Trading Systems",
+   "title_en": null,
+   "source": "European Commission – DG CLIMA",
+   "date": "2026-11-20",
+   "url": "https://climate.ec.europa.eu/news-other-reads/news/negotiations-finalised-link-eu-and-uk-emissions-trading-systems-2026-11-20_en",
+   "type": "news",
+   "paywalled": false,
+   "category": "policy",
+   "summary": "EU and UK leaders announced at a bilateral summit that negotiations on linking their Emissions Trading Systems are concluded; the link is to apply from 1 January 2028, subject to ratification. The UK will extend its ETS to aviation and maritime, and the agreement could provide the basis for a future mutual exemption from each side's CBAM.",
+   "why_it_matters": "A common carbon price across the North Sea changes the economics of UK–EU CO2 flows; Carbon Management Europe notes cross-border storage recognition for ETS compliance is still not envisaged before 2031.",
+   "origin": "candidate",
+   "candidate_id": "a95029db0c",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [
     {
-      "title": "Negotiations finalised to link EU and UK Emissions Trading Systems",
-      "title_en": null,
-      "source": "European Commission – DG CLIMA",
-      "date": "2026-11-20",
-      "url": "https://climate.ec.europa.eu/news-other-reads/news/negotiations-finalised-link-eu-and-uk-emissions-trading-systems-2026-11-20_en",
-      "type": "news",
-      "paywalled": false,
-      "category": "policy",
-      "summary": "EU and UK leaders announced at a bilateral summit that negotiations on linking their Emissions Trading Systems are concluded; the link is to apply from 1 January 2028, subject to ratification. The UK will extend its ETS to aviation and maritime, and the agreement could provide the basis for a future mutual exemption from each side's CBAM.",
-      "why_it_matters": "A common carbon price across the North Sea changes the economics of UK–EU CO2 flows; Carbon Management Europe notes cross-border storage recognition for ETS compliance is still not envisaged before 2031.",
-      "origin": "candidate",
-      "candidate_id": "a95029db0c",
-      "authors": null,
-      "event_date": null,
-      "also_reported_by": [
-        {
-          "source": "Carbon Management Europe",
-          "url": "https://carbonmanagementeurope.org/eu-uk-ets-linkage/"
-        },
-        {
-          "source": "Riviera",
-          "url": "https://www.rivieramm.com/news-content-hub/uk-and-eu-leaders-pledge-to-link-emissions-trading-schemes-90645"
-        }
-      ],
-      "related": [
-        {
-          "title": "Carbon Border Adjustment Mechanism - Taxation and Customs Union",
-          "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
-          "source": "European Commission",
-          "reason": "The EU CBAM, from which the ETS link could lay the basis for a mutual UK exemption."
-        },
-        {
-          "title": "Participating in the UK ETS",
-          "url": "https://www.gov.uk/government/publications/participating-in-the-uk-ets/participating-in-the-uk-ets",
-          "source": "GOV.UK",
-          "reason": "UK ETS guidance covering the new maritime scope (domestic shipping from July 2026, offshore vessels from 2027)."
-        },
-        {
-          "title": "A Well-Functioning, Competitive and Fair European CO₂ Market for Climate",
-          "url": "https://network.bellona.org/content/uploads/sites/6/2026/02/Report-A-Well-Functioning-Competitive-and-Fair-European-Co2-Market-for-Climate.pdf",
-          "source": "Bellona Europa",
-          "reason": "Bellona report on capacity allocation and market rules ahead of the EU CO2 markets and infrastructure regulation."
-        }
-      ]
+     "source": "Carbon Management Europe",
+     "url": "https://carbonmanagementeurope.org/eu-uk-ets-linkage/"
     },
     {
-      "title": "Longer project duration leads to higher Porthos project budget",
-      "title_en": null,
-      "source": "Porthos CO2 (Netherlands)",
-      "date": "2026-11-19",
-      "url": "https://www.porthosco2.nl/en/longer-project-duration-leads-to-higher-porthos-project-budget/",
-      "type": "news",
-      "paywalled": false,
-      "category": "transport",
-      "summary": "Porthos says construction will be completed by the end of 2027 at the earliest, with operations realistically starting in 2028; delays centre on the offshore platform and the compressor station. The cost increase is estimated at up to €397 million including a risk buffer, raising the budget from the €1.3 billion FID baseline to a maximum of €1.7 billion.",
-      "why_it_matters": "Hard cost-overrun and schedule data for a pipeline-based North Sea transport and storage system, useful for calibrating capex and start-up uncertainty in network models.",
-      "origin": "candidate",
-      "candidate_id": "9d47119b16",
-      "authors": null,
-      "event_date": null,
-      "also_reported_by": [],
-      "related": [
-        {
-          "title": "Aramis takes next step towards investment decision",
-          "url": "https://www.gasunie.nl/en/news/aramis-takes-next-step-towards-investment-decision",
-          "source": "Gasunie",
-          "reason": "Neighbouring Rotterdam CO2 transport project; useful comparison for schedule and governance of Dutch CCS infrastructure."
-        },
-        {
-          "title": "European energy leaders sign MoU to develop major cross border CO₂ infrastructure between Germany and the Netherlands",
-          "url": "https://oge.net/en/press-releases/2026/european-energy-leaders-sign-mou",
-          "source": "OGE",
-          "reason": "Planned German-Dutch CO2 pipeline linked to Aramis: the pipeline alternative that ship-based chains compete with in the North Sea."
-        }
-      ]
-    },
-    {
-      "title": "publication 20/11/2026 Joint letter calling for an IPCEI on Industrial Carbon Management On 20 November 2026, Carbon Management Europe joined 25 other… Open Letters Read More",
-      "title_en": null,
-      "source": "Carbon Management Europe",
-      "date": "2026-11-20",
-      "url": "https://carbonmanagementeurope.org/publication/joint-letter-ipcei-industrial-carbon-management/",
-      "type": "news",
-      "paywalled": false,
-      "category": "policy",
-      "summary": "Carbon Management Europe and 25 other organisations ask Member States to launch a JEF-IPCEI identification process for a combined CCUS programme, name lead coordinating bodies and commission a scoping study. They want the 2024 Industrial Carbon Management Strategy turned into a co-investment programme linking capture, cross-border transport, utilisation and storage, with design work starting in 2027.",
-      "why_it_matters": "An IPCEI would be a new state-aid route for cross-border CO2 transport and storage chains, affecting how Nordic hubs and shipping links could be financed.",
-      "origin": "candidate",
-      "candidate_id": "bc450d6cf2",
-      "authors": null,
-      "event_date": null,
-      "also_reported_by": [],
-      "related": [
-        {
-          "title": "IPCEI - Competition Policy - European Commission",
-          "url": "https://competition-policy.ec.europa.eu/state-aid/ipcei_en",
-          "source": "European Commission",
-          "reason": "Explains the IPCEI state-aid instrument the joint letter asks Member States to use for carbon management."
-        },
-        {
-          "title": "New Innovation Fund awards underscore growing market demand for CO₂ storage and cross-border transport – Clean Air Task Force",
-          "url": "https://www.catf.us/2025/11/new-innovation-fund-awards-underscore-growing-market-demand-co2-storage-cross-border-transport/",
-          "source": "Clean Air Task Force",
-          "reason": "Background on EU Innovation Fund support for CO2 transport and storage, the funding stream an ICM IPCEI would complement."
-        },
-        {
-          "title": "A Well-Functioning, Competitive and Fair European CO₂ Market for Climate",
-          "url": "https://network.bellona.org/content/uploads/sites/6/2026/02/Report-A-Well-Functioning-Competitive-and-Fair-European-Co2-Market-for-Climate.pdf",
-          "source": "Bellona Europa",
-          "reason": "Bellona report on capacity allocation and market rules ahead of the EU CO2 markets and infrastructure regulation."
-        }
-      ]
-    },
-    {
-      "title": "Techno-economic evaluation report",
-      "title_en": null,
-      "source": "Zenodo (CTS CETP project, Deliverable D3.1)",
-      "date": "2026-11-18",
-      "url": "https://doi.org/10.5281/zenodo.24338491",
-      "type": "report",
-      "paywalled": false,
-      "category": "research",
-      "summary": "Bottom-up techno-economic assessment of full CCS chains in four European regions, including the Baltic Sea and the North Sea, comparing direct ship injection (DSI) with a dedicated pipeline and with conventional shipping to an offshore platform (net present costs in 2030 euros, 2031–2065). Capture accounts for roughly 65–90% of full-chain costs; pipelines give the lowest transport and storage cost where feasible, while DSI and conventional shipping have similar costs.",
-      "why_it_matters": "Directly comparable mode-choice cost data (pipeline vs ship vs direct injection) for the Baltic and North Sea, usable as input to Nordic-Baltic network optimisation.",
-      "origin": "candidate",
-      "candidate_id": "059ca9205a",
-      "authors": "Paulo Mesquita, Roman Berenblyum, Júlio Carneiro, Anders Nermoen, Tore Hatlen, Alla Shogenova, Kazbulat Shogenov, Alexandra Dudu, Yuliia Demchuk, Nematollah Zamani, Gaurav Soni",
-      "event_date": null,
-      "also_reported_by": [],
-      "related": [
-        {
-          "title": "DNV Finds Aker BP, Höegh Evi's Offshore CO2 Injection Concept Feasible",
-          "url": "https://www.oedigital.com/news/544001-dnv-finds-aker-bp-h-egh-evi-s-offshore-co2-injection-concept-feasible",
-          "source": "Offshore Engineer (OEDigital)",
-          "reason": "Industry counterpart to the CTS analysis: DNV feasibility statement for direct ship-to-well CO2 injection at the Norwegian Atlas project."
-        },
-        {
-          "title": "International Carbon Dioxide Flows",
-          "url": "https://ieaghg.org/publications/international-carbon-dioxide-flows/",
-          "source": "IEAGHG",
-          "reason": "IEAGHG study of the scale and direction of cross-border CO2 flows to storage in 2035 and 2050 (members only for six months)."
-        },
-        {
-          "title": "European energy leaders sign MoU to develop major cross border CO₂ infrastructure between Germany and the Netherlands",
-          "url": "https://oge.net/en/press-releases/2026/european-energy-leaders-sign-mou",
-          "source": "OGE",
-          "reason": "Planned German-Dutch CO2 pipeline linked to Aramis: the pipeline alternative that ship-based chains compete with in the North Sea."
-        }
-      ]
-    },
-    {
-      "title": "Techno-economic drivers and challenges for direct ship injection including replicability analysis",
-      "title_en": null,
-      "source": "Zenodo (CTS CETP project, Deliverable D3.2)",
-      "date": "2026-11-18",
-      "url": "https://doi.org/10.5281/zenodo.24338903",
-      "type": "report",
-      "paywalled": false,
-      "category": "transport",
-      "summary": "Assesses drivers, barriers and replicability of direct ship injection (DSI), where a CO2 carrier connects to a subsea injection system without an offshore platform or pipeline, for Portugal, the Baltic Sea, the Black Sea and the North Sea. DSI is found most useful in early deployment with low-to-medium volumes and dispersed emitters; main barriers are regulatory, operational and commercial, and in a Mediterranean network model DSI was not lowest-cost but appeared in several near-optimal routes.",
-      "why_it_matters": "Clarifies when platform-free ship injection belongs in an optimal CO2 network, relevant to Baltic emitters without pipeline access and to Norwegian DSI projects such as Atlas.",
-      "origin": "candidate",
-      "candidate_id": "53e43f774f",
-      "authors": "Gaurav Soni, Roman Berenblyum, Júlio Carneiro, Yuliia Demchuk, Alexandra Dudu, Pedro Miguel Ferreira Cardoso Madureira, Paulo Mesquita, Ole Johan Østvedt, Alla Shogenova, Kazbulat Shogenov",
-      "event_date": null,
-      "also_reported_by": [],
-      "related": [
-        {
-          "title": "DNV Finds Aker BP, Höegh Evi's Offshore CO2 Injection Concept Feasible",
-          "url": "https://www.oedigital.com/news/544001-dnv-finds-aker-bp-h-egh-evi-s-offshore-co2-injection-concept-feasible",
-          "source": "Offshore Engineer (OEDigital)",
-          "reason": "Industry counterpart to the CTS analysis: DNV feasibility statement for direct ship-to-well CO2 injection at the Norwegian Atlas project."
-        },
-        {
-          "title": "International Carbon Dioxide Flows",
-          "url": "https://ieaghg.org/publications/international-carbon-dioxide-flows/",
-          "source": "IEAGHG",
-          "reason": "IEAGHG study of the scale and direction of cross-border CO2 flows to storage in 2035 and 2050 (members only for six months)."
-        }
-      ]
-    },
-    {
-      "title": "In focus: Industrial carbon management – how it works and why we need it",
-      "title_en": null,
-      "source": "European Commission – DG Energy",
-      "date": "2026-11-17",
-      "url": "https://energy.ec.europa.eu/news/focus-industrial-carbon-management-how-it-works-and-why-we-need-it-2026-11-17_en",
-      "type": "news",
-      "paywalled": false,
-      "category": "policy",
-      "summary": "DG Energy explainer on industrial carbon management stating that the Commission plans to propose legislation for an internal CO2 market and infrastructure in early 2027, and recalling the NZIA target of 50 Mt/yr of storage capacity by 2030. It notes the latest PCI/PMI list includes 17 CO2 transport and storage projects, that CEF has given €978 million to CO2 infrastructure, and that Yara Sluiskil began capturing CO2 in September 2026 for shipment to Northern Lights.",
-      "why_it_matters": "Confirms the timing of the EU CO2 market and infrastructure regulation, which will set access and tariff rules for cross-border pipeline and shipping networks.",
-      "origin": "web_search",
-      "candidate_id": null,
-      "authors": null,
-      "event_date": null,
-      "also_reported_by": [],
-      "related": [
-        {
-          "title": "Norne, Port of Aalborg seal 30-year pact for EU-backed CO2 hub - Offshore Energy",
-          "url": "https://www.offshore-energy.biz/norne-port-of-aalborg-seal-30-year-pact-for-eu-backed-co2-hub/",
-          "source": "Offshore Energy",
-          "reason": "Example of a CEF-backed Nordic CO2 hub of the kind the Commission's PCI/CEF framework supports."
-        },
-        {
-          "title": "A Well-Functioning, Competitive and Fair European CO₂ Market for Climate",
-          "url": "https://network.bellona.org/content/uploads/sites/6/2026/02/Report-A-Well-Functioning-Competitive-and-Fair-European-Co2-Market-for-Climate.pdf",
-          "source": "Bellona Europa",
-          "reason": "Bellona report on capacity allocation and market rules ahead of the EU CO2 markets and infrastructure regulation."
-        },
-        {
-          "title": "New Innovation Fund awards underscore growing market demand for CO₂ storage and cross-border transport – Clean Air Task Force",
-          "url": "https://www.catf.us/2025/11/new-innovation-fund-awards-underscore-growing-market-demand-co2-storage-cross-border-transport/",
-          "source": "Clean Air Task Force",
-          "reason": "Background on EU Innovation Fund support for CO2 transport and storage, the funding stream an ICM IPCEI would complement."
-        }
-      ]
-    },
-    {
-      "title": "UK building offshore carbon storage capability close to northern industrial clusters",
-      "title_en": null,
-      "source": "Offshore magazine",
-      "date": "2026-11-18",
-      "url": "https://www.offshore-mag.com/energy-transition/article/55419946/uk-building-offshore-carbon-storage-capability-close-to-northern-industrial-clusters",
-      "type": "news",
-      "paywalled": false,
-      "category": "transport",
-      "summary": "Feature by Jeremy Beckman on offshore storage projects: Endurance (East Coast Cluster, ~140 km offshore pipeline, Phase 1 injection above 5 Mt/yr), Morecambe Net Zero (pipeline from Peak Cluster cement and lime producers; a ship-based import concept at Barrow was studied), and Project Greensand, where CO2 is trucked to Esbjerg and shipped to Nini West. It also covers Porthos and Prinos.",
-      "why_it_matters": "One-page comparison of pipeline versus truck-and-ship chains in operating and planned North Sea stores, including Greensand's Danish logistics chain.",
-      "origin": "web_search",
-      "candidate_id": null,
-      "authors": "Jeremy Beckman",
-      "event_date": null,
-      "also_reported_by": [],
-      "related": [
-        {
-          "title": "Major UK CCS project clears milestone toward offshore CO₂ storage",
-          "url": "https://www.worldoil.com/news/2026/6/9/major-uk-ccs-project-clears-milestone-toward-offshore-co2-storage/",
-          "source": "World Oil",
-          "reason": "Background on Morecambe Net Zero moving into the Assess Phase, one of the projects covered in the feature."
-        },
-        {
-          "title": "Project Greensand Case Study | Sustainability",
-          "url": "https://www.ineos.com/sustainability/case-studies/project-greensand/",
-          "source": "INEOS",
-          "reason": "Operator's page on the Greensand ship-based chain (truck, Esbjerg terminal, carrier, Nini West) described in the feature."
-        }
-      ]
+     "source": "Riviera",
+     "url": "https://www.rivieramm.com/news-content-hub/uk-and-eu-leaders-pledge-to-link-emissions-trading-schemes-90645"
     }
-  ],
-  "related_updates": []
+   ],
+   "related": [
+    {
+     "title": "Carbon Border Adjustment Mechanism - Taxation and Customs Union",
+     "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
+     "source": "European Commission",
+     "reason": "The EU CBAM, from which the ETS link could lay the basis for a mutual UK exemption."
+    },
+    {
+     "title": "Participating in the UK ETS",
+     "url": "https://www.gov.uk/government/publications/participating-in-the-uk-ets/participating-in-the-uk-ets",
+     "source": "GOV.UK",
+     "reason": "UK ETS guidance covering the new maritime scope (domestic shipping from July 2026, offshore vessels from 2027)."
+    },
+    {
+     "title": "A Well-Functioning, Competitive and Fair European CO₂ Market for Climate",
+     "url": "https://network.bellona.org/content/uploads/sites/6/2026/02/Report-A-Well-Functioning-Competitive-and-Fair-European-Co2-Market-for-Climate.pdf",
+     "source": "Bellona Europa",
+     "reason": "Bellona report on capacity allocation and market rules ahead of the EU CO2 markets and infrastructure regulation."
+    }
+   ]
+  },
+  {
+   "title": "Longer project duration leads to higher Porthos project budget",
+   "title_en": null,
+   "source": "Porthos CO2 (Netherlands)",
+   "date": "2026-11-19",
+   "url": "https://www.porthosco2.nl/en/longer-project-duration-leads-to-higher-porthos-project-budget/",
+   "type": "news",
+   "paywalled": false,
+   "category": "transport",
+   "summary": "Porthos says construction will be completed by the end of 2027 at the earliest, with operations realistically starting in 2028; delays centre on the offshore platform and the compressor station. The cost increase is estimated at up to €397 million including a risk buffer, raising the budget from the €1.3 billion FID baseline to a maximum of €1.7 billion.",
+   "why_it_matters": "Hard cost-overrun and schedule data for a pipeline-based North Sea transport and storage system, useful for calibrating capex and start-up uncertainty in network models.",
+   "origin": "candidate",
+   "candidate_id": "9d47119b16",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "Aramis takes next step towards investment decision",
+     "url": "https://www.gasunie.nl/en/news/aramis-takes-next-step-towards-investment-decision",
+     "source": "Gasunie",
+     "reason": "Neighbouring Rotterdam CO2 transport project; useful comparison for schedule and governance of Dutch CCS infrastructure."
+    },
+    {
+     "title": "European energy leaders sign MoU to develop major cross border CO₂ infrastructure between Germany and the Netherlands",
+     "url": "https://oge.net/en/press-releases/2026/european-energy-leaders-sign-mou",
+     "source": "OGE",
+     "reason": "Planned German-Dutch CO2 pipeline linked to Aramis: the pipeline alternative that ship-based chains compete with in the North Sea."
+    }
+   ]
+  },
+  {
+   "title": "publication 20/11/2026 Joint letter calling for an IPCEI on Industrial Carbon Management On 20 November 2026, Carbon Management Europe joined 25 other… Open Letters Read More",
+   "title_en": null,
+   "source": "Carbon Management Europe",
+   "date": "2026-11-20",
+   "url": "https://carbonmanagementeurope.org/publication/joint-letter-ipcei-industrial-carbon-management/",
+   "type": "news",
+   "paywalled": false,
+   "category": "policy",
+   "summary": "Carbon Management Europe and 25 other organisations ask Member States to launch a JEF-IPCEI identification process for a combined CCUS programme, name lead coordinating bodies and commission a scoping study. They want the 2024 Industrial Carbon Management Strategy turned into a co-investment programme linking capture, cross-border transport, utilisation and storage, with design work starting in 2027.",
+   "why_it_matters": "An IPCEI would be a new state-aid route for cross-border CO2 transport and storage chains, affecting how Nordic hubs and shipping links could be financed.",
+   "origin": "candidate",
+   "candidate_id": "bc450d6cf2",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "IPCEI - Competition Policy - European Commission",
+     "url": "https://competition-policy.ec.europa.eu/state-aid/ipcei_en",
+     "source": "European Commission",
+     "reason": "Explains the IPCEI state-aid instrument the joint letter asks Member States to use for carbon management."
+    },
+    {
+     "title": "New Innovation Fund awards underscore growing market demand for CO₂ storage and cross-border transport – Clean Air Task Force",
+     "url": "https://www.catf.us/2025/11/new-innovation-fund-awards-underscore-growing-market-demand-co2-storage-cross-border-transport/",
+     "source": "Clean Air Task Force",
+     "reason": "Background on EU Innovation Fund support for CO2 transport and storage, the funding stream an ICM IPCEI would complement."
+    },
+    {
+     "title": "A Well-Functioning, Competitive and Fair European CO₂ Market for Climate",
+     "url": "https://network.bellona.org/content/uploads/sites/6/2026/02/Report-A-Well-Functioning-Competitive-and-Fair-European-Co2-Market-for-Climate.pdf",
+     "source": "Bellona Europa",
+     "reason": "Bellona report on capacity allocation and market rules ahead of the EU CO2 markets and infrastructure regulation."
+    }
+   ]
+  },
+  {
+   "title": "Techno-economic evaluation report",
+   "title_en": null,
+   "source": "Zenodo (CTS CETP project, Deliverable D3.1)",
+   "date": "2026-11-18",
+   "url": "https://doi.org/10.5281/zenodo.24338491",
+   "type": "report",
+   "paywalled": false,
+   "category": "research",
+   "summary": "Bottom-up techno-economic assessment of full CCS chains in four European regions, including the Baltic Sea and the North Sea, comparing direct ship injection (DSI) with a dedicated pipeline and with conventional shipping to an offshore platform (net present costs in 2030 euros, 2031–2065). Capture accounts for roughly 65–90% of full-chain costs; pipelines give the lowest transport and storage cost where feasible, while DSI and conventional shipping have similar costs.",
+   "why_it_matters": "Directly comparable mode-choice cost data (pipeline vs ship vs direct injection) for the Baltic and North Sea, usable as input to Nordic-Baltic network optimisation.",
+   "origin": "candidate",
+   "candidate_id": "059ca9205a",
+   "authors": "Paulo Mesquita, Roman Berenblyum, Júlio Carneiro, Anders Nermoen, Tore Hatlen, Alla Shogenova, Kazbulat Shogenov, Alexandra Dudu, Yuliia Demchuk, Nematollah Zamani, Gaurav Soni",
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "DNV Finds Aker BP, Höegh Evi's Offshore CO2 Injection Concept Feasible",
+     "url": "https://www.oedigital.com/news/544001-dnv-finds-aker-bp-h-egh-evi-s-offshore-co2-injection-concept-feasible",
+     "source": "Offshore Engineer (OEDigital)",
+     "reason": "Industry counterpart to the CTS analysis: DNV feasibility statement for direct ship-to-well CO2 injection at the Norwegian Atlas project."
+    },
+    {
+     "title": "International Carbon Dioxide Flows",
+     "url": "https://ieaghg.org/publications/international-carbon-dioxide-flows/",
+     "source": "IEAGHG",
+     "reason": "IEAGHG study of the scale and direction of cross-border CO2 flows to storage in 2035 and 2050 (members only for six months)."
+    },
+    {
+     "title": "European energy leaders sign MoU to develop major cross border CO₂ infrastructure between Germany and the Netherlands",
+     "url": "https://oge.net/en/press-releases/2026/european-energy-leaders-sign-mou",
+     "source": "OGE",
+     "reason": "Planned German-Dutch CO2 pipeline linked to Aramis: the pipeline alternative that ship-based chains compete with in the North Sea."
+    }
+   ]
+  },
+  {
+   "title": "Techno-economic drivers and challenges for direct ship injection including replicability analysis",
+   "title_en": null,
+   "source": "Zenodo (CTS CETP project, Deliverable D3.2)",
+   "date": "2026-11-18",
+   "url": "https://doi.org/10.5281/zenodo.24338903",
+   "type": "report",
+   "paywalled": false,
+   "category": "transport",
+   "summary": "Assesses drivers, barriers and replicability of direct ship injection (DSI), where a CO2 carrier connects to a subsea injection system without an offshore platform or pipeline, for Portugal, the Baltic Sea, the Black Sea and the North Sea. DSI is found most useful in early deployment with low-to-medium volumes and dispersed emitters; main barriers are regulatory, operational and commercial, and in a Mediterranean network model DSI was not lowest-cost but appeared in several near-optimal routes.",
+   "why_it_matters": "Clarifies when platform-free ship injection belongs in an optimal CO2 network, relevant to Baltic emitters without pipeline access and to Norwegian DSI projects such as Atlas.",
+   "origin": "candidate",
+   "candidate_id": "53e43f774f",
+   "authors": "Gaurav Soni, Roman Berenblyum, Júlio Carneiro, Yuliia Demchuk, Alexandra Dudu, Pedro Miguel Ferreira Cardoso Madureira, Paulo Mesquita, Ole Johan Østvedt, Alla Shogenova, Kazbulat Shogenov",
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "DNV Finds Aker BP, Höegh Evi's Offshore CO2 Injection Concept Feasible",
+     "url": "https://www.oedigital.com/news/544001-dnv-finds-aker-bp-h-egh-evi-s-offshore-co2-injection-concept-feasible",
+     "source": "Offshore Engineer (OEDigital)",
+     "reason": "Industry counterpart to the CTS analysis: DNV feasibility statement for direct ship-to-well CO2 injection at the Norwegian Atlas project."
+    },
+    {
+     "title": "International Carbon Dioxide Flows",
+     "url": "https://ieaghg.org/publications/international-carbon-dioxide-flows/",
+     "source": "IEAGHG",
+     "reason": "IEAGHG study of the scale and direction of cross-border CO2 flows to storage in 2035 and 2050 (members only for six months)."
+    }
+   ]
+  },
+  {
+   "title": "In focus: Industrial carbon management – how it works and why we need it",
+   "title_en": null,
+   "source": "European Commission – DG Energy",
+   "date": "2026-11-17",
+   "url": "https://energy.ec.europa.eu/news/focus-industrial-carbon-management-how-it-works-and-why-we-need-it-2026-11-17_en",
+   "type": "news",
+   "paywalled": false,
+   "category": "policy",
+   "summary": "DG Energy explainer on industrial carbon management stating that the Commission plans to propose legislation for an internal CO2 market and infrastructure in early 2027, and recalling the NZIA target of 50 Mt/yr of storage capacity by 2030. It notes the latest PCI/PMI list includes 17 CO2 transport and storage projects, that CEF has given €978 million to CO2 infrastructure, and that Yara Sluiskil began capturing CO2 in September 2026 for shipment to Northern Lights.",
+   "why_it_matters": "Confirms the timing of the EU CO2 market and infrastructure regulation, which will set access and tariff rules for cross-border pipeline and shipping networks.",
+   "origin": "web_search",
+   "candidate_id": null,
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "Norne, Port of Aalborg seal 30-year pact for EU-backed CO2 hub - Offshore Energy",
+     "url": "https://www.offshore-energy.biz/norne-port-of-aalborg-seal-30-year-pact-for-eu-backed-co2-hub/",
+     "source": "Offshore Energy",
+     "reason": "Example of a CEF-backed Nordic CO2 hub of the kind the Commission's PCI/CEF framework supports."
+    },
+    {
+     "title": "A Well-Functioning, Competitive and Fair European CO₂ Market for Climate",
+     "url": "https://network.bellona.org/content/uploads/sites/6/2026/02/Report-A-Well-Functioning-Competitive-and-Fair-European-Co2-Market-for-Climate.pdf",
+     "source": "Bellona Europa",
+     "reason": "Bellona report on capacity allocation and market rules ahead of the EU CO2 markets and infrastructure regulation."
+    },
+    {
+     "title": "New Innovation Fund awards underscore growing market demand for CO₂ storage and cross-border transport – Clean Air Task Force",
+     "url": "https://www.catf.us/2025/11/new-innovation-fund-awards-underscore-growing-market-demand-co2-storage-cross-border-transport/",
+     "source": "Clean Air Task Force",
+     "reason": "Background on EU Innovation Fund support for CO2 transport and storage, the funding stream an ICM IPCEI would complement."
+    }
+   ]
+  },
+  {
+   "title": "UK building offshore carbon storage capability close to northern industrial clusters",
+   "title_en": null,
+   "source": "Offshore magazine",
+   "date": "2026-11-18",
+   "url": "https://www.offshore-mag.com/energy-transition/article/55419946/uk-building-offshore-carbon-storage-capability-close-to-northern-industrial-clusters",
+   "type": "news",
+   "paywalled": false,
+   "category": "transport",
+   "summary": "Feature by Jeremy Beckman on offshore storage projects: Endurance (East Coast Cluster, ~140 km offshore pipeline, Phase 1 injection above 5 Mt/yr), Morecambe Net Zero (pipeline from Peak Cluster cement and lime producers; a ship-based import concept at Barrow was studied), and Project Greensand, where CO2 is trucked to Esbjerg and shipped to Nini West. It also covers Porthos and Prinos.",
+   "why_it_matters": "One-page comparison of pipeline versus truck-and-ship chains in operating and planned North Sea stores, including Greensand's Danish logistics chain.",
+   "origin": "web_search",
+   "candidate_id": null,
+   "authors": "Jeremy Beckman",
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "Major UK CCS project clears milestone toward offshore CO₂ storage",
+     "url": "https://www.worldoil.com/news/2026/6/9/major-uk-ccs-project-clears-milestone-toward-offshore-co2-storage/",
+     "source": "World Oil",
+     "reason": "Background on Morecambe Net Zero moving into the Assess Phase, one of the projects covered in the feature."
+    },
+    {
+     "title": "Project Greensand Case Study | Sustainability",
+     "url": "https://www.ineos.com/sustainability/case-studies/project-greensand/",
+     "source": "INEOS",
+     "reason": "Operator's page on the Greensand ship-based chain (truck, Esbjerg terminal, carrier, Nini West) described in the feature."
+    }
+   ]
+  },
+  {
+   "title": "EnEarth to acquire Storegga's interest in Acorn to create one of Europe's largest CO2 transport and storage platforms",
+   "title_en": null,
+   "source": "Storegga",
+   "date": "2026-11-23",
+   "url": "https://storegga.earth/news/storegga-agrees-to-sell-its-interest-in-acorn-to-enearth",
+   "type": "news",
+   "paywalled": false,
+   "category": "nordic_projects",
+   "summary": "Storegga has signed a sale and purchase agreement under which EnEarth, originally set up by Energean and now independent, will acquire Storegga's 30% working interest and Lead Developer status in the Acorn CCS project off northeast Scotland, subject to approvals, with completion expected by the end of 2026. Acorn holds Track-2 status in the UK cluster sequencing programme and covers the Acorn and East Mey storage licences (5-10 Mt/yr injection, over 140 Mt capacity). The enlarged EnEarth group also includes the Prinos storage project in Greece, the Devnya project in Bulgaria and Prime Marine, which brings CO2 shipping and direct offshore injection capabilities.",
+   "why_it_matters": "Consolidates a North Sea storage developer with a CO2 shipping and direct-injection operator, a vertically integrated ship-plus-storage model relevant to how Nordic chains (Northern Lights, Greensand) compete for cross-border CO2 volumes.",
+   "origin": "candidate",
+   "candidate_id": "14b4a9b12d",
+   "authors": null,
+   "event_date": null,
+   "also_reported_by": [
+    {
+     "source": "Carbon Pulse",
+     "url": "https://carbon-pulse.com/574679/"
+    },
+    {
+     "source": "Upstream",
+     "url": "https://www.upstreamonline.com/carbon-capture/new-buyer-found-for-uk-ccs-project/2-1-2077925"
+    }
+   ],
+   "related": [
+    {
+     "title": "Delivering Greece's first CO₂ storage facility at Prinos",
+     "url": "https://kentplc.com/delivering-greeces-first-co₂-storage-facility",
+     "source": "Kent",
+     "reason": "The buyer's flagship Prinos project: ship-delivered liquid CO2, onshore conditioning at the Sigma plant and a subsea pipeline to injection, a ship-fed chain comparable to Nordic hubs."
+    },
+    {
+     "title": "FEED contract marks step forward in Mediterranean's first CO2 storage project",
+     "url": "https://www.offshore-energy.biz/feed-contract-marks-step-forward-in-mediterraneans-first-co2-storage-project/",
+     "source": "Offshore Energy",
+     "reason": "Phasing of Prinos from 1 Mt/yr compressed CO2 to 2.8 Mt/yr liquid CO2 by ship, showing how EnEarth stages terminal and storage capacity."
+    },
+    {
+     "title": "Update to industry on conclusion of the CCUS Cluster Sequencing Track-2 expression of interest",
+     "url": "https://www.gov.uk/government/publications/cluster-sequencing-for-carbon-capture-usage-and-storage-ccus-track-2/update-to-industry-on-conclusion-of-the-ccus-cluster-sequencing-track-2-expression-of-interest",
+     "source": "GOV.UK",
+     "reason": "The UK government decision that gave Acorn and Viking Track-2 status and its conditions, the policy basis behind the asset being sold."
+    },
+    {
+     "title": "The Global CCS Institute Welcomes the UK Government's Decision to Support both Viking and Acorn CCUS Cluster Projects",
+     "url": "https://www.globalccsinstitute.com/the-global-ccs-institute-welcomes-the-uk-governments-decision-to-support-both-viking-and-acorn-ccus-cluster-projects/",
+     "source": "Global CCS Institute",
+     "reason": "Background on Acorn's plan to repurpose legacy oil and gas infrastructure for CO2 transport and storage under the North Sea."
+    }
+   ]
+  },
+  {
+   "title": "Identifying and Structuring Risks in CCS Infrastructures - A Systematic Literature Review",
+   "title_en": null,
+   "source": "Repository KITopen (Karlsruhe Institute of Technology)",
+   "date": "2026-11-18",
+   "url": "https://doi.org/10.5445/ir/1000199259",
+   "type": "paper",
+   "paywalled": false,
+   "category": "research",
+   "summary": "KIT working paper (Working Paper Series in Production and Energy, No. 84) reviewing 76 full-text publications on risks in large-scale CCS infrastructure linking capture, conditioning, transport and geological storage. The identified risks are mapped to five CCS stages and seven risk categories and consolidated into 35 risk clusters, presented as a risk matrix and a risk register with causes, impacts, mitigation measures and sources. The authors find that storage limitations, capacity shortfalls, technical interfaces and coordination problems often affect more than one stage, and note the tools do not replace quantitative risk assessment.",
+   "why_it_matters": "A structured catalogue of cross-stage risks (capacity shortfalls, interfaces, coordination) that can be turned into uncertainty sets or scenarios for stochastic and robust CCS network-design models.",
+   "origin": "candidate",
+   "candidate_id": "4cb95f126c",
+   "authors": "Moritz Fierke, Sonja Rosenberg, Vincent Bäsler, Frank Schultmann",
+   "event_date": null,
+   "also_reported_by": [],
+   "related": [
+    {
+     "title": "Making carbon capture & storage work",
+     "url": "https://www.rolandberger.com/en/Insights/Publications/Making-carbon-capture-storage-work.html",
+     "source": "Roland Berger",
+     "reason": "Industry view that CCS is now mainly a coordination problem, with liability frameworks and shared transport infrastructure as key barriers, the same cross-chain risks the review structures."
+    },
+    {
+     "title": "DNV-RP-F104 Design and operation of carbon dioxide pipelines",
+     "url": "https://www.dnv.com/energy/standards-guidelines/dnv-rp-f104-design-and-operation-of-carbon-dioxide-pipelines/",
+     "source": "DNV",
+     "reason": "The industry recommended practice for CO2 pipeline design, operation and re-qualification, which addresses many of the transport-stage technical risks."
+    },
+    {
+     "title": "Risks in the design of regional hydrogen hub systems: A review and commentary",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11954725/",
+     "source": "Risk Analysis (via PubMed Central)",
+     "reason": "Parallel risk review for hydrogen hubs (stranded capital, leakage), useful for comparing how hub-based CCS and H2 networks frame infrastructure risk."
+    },
+    {
+     "title": "Hydrogen supply chain uncertainty: A systematic literature review",
+     "url": "https://energy-proceedings.org/?p=11515",
+     "source": "Energy Proceedings",
+     "reason": "Systematic review of uncertainty factors in hydrogen supply chain models, a methodological counterpart for turning risk lists into optimisation inputs."
+    }
+   ]
+  }
+ ],
+ "related_updates": []
 }
